@@ -1,0 +1,53 @@
+ /* Box-sizing border-box for all elements */
+ 
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Remove list styles (bullets/numbers) */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Remove default margin and padding for certain elements */
+  body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set base font size and line height */
+  body {
+    margin-bottom: 40px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Set default link styles */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  html {
+     font-size: 14px;
+  }
+  
+  @media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+  }
+  
+  .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  }
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  /* Other reset styles... */
+  
+  /* End of Reset CSS */
+ 
