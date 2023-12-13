@@ -31,7 +31,7 @@ class Router{
         ];
     }
 
-    public function forward(string $request){
+    public function forward(string $request, $unit_of_work){
         $req = new Request($request);
         $parameter = $req->get_parameter();
         $route = $req->get_route();
@@ -49,7 +49,7 @@ class Router{
 
             if($controllerPath){
                 require_once($controllerPath);
-                $controller = new $controller;
+                $controller = new $controller($unit_of_work);
                                 // Kiểm tra và gọi action
                 if (method_exists($controller, $action)) {
                     if ($parameter !== null) {
