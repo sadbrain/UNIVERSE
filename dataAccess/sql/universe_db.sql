@@ -2,15 +2,6 @@
 CREATE DATABASE IF NOT EXISTS UNIVERSE;
 USE UNIVERSE;
 
--- Tạo bảng UserImages
-CREATE TABLE IF NOT EXISTS user_images (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    url VARCHAR(255) NOT NULL,
-    size INT,
-    `format` VARCHAR(5),
-    upload_date DATETIME
-);
-
 -- Tạo bảng Users
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -19,10 +10,21 @@ CREATE TABLE IF NOT EXISTS users (
     phone VARCHAR(15),
     email VARCHAR(120) NOT NULL,
     `password` VARCHAR(100) NOT NULL,
-    `role`  ENUM('user', 'admin') NOT NULL,
-    user_image_id INT,
-    FOREIGN KEY (user_image_id) REFERENCES user_images(id)
+    `role`  ENUM('user', 'admin') NOT NULL
 );
+
+-- Tạo bảng UserImages
+CREATE TABLE IF NOT EXISTS user_images (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    url VARCHAR(255) NOT NULL,
+    size INT,
+    `format` VARCHAR(5),
+    upload_date DATETIME,
+    user_id INT,
+	FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
 
 -- Tạo bảng Products
 CREATE TABLE IF NOT EXISTS products (
