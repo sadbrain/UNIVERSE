@@ -22,13 +22,16 @@ class UserRepository implements IRepository{
             return false;
         }
     }
-    public function get($callback){
-
-    }
     public function add($entity){
         
     }
     public function remove($entity){
+        
+    }
+    public function get($id){
+
+    }
+    public function update($entity){
         
     }
     

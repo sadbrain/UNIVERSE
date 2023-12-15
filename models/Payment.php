@@ -52,7 +52,7 @@ class Payment {
     public function set_status($status) {
         $this->status = $status;
     }
-    public function set_order_($order) {
+    public function set_order($order) {
         $this->order = $order;
     }
     

@@ -89,8 +89,8 @@ class Product {
         $this->quantity = $quantity;
     }
 
-    public function set_quantity_bought($quantityBought) {
-        $this->quantity_bought = $quantityBought;
+    public function set_quantity_bought($quantity_bought) {
+        $this->quantity_bought = $quantity_bought;
     }
 
     public function set_size($size) {

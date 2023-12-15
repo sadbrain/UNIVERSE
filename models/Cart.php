@@ -1,11 +1,9 @@
 <?php
-namespace App\Models;
-
 class Cart {
     private $id;
     private $order_id;
     private $order;
-    private $user_id;
+    private $user_id; 
     private $user;
     // Getter methods
     public function get_id() {
