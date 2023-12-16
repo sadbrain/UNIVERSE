@@ -100,7 +100,7 @@ class CategoryRepository implements IRepository
     }
     public function to_category($category, $category_in_db)
     {
-        $category->set_id($category_in_db["id"]);
+        $category->set_id((int) $category_in_db["id"]);
         $category->set_name($category_in_db["name"]);
     }
 }

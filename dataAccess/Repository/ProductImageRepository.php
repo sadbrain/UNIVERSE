@@ -93,11 +93,11 @@ class ProductImageRepository implements IRepository
 
     public function to_product_image($product_image, $product_image_in_db)
     {
-        $product_image->set_id($product_image_in_db["id"]);
+        $product_image->set_id((int) $product_image_in_db["id"]);
         $product_image->set_url($product_image_in_db["url"]);
         $product_image->set_size($product_image_in_db["size"]);
         $product_image->set_format($product_image_in_db["format"]);
-        $product_image->set_upload_date($product_image_in_db["upload_date"]);
-        $product_image->set_product_id($product_image_in_db["product_id"]);
+        $product_image->set_upload_date(new DateTime($product_image_in_db["upload_date"]));
+        $product_image->set_product_id((int) $product_image_in_db["product_id"]);
     }
 }

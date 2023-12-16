@@ -82,8 +82,8 @@ class CartRepository implements IRepository
     }
     public function to_Cart($cart, $cart_in_db)
     {
-        $cart->set_id($cart_in_db["id"]);
-        $cart->set_order_id($cart_in_db["order_id"]);
-        $cart->set_user_id($cart_in_db["user_id"]);
+        $cart->set_id((int) $cart_in_db["id"]);
+        $cart->set_order_id((int) $cart_in_db["order_id"]);
+        $cart->set_user_id((int) $cart_in_db["user_id"]);
     }
 }

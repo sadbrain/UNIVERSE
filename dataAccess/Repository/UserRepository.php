@@ -96,7 +96,7 @@ class UserRepository implements IRepository
     }
     public function to_user($user, $user_in_db)
     {
-        $user->set_id($user_in_db["id"]);
+        $user->set_id((int) $user_in_db["id"]);
         $user->set_name($user_in_db["name"]);
         $user->set_address($user_in_db["address"]);
         $user->set_phone($user_in_db["phone"]);

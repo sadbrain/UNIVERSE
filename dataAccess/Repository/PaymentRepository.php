@@ -92,10 +92,10 @@ class PaymentRepository implements IRepository
     }
     public function to_payment($payment, $payment_in_db)
     {
-        $payment->set_id($payment_in_db["id"]);
-        $payment->set_order_id($payment_in_db["order_id"]);
+        $payment->set_id((int) $payment_in_db["id"]);
+        $payment->set_order_id((int) $payment_in_db["order_id"]);
         $payment->set_type($payment_in_db["type"]);
-        $payment->set_date_time($payment_in_db["date_time"]);
+        $payment->set_date_time(new DateTime($payment_in_db["date_time"]));
         $payment->set_status($payment_in_db["status"]);
     }
 }

@@ -92,11 +92,11 @@ class UserImageRepository implements IRepository
 
     public function to_user_image($user_image, $user_image_in_db)
     {
-        $user_image->set_id($user_image_in_db["id"]);
+        $user_image->set_id((int) $user_image_in_db["id"]);
         $user_image->set_url($user_image_in_db["url"]);
         $user_image->set_size($user_image_in_db["size"]);
         $user_image->set_format($user_image_in_db["format"]);
-        $user_image->set_upload_date($user_image_in_db["upload_date"]);
-        $user_image->set_user_id($user_image_in_db["user_id"]);
+        $user_image->set_upload_date(new DateTime($user_image_in_db["upload_date"]));
+        $user_image->set_user_id((int) $user_image_in_db["user_id"]);
     }
 }

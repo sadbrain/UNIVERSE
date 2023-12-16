@@ -102,14 +102,14 @@ class OrderRepository implements IRepository
     }
     public function to_order($order, $order_in_db)
     {
-        $order->set_id($order_in_db["id"]);
-        $order->set_quantity($order_in_db["quantity"]);
+        $order->set_id((int) $order_in_db["id"]);
+        $order->set_quantity((int) $order_in_db["quantity"]);
         $order->set_status($order_in_db["status"]);
-        $order->set_total($order_in_db["total"]);
+        $order->set_total((float) $order_in_db["total"]);
         $order->set_size($order_in_db["size"]);
         $order->set_color($order_in_db["color"]);
-        $order->set_date_time($order_in_db["date_time"]);
-        $order->set_product_id($order_in_db["product_id"]);
-        $order->set_user_id($order_in_db["user_id"]);
+        $order->set_date_time(new DateTime($order_in_db["date_time"]));
+        $order->set_product_id((int) $order_in_db["product_id"]);
+        $order->set_user_id((int) $order_in_db["user_id"]);
     }
 }

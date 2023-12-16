@@ -82,8 +82,8 @@ class ProductCategoryRepository implements IRepository
 
     public function to_product_categories($product_categories, $product_categories_in_db)
     {
-        $product_categories->set_id($product_categories_in_db["id"]);
-        $product_categories->set_product_id($product_categories_in_db["product_id"]);
-        $product_categories->set_category_id($product_categories_in_db["category_id"]);
+        $product_categories->set_id((int) $product_categories_in_db["id"]);
+        $product_categories->set_product_id((int) $product_categories_in_db["product_id"]);
+        $product_categories->set_category_id((int) $product_categories_in_db["category_id"]);
     }
 }

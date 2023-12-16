@@ -91,10 +91,10 @@ class CommentRepository implements IRepository
     }
     public function to_comment($comment, $comment_in_db)
     {
-        $comment->set_id($comment_in_db["id"]);
-        $comment->set_content($comment_in_db["content"]);
-        $comment->set_created_by($comment_in_db["created_by"]);
-        $comment->set_product_id($comment_in_db["product_id"]);
-        $comment->set_user_id($comment_in_db["user_id"]);
+        $comment->set_id((int) $comment_in_db["id"]);
+        $comment->set_content((string) $comment_in_db["content"]);
+        $comment->set_created_by(new DateTime($comment_in_db["created_by"]));
+        $comment->set_product_id((int) $comment_in_db["product_id"]);
+        $comment->set_user_id((int) $comment_in_db["user_id"]);
     }
 }

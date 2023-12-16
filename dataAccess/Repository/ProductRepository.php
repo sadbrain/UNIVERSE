@@ -106,15 +106,15 @@ class ProductRepository implements IRepository
 
     public function to_product($product, $product_in_db)
     {
-        $product->set_id($product_in_db["id"]);
+        $product->set_id((int) $product_in_db["id"]);
         $product->set_title($product_in_db["title"]);
         $product->set_short_description($product_in_db["short_description"]);
         $product->set_long_description($product_in_db["long_description"]);
-        $product->set_price($product_in_db["price"]);
-        $product->set_rating($product_in_db["rating"]);
-        $product->set_quantity($product_in_db["quantity"]);
-        $product->set_quantity_bought($product_in_db["quantity_buyed"]);
-        $product->set_size($product_in_db["size"]);
-        $product->set_color($product_in_db["color"]);
+        $product->set_price((float) $product_in_db["price"]);
+        $product->set_rating((float) $product_in_db["rating"]);
+        $product->set_quantity((int) $product_in_db["quantity"]);
+        $product->set_quantity_bought((int) $product_in_db["quantity_buyed"]);
+        $product->set_size(explode(' ',$product_in_db["size"]));
+        $product->set_color(explode(' ',$product_in_db["color"]));
     }
 }

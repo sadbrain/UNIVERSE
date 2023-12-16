@@ -1,10 +1,16 @@
 <?php require_once APP_ROOT . "/views/shared/header.php" ?>
 
 <?php
-// var_dump($categoryl1);
+var_dump($categoryl2);
+echo "<br>";
+var_dump($categoryl2);
 foreach($product as $p){
-// echo $p -> get_id() ."<br>";
-echo $p -> get_product_categories() ."<br>";
+// echo $p -> get_id() ."<br>"; 
+// var_dump($p);
+// echo "<br>";
+// var_dump($p ->get_size()) ;
+// echo "<br>";
+
 }
 ?>;
 
