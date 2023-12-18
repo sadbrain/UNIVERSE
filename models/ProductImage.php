@@ -1,72 +1,69 @@
 <?php
 class ProductImage
 {
-    private int $id;
-    private string $url;
-    private string $size;
-    private string $format;
-    private DateTime $upload_date;
-    private int $product_id;
+    private ?int $id;
+    private ?string $title;
+    private ?string $url;
+    private ?int $product_id;
+    private ?Product $product;
+    public function __construct(){
+        $this -> id = 0;
+        $this -> title = null;
+        $this -> url = null;
+        $this -> product_id = null;
+        $this -> product = null;
+    }
 
     // Getter methods
-    public function get_id() : int
+    public function get_id() : ?int
     {
-        return $this->id;
+        return $this -> id;
     }
 
-    public function get_url() : string
+    public function get_title() : ?string
     {
-        return $this->url;
+        return $this -> title;
     }
 
-    public function get_size() : string
+    public function get_url() : ?string
     {
-        return $this->size;
+        return $this -> url;
     }
 
-    public function get_format() : string
+    public function get_product_id() : ?int
     {
-        return $this->format;
+        return $this -> product_id;
     }
 
-    public function get_upload_date() : DateTime
+    
+    public function get_product() : ?Product
     {
-        return $this->upload_date;
-    }
-
-    public function get_product_id() : int
-    {
-        return $this->product_id;
+        return $this -> product;
     }
 
     // Setter methods
     public function set_id(int $id)
     {
-        $this->id = $id;
+        $this -> id = $id;
     }
 
     public function set_url(string $url)
     {
-        $this->url = $url;
+        $this -> url = $url;
     }
 
-    public function set_size(string $size)
+    public function set_title(string $title)
     {
-        $this->size = $size;
+        $this -> title = $title;
     }
 
-    public function set_format(string $format)
-    {
-        $this->format = $format;
-    }
-
-    public function set_upload_date(DateTime $upload_date)
-    {
-        $this->upload_date = $upload_date;
-    }
 
     public function set_product_id(int $product_id)
     {
-        $this->product_id = $product_id;
+        $this -> product_id = $product_id;
+    }
+    public function set_product(Product $product)
+    {
+        $this -> product = $product;
     }
 }

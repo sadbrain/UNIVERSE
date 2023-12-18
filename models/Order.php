@@ -2,124 +2,134 @@
 
 class Order
 {
-    private int $id;
-    private int $quantity;
-    private string $status;
-    private float $total;
-    private string $size;
-    private string $color;
-    private DateTime $date_time;
-    private int $product_id;
-    private Product $product;
-    private int $user_id;
-    private User $user;
-
+    private ?int $id;
+    private ?string $buyer_name;
+    private ?string $buyer_email;
+    private ?string $buyer_phone;
+    private ?string $buyer_address;
+    private ?float $total;
+    private ?float $shipping_cost;
+    private ?string $status;
+    private ?DateTime $created_at;
+    private ?int $product_id;
+    private ?Product $product;
+    public function __construct(){
+         $this ->  id = 0;
+         $this ->  buyer_name = null;
+         $this ->  buyer_email = null;
+         $this ->  buyer_phone = null;
+         $this ->  buyer_address = null;
+         $this ->  total = null;
+         $this ->  shipping_cost = null;
+         $this ->  status = null;
+         $this ->  created_at = null;
+         $this ->  product_id = null;
+         $this ->  product = null;
+    }
     // Getter methods
-    public function get_id() : int
+    public function get_id() : ?int
     {
-        return $this->id;
+        return $this -> id;
     }
 
-    public function get_quantity(): int
+    public function get_buyer_name(): ?string
     {
-        return $this->quantity;
+        return $this -> buyer_name;
     }
 
-    public function get_status() : string
+    public function get_buyer_email() : ?string
     {
-        return $this->status;
+        return $this -> buyer_email;
     }
 
-    public function get_total() : float
+    public function get_buyer_phone() : ?string
     {
-        return $this->total;
+        return $this -> buyer_phone;
     }
 
-    public function get_size() : string
+    public function get_buyer_address() : ?string
     {
-        return $this->size;
+        return $this -> buyer_address;
     }
 
-    public function get_color() : string
+    public function get_total() : ?float
     {
-        return $this->color;
+        return $this -> total;
+    }
+    public function get_shipping_cost() : ?float
+    {
+        return $this -> shipping_cost;
+    }
+    public function get_created_at() : ?DateTime
+    {
+        return $this -> created_at;
+    }
+    public function get_status() : ?string
+    {
+        return $this -> status;
+    }
+    public function get_product_id() : ?int
+    {
+        return $this -> product_id;
     }
 
-    public function get_date_time() : DateTime
+  
+    public function get_product() : ?Product
     {
-        return $this->date_time;
+        return $this -> product;
     }
 
-    public function get_product_id() : int
-    {
-        return $this->product_id;
-    }
 
-    public function get_user_id() : int
-    {
-        return $this->user_id;
-    }
-    public function get_product() : Product
-    {
-        return $this->product;
-    }
-
-    public function get_user() : User
-    {
-        return $this->user;
-    }
     // Setter methods
     public function set_id(int $id)
     {
-        $this->id = $id;
+        $this -> id = $id;
     }
 
-    public function set_quantity(int $quantity)
+    public function set_buyer_name(string $buyer_name)
     {
-        $this->quantity = $quantity;
+        $this -> buyer_name = $buyer_name;
     }
 
-    public function set_status(string $status)
+    public function set_buyer_email(string $buyer_email)
     {
-        $this->status = $status;
+        $this -> buyer_email = $buyer_email;
+    }
+
+    public function set_buyer_phone(string $buyer_phone)
+    {
+        $this -> buyer_phone = $buyer_phone;
+    }
+
+    public function set_buyer_address(string $buyer_address)
+    {
+        $this -> buyer_address = $buyer_address;
     }
 
     public function set_total(float $total)
     {
-        $this->total = $total;
+        $this -> total = $total;
     }
-
-    public function set_size(string $size)
+    public function set_shipping_cost(float $shipping_cost)
     {
-        $this->size = $size;
+        $this -> shipping_cost = $shipping_cost;
     }
-
-    public function set_color(string $color)
+    public function set_created_at(DateTime $created_at)
     {
-        $this->color = $color;
+        $this -> created_at = $created_at;
     }
-
-    public function set_date_time(DateTime $date_time)
+    public function set_status(string $status)
     {
-        $this->date_time = $date_time;
+        $this -> status = $status;
     }
-
     public function set_product_id(int $product_id)
     {
-        $this->product_id = $product_id;
+        $this -> product_id = $product_id;
     }
 
-    public function set_user_id(int $user_id)
-    {
-        $this->user_id = $user_id;
-    }
     public function set_product(Product $product)
     {
-        $this->product = $product;
+        $this -> product = $product;
     }
 
-    public function set_user(User $user)
-    {
-        $this->user = $user;
-    }
 }

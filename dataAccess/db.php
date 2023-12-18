@@ -1,4 +1,5 @@
 <?php
+
 //a db class for connecting to the database
   class Db {
     private static $instance = NULL;
