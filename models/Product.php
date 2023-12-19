@@ -2,133 +2,169 @@
 
 class Product
 {
-    private int $id;
-    private string $title;
-    private string $short_description;
-    private string $long_description;
-    private float $price;
-    private float $rating;
-    private int $quantity;
-    private int $quantity_bought;
-    private array $size;
-    private array $color;
-    private array $product_images;
-    private array $product_categories;
+    private ?int $id;
+    private ?string $name;
+    private ?string $thumbnail;
+    private ?string $brand;
+    private ?string $slug;
+    private ?string $description;
+    private ?float $price;
+    private ?float $rating;
+    private ?string $created_by;
+    private ?string $updated_by;
+    private ?string $deleted_by;
+    private ?DateTime $created_at;
+    private ?DateTime $updated_at;
+    private ?DateTime $deleted_at;
+    private ?int $category_id;
+    private ?Category $category;
+    public function __construct(){
+         $this -> id = 0;
+         $this -> name = null;
+         $this -> thumbnail = null;
+         $this -> brand = null;
+         $this -> slug = null;
+         $this -> description = null;
+         $this -> price = null;
+         $this -> rating = null;
+         $this -> created_by = null;
+         $this -> updated_by = null;
+         $this -> deleted_by = null;
+         $this -> created_at = null;
+         $this -> updated_at = null;
+         $this -> deleted_at = null;
+         $this -> category_id = null;
+         $this -> category = null;
+    }
     // Getter methods
-    public function get_id() : int
+    public function get_id() : ?int
     {
-        return $this->id;
+        return $this -> id;
     }
 
-    public function get_title() : string
+    public function get_name() : ?string
     {
-        return $this->title;
+        return $this -> name;
+    }
+    public function get_thumbnail() : ?string
+    {
+        return $this -> thumbnail;
+    }
+    public function get_brand() : ?string
+    {
+        return $this -> brand;
+    }
+    public function get_slug() : ?string
+    {
+        return $this -> slug;
+    }
+    public function get_description() : ?string
+    {
+        return $this -> description;
     }
 
-    public function get_short_description() : string
+    public function get_price() : ?float
     {
-        return $this->short_description;
+        return $this -> price;
     }
 
-    public function get_long_description() : string
+    public function get_rating() : ?float
     {
-        return $this->long_description;
+        return $this -> rating;
     }
-
-    public function get_price() : float
+    public function get_created_by() : ?string
     {
-        return $this->price;
+        return $this -> created_by;
     }
-
-    public function get_rating() : float
+    public function get_updated_by() : ?string
     {
-        return $this->rating;
+        return $this -> updated_by;
     }
-
-    public function get_quantity() : int
+    public function get_deleted_by() : ?string
     {
-        return $this->quantity;
+        return $this -> deleted_by;
     }
-
-    public function get_quantity_bought() : int
+    public function get_created_at() : ?DateTime
     {
-        return $this->quantity_bought;
+        return $this -> created_at;
     }
-
-    public function get_size() : array
+    public function get_updated_at() : ?DateTime
     {
-        return $this->size;
+        return $this -> updated_at;
     }
-
-    public function get_color() : array
+    public function get_deleted_at() : ?DateTime
     {
-        return $this->color;
+        return $this -> deleted_at;
     }
-    public function get_product_images() : array
+    public function get_category_id() : ?int
     {
-        return $this->product_images;
+        return $this -> category_id;
     }
-    public function get_product_categories() : array
+    public function get_category() : ?Category
     {
-        return $this->product_categories;
+        return $this -> category;
     }
-
     // Setter methods
     public function set_id(int $id)
     {
-        $this->id = $id;
+        $this -> id = $id;
     }
-
-    public function set_title(string $title)
+    public function set_thumbnail(string $thumbnail) 
     {
-        $this->title = $title;
+         $this -> thumbnail = $thumbnail;
     }
-
-    public function set_short_description(string $short_description)
+    public function set_name(string $name) 
     {
-        $this->short_description = $short_description;
+         $this -> name = $name;
     }
-
-    public function set_long_description(string $long_description)
+    public function set_brand(string $brand) 
     {
-        $this->long_description = $long_description;
+         $this -> brand = $brand;
     }
-
-    public function set_price(float $price)
+    public function set_slug(string $slug) 
     {
-        $this->price = $price;
+         $this -> slug = $slug;
     }
-
-    public function set_rating(float $rating)
+    public function set_description(string $description) 
     {
-        $this->rating = $rating;
+         $this -> description = $description;
     }
-
-    public function set_quantity(int $quantity)
+    public function set_price(float $price) 
     {
-        $this->quantity = $quantity;
+         $this -> price = $price;
     }
-
-    public function set_quantity_bought(int $quantity_bought)
+    public function set_rating(float $rating) 
     {
-        $this->quantity_bought = $quantity_bought;
+         $this -> rating = $rating;
     }
-
-    public function set_size(array $size)
+    public function set_created_by(string $created_by) 
     {
-        $this->size = $size;
+         $this -> created_by = $created_by;
     }
-
-    public function set_color(array $color)
+    public function set_updated_by(string $updated_by) 
     {
-        $this->color = $color;
+         $this -> updated_by = $updated_by;
     }
-    public function set_product_images(array $product_images)
+    public function set_deleted_by(string $deleted_by)
     {
-        $this->product_images = $product_images;
+         $this -> deleted_by = $deleted_by;
     }
-    public function set_product_categories(array $product_categories)
+    public function set_created_at(DateTime $created_at)
     {
-        $this->product_categories = $product_categories;
+         $this -> created_at = $created_at;
+    }
+    public function set_updated_at(DateTime $updated_at)
+    {
+         $this -> updated_at = $updated_at;
+    }
+    public function set_deleted_at(DateTime $deleted_at)
+    {
+         $this -> deleted_at = $deleted_at;
+    }
+    public function set_category_id(int $category_id){
+        $this -> category_id = $category_id;
+    }
+    public function set_category(Category $category){
+        $this -> category = $category;
     }
 }
