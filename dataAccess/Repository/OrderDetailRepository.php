@@ -16,7 +16,7 @@ class OrderDetailRepository implements IRepository
 
     public function get_all()
     {
-        $sql = "SELECT * FROM order_details";
+        $sql = "SELECT * FROM order_details ORDER BY created_at DESC";
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute();
         $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);

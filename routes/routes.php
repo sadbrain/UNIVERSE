@@ -10,3 +10,10 @@ $router->add("/" . URL_SUBFOLDER . "/Customer/Product?", "customer", "ProductCon
 
 $router->add("/" . URL_SUBFOLDER . "/Customer/Cart", "customer", "CartController", "index");
 $router->add("/" . URL_SUBFOLDER . "/Customer/Checkout", "customer", "CheckoutController", "index");
+
+
+//admin
+$router->add("/" . URL_SUBFOLDER . "/Admin/Home", "admin", "HomeController", "index");
+$router->add("/" . URL_SUBFOLDER . "/Admin/Category", "admin", "CategoryController", "index");
+$router->add("/" . URL_SUBFOLDER . "/Admin/Category/Create", "admin", "CategoryController", "create");
+$router->add("/" . URL_SUBFOLDER . "/Admin/Category/getall", "admin", "CategoryController", "getall");

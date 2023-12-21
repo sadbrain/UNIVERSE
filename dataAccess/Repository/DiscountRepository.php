@@ -16,7 +16,7 @@ class DiscountRepository implements IRepository
 
     public function get_all()
     {
-        $sql = "SELECT * FROM discounts";
+        $sql = "SELECT * FROM discounts ORDER BY created_at DESC";
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute();
         $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);

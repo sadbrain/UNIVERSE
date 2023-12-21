@@ -15,7 +15,6 @@ $router = Router::get_router();
 $db = Db::get_db();
 //đưa db vào unit_of_work và sử dụng repository pattern
 $unit_of_work = new UnitOfWork($db);
-
 //lấy raw request
 $request = urldecode($_SERVER['REQUEST_URI']);
 //thực hiện request
