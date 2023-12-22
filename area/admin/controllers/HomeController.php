@@ -6,9 +6,7 @@ class HomeController {
         $this -> unit_of_work = $unit_of_work;
     }
     function index(){
-        echo "hello";
-        require_once "views/Home/index.php";
-        echo "end";
-        
+        require_once APP_ROOT . "/area/admin/views/Home/index.php";
+     
     }
 }

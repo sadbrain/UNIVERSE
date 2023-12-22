@@ -1,6 +1,6 @@
 <?php
 
-class Category
+class Category implements JsonSerializable 
 {
     private ?int $id;
     private ?string $name;
@@ -23,6 +23,9 @@ class Category
         $this -> created_at = null;
         $this -> updated_at = null;
         $this -> deleted_at = null;
+    }
+    public function jsonSerialize() {
+        return get_object_vars($this);
     }
     // Getter methods
     public function get_id() : ?int

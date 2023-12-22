@@ -16,7 +16,7 @@ class OrderRepository implements IRepository
     }
     public function get_all()
     {
-        $sql = "SELECT * FROM orders";
+        $sql = "SELECT * FROM orders ORDER BY created_at DESC";
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute();
         $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);

@@ -21,7 +21,7 @@ class Request{
             $this ->route = explode("?", $request)[0]."?";
             $params = explode("?", $request)[1];
             $parameter = new Parameter($params);
-            $this ->parameter = $parameter->get_pairs();
+            $this -> parameter = $parameter->get_pairs();
 
         }else{
             $route =  explode("?", $request)[0];
