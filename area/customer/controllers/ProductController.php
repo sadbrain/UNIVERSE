@@ -1,21 +1,20 @@
 <?php
-class ProductController
+require_once APP_ROOT ."/app/BaseController.php";
+class ProductController extends BaseController
 {
-    private IUnitOfWork $unit_of_work;
-    public function __construct(IUnitOfWork $unit_of_work)
-    {
-        $this->unit_of_work = $unit_of_work;
-    }
-    function index()
+    function Index()
     {
         // print_r($id);
         // print_r($query);
+        
+        $view_body = $this -> view();
+        require_once $this -> use_layout($view_body);
+        
 
-        require_once APP_ROOT . "/area/customer/views/Product/index.php";
     }
-    public function detail(?int $id){
+    public function Detail(?int $id){
         echo "id la $id";
-        require_once APP_ROOT . "/area/customer/views/Product/detail.php";
-
+        $view_body = $this -> view();
+        require_once $this -> use_layout($view_body);
     }
 }

@@ -1,6 +1,7 @@
 <?php
+require_once APP_ROOT ."/app/BaseModel.php";
 
-class ProductInventory
+class ProductInventory extends BaseModel
 {
     private ?int $id;
     private ?int $quantity;

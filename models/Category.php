@@ -1,6 +1,6 @@
 <?php
-
-class Category implements JsonSerializable 
+require_once APP_ROOT ."/app/BaseModel.php";
+class Category extends BaseModel
 {
     private ?int $id;
     private ?string $name;

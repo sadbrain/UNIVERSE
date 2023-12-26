@@ -1,6 +1,6 @@
 <?php
-
-class PaymentDetail
+require_once APP_ROOT ."/app/BaseModel.php";
+class PaymentDetail  extends BaseModel
 {
     private ?int $id;
     private ?string $payment_type;

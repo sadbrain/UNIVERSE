@@ -1,5 +1,5 @@
 <footer>
-<div class="footer">
+    <div class="footer">
             <div class="cs_footer">
                 <h3>Categories</h3>
                 <ul>

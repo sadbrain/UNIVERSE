@@ -1,12 +1,10 @@
 <?php
-class HomeController {
-    private IUnitOfWork $unit_of_work;
-    public function __construct(IUnitOfWork $unit_of_work)
-    {
-        $this -> unit_of_work = $unit_of_work;
-    }
-    function index(){
-        require_once APP_ROOT . "/area/admin/views/Home/index.php";
-     
+require_once APP_ROOT ."/app/BaseController.php";
+class HomeController extends BaseController
+{
+
+    function Index(){
+        $view_body = $this -> view();
+        require_once $this -> use_layout($view_body, "admin");
     }
 }
