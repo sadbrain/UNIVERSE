@@ -29,7 +29,6 @@ class BaseController{
         require_once $view_body;
     }
     public function use_layout($view_body, $view_layout = null){
-        echo $view_layout;
         if($view_layout == null)
             return APP_ROOT . "/views/Shared/_layout.php";
         else 

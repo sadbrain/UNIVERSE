@@ -141,4 +141,19 @@ class CategoryRepository implements IRepository
         if( $category_in_db["updated_at"] != null) $category -> set_updated_at(new DateTime($category_in_db["updated_at"]));
         if( $category_in_db["deleted_at"] != null) $category -> set_deleted_at(new DateTime($category_in_db["deleted_at"]));
     }
+    public function to_category_array($category)
+    {
+        // $category_array = [];
+        $category_array["id"] =  $category -> get_id();
+        $category_array["name"] =  $category -> get_name();
+        $category_array["slug"] =  $category -> get_slug();
+        $category_array["description"] =  $category -> get_description();
+        $category_array["created_by"] =  $category -> get_created_by();
+        $category_array["updated_by"] =  $category -> get_updated_by();
+        $category_array["deleted_by"] =  $category -> get_deleted_by();
+        $category_array["created_at"] =  $category -> get_created_at();
+        $category_array["updated_at"] =  $category -> get_updated_at();
+        $category_array["deleted_at"] =  $category -> get_deleted_at();
+        return $category_array;
+    }
 }
