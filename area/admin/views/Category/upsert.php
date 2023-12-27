@@ -1,4 +1,3 @@
-<?php require_once APP_ROOT . "/area/admin/views/Layout/header.php" ?>
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
     <div class="row">
@@ -9,8 +8,8 @@
     </div>
     </div>
     <div class="card-body p-4">
-        <form id="form-create-category" action=<?="/" . URL_SUBFOLDER . "/Admin/Category/UpsertPost"?> method="post" class="row">
-            <div class="border p-3">
+        <form id="form-create-category" action=<?="/" . URL_SUBFOLDER . "/Admin/Category/UpsertPost/" .$category -> get_id() ?> method="post" class="row">
+            <div cl ass="border p-3">
                
                 <div class="form-group form-floating py-2 col-12">
                     <input class="form-control border-0 shadow" rules="required" name="name" value ="<?= $category -> get_id() != 0 ? $category -> get_name() : null?>"/>
@@ -55,4 +54,3 @@
         Validator("#form-create-category");
 
 </script>
-<?php require_once APP_ROOT . "/area/admin/views/Layout/footer.php" ?>
