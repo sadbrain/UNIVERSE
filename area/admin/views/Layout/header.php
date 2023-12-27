@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="<?= URL_ROOT . URL_SUBFOLDER . "/area/admin/views/Layout/header.css" ?>">
     <link rel="stylesheet" href="<?= URL_ROOT . URL_SUBFOLDER . "/area/admin/views/Layout/footer.css" ?>">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
 <body>

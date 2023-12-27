@@ -20,6 +20,11 @@ class BaseController{
         return APP_ROOT . "/area/$area/views/$controller/$action.php";
         
     }
+    public function redirct_to_action($action){
+        $controller =substr($this -> controller, 0, strpos($this -> controller, "Controller"));
+
+        header("Location: /".URL_SUBFOLDER ."/" .ucfirst($this -> area). "/". $controller. "/" . $action);
+    }
     public static function render_body($view_body){
         require_once $view_body;
     }
