@@ -20,10 +20,37 @@ class BaseController{
         return APP_ROOT . "/area/$area/views/$controller/$action.php";
         
     }
-    public function redirct_to_action($action){
+    public function json($arr){
+        echo json_encode($arr);
+    }
+    public function redirect_to_action($action, $paramerter = null){
         $controller =substr($this -> controller, 0, strpos($this -> controller, "Controller"));
+        if($paramerter === null){
+            header("Location: /".URL_SUBFOLDER ."/" .ucfirst($this -> area). "/". $controller. "/" . $action);
 
-        header("Location: /".URL_SUBFOLDER ."/" .ucfirst($this -> area). "/". $controller. "/" . $action);
+        }else{
+
+            $url_params = $this -> create_url_params($paramerter);
+            header("Location: /".URL_SUBFOLDER ."/" .ucfirst($this -> area). "/". $controller. "/" . $action."?" . $url_params);
+        }
+    }
+    public function redirect_to_other_controller($action, $controller, $paramerter = null){
+        if($paramerter === null){
+            header("Location: /".URL_SUBFOLDER ."/" .ucfirst($this -> area). "/". $controller. "/" . $action);
+        }else{
+            $url_params = $this -> create_url_params($paramerter);
+            header("Location: /".URL_SUBFOLDER ."/" .ucfirst($this -> area). "/". $controller. "/" . $action."?".$url_params);
+
+        }
+    }
+    public function redirect_to_other_area($action, $controller, $area, $paramerter = null){
+        if($paramerter === null){
+            header("Location: /".URL_SUBFOLDER ."/" .$area. "/". $controller. "/" . $action);
+
+        }else{
+            $url_params = $this -> create_url_params($paramerter);
+            header("Location: /".URL_SUBFOLDER ."/" .$area. "/". $controller. "/" . $action ."?".$url_params);
+        }
     }
     public static function render_body($view_body){
         require_once $view_body;
@@ -33,5 +60,14 @@ class BaseController{
             return APP_ROOT . "/views/Shared/_layout.php";
         else 
             return APP_ROOT . "/area/admin/views/Layout/_layout.php";
+    }
+    public function create_url_params(array $paramerter){
+        $query_params = [];
+        foreach($paramerter as $key => $value){
+            $query_params[] = urlencode($key) . '=' . urlencode($value);
+        }
+        $url_params = implode('&', $query_params);
+        return $url_params;
+
     }
 }

@@ -9,6 +9,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src=<?=URL_ROOT. URL_SUBFOLDER . "/area/admin/views/Layout/header.js"?>></script>
 <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 </body>
 </html>
