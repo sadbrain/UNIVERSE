@@ -88,8 +88,8 @@ class CategoryRepository implements IRepository
             ':updated_by' => $entity -> get_updated_by(),
             ':deleted_by' => $entity -> get_deleted_by(),
             ':created_at' => $entity -> get_created_at() ? $entity -> get_created_at()  -> format('Y-m-d H:i:s') : null,
-            ':updated_at' => $entity -> get_updated_at() ? $entity -> get_updated_at ()-> format('Y-m-d H:i:s') : null,
-            ':deleted_at' => $entity -> get_deleted_at() ? $entity -> get_deleted_at ()-> format('Y-m-d H:i:s') : null,
+            ':updated_at' => $entity -> get_updated_at() ? $entity -> get_updated_at() -> format('Y-m-d H:i:s') : null,
+            ':deleted_at' => $entity -> get_deleted_at() ? $entity -> get_deleted_at() -> format('Y-m-d H:i:s') : null,
         ]);
     }
     public function remove($entity)

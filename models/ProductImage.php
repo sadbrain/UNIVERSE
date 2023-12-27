@@ -1,5 +1,6 @@
 <?php
-class ProductImage
+require_once APP_ROOT ."/app/BaseModel.php";
+class ProductImage extends BaseModel
 {
     private ?int $id;
     private ?string $title;

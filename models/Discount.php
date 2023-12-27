@@ -1,6 +1,5 @@
 <?php
-
-class Discount
+class Discount extends BaseModel
 {
     private ?int $id;
     private ?float $discount_price;

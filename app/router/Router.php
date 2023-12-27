@@ -38,42 +38,44 @@ class Router
 
     public function forward(string $request, $unit_of_work)
     {
-        $req = new Request($request);
+        $req = new Request($request, $unit_of_work);
         $parameter = $req->get_parameter();
         $route = $req->get_route();
-
-        // print_r($route);
-        // print_r($parameter);
-
         if (!array_key_exists($route, $this->routing_table)) {
             echo "không tìm thấy trang";
         } else {
+            
             $controller = $this->routing_table[$route]['controller'];
             $action = $this->routing_table[$route]['action'];
             $area = $this->routing_table[$route]['area'];
             $controllerPath = "area/$area/controllers/$controller.php";
+            $params = $this->routing_table[$route]['params'];
 
             if ($controllerPath) {
                 require_once($controllerPath);
-                $controller = new $controller($unit_of_work);
+                $controller = new $controller($unit_of_work, $controller, $controllerPath, $area, $action);
                 // Kiểm tra và gọi action
+
                 if (method_exists($controller, $action)) {
-                    if ($parameter !== null) {
 
-                        // Nếu có tham số, chuyển tham số vào hàm
-                        // print_r($parameter);
-                        // print_r($parameter);
-                        // $string_parameter = "";
-                        // foreach($parameter as $key => $value){
-
-                        //     $string_parameter .= $key.":" .$value .",";
-
-                        // }
-
-                        call_user_func_array([$controller, $action], $parameter);
-                    } else {
-                        // Nếu không có tham số, gọi action mà không truyền thêm tham số
+                    if ($parameter == null && $params ==null) {
                         $controller->{$action}();
+
+                    }else if($params == null && $parameter != null){
+                        echo "parameter not found";
+
+                    }else if($params != null && $parameter == null){
+                        $controller->{$action}();
+
+                    }else{
+                        if(count($parameter) <= count($params)){
+                            call_user_func_array([$controller, $action], $parameter);
+
+                        }
+                        else{
+                        echo "parameter is so much";
+
+                        }
                     }
                 } else {
                     echo "Action '$action' không tồn tại trong controller '$controllerName'.";
@@ -84,3 +86,7 @@ class Router
         }
     }
 }
+// parameter null params null;
+// parameter co params null;
+// paramter null params co;
+// paramter co params co;

@@ -1,7 +1,6 @@
-<?php require_once APP_ROOT . "/views/shared/header.php" ?>
 
 <?php
-// var_dump($category);
+var_dump($category);
 // var_dump($categoryl2);
 // echo "<br>";
 // var_dump($categoryl2);
@@ -35,4 +34,3 @@ var_dump($payment_detail);
 welcome customer homepage
 <a href="/Uni/Customer/Product">product page</a>
 <img src=<?= "/" . URL_SUBFOLDER . "/wwwroot/images/users/avatar_default.jpg" ?>>
-<?php require_once APP_ROOT . "/views/shared/footer.php" ?>

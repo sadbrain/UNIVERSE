@@ -1,6 +1,6 @@
 <?php
-
-class Order
+require_once APP_ROOT ."/app/BaseModel.php";
+class Order extends BaseModel
 {
     private ?int $id;
     private ?string $buyer_name;

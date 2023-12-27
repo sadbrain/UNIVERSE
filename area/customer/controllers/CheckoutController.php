@@ -1,14 +1,11 @@
 <?php
-class CheckoutController
+require_once APP_ROOT ."/app/BaseController.php";
+class CheckoutController extends BaseController
 {
-    private IUnitOfWork $unit_of_work;
-    public function __construct(IUnitOfWork $unit_of_work)
-    {
-        $this->unit_of_work = $unit_of_work;
-    }
+ 
 
-    public function index(){
-        require_once APP_ROOT . "/area/customer/views/Checkout/index.php";
+    public function Index(){
+        require_once $this->view();
 
     }
 }
