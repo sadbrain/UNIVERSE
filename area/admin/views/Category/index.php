@@ -18,18 +18,18 @@
         </div>
         <table id="tblData" class="table table-bordered table-striped">
              <thead> 
+                <th>Stt</th> 
                 <th>Name</th> 
-                <th>Slug</th> 
-                <th>Create at</th> 
+                <th>Created by</th> 
+                <th>Created at</th> 
                 <th></th> 
             </thead> 
             <tbody> 
-                <?php foreach($categories as $category): 
-                    if($category -> get_deleted_at() != null || $category -> get_deleted_by())
-                        { continue; }?> 
+                <?php $i = 1; foreach($categories as $category): ?> 
                         <tr>
+                            <td><?= $i++;?></td> 
                             <td><?= $category -> get_name()?></td> 
-                            <td><?= $category -> get_slug()?></td> 
+                            <td><?= $category -> get_created_by()?></td> 
                             <td><?= $category -> get_created_at() -> format('Y-m-d H:i:s')?> </td> 
                             <td> 
                                 <div class="w-75 btn-group" role="group"> 

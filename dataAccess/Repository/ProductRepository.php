@@ -16,7 +16,7 @@ class ProductRepository implements IRepository
 
     public function get_all()
     {
-        $sql = "SELECT * FROM products ORDER BY created_at DESC";
+        $sql = "SELECT * FROM products where deleted_by IS null && deleted_at IS null  ORDER BY created_at DESC";
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute();
         $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);

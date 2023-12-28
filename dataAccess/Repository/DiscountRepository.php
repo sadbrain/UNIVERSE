@@ -111,6 +111,40 @@ class DiscountRepository implements IRepository
         ]);
     }
 
+    public function get_by_key($key, $value, $limit = null)
+    {
+        if($limit == null)
+        $sql = "SELECT * FROM discounts where $key  = :value ORDER BY created_at DESC";
+        else
+        $sql = "SELECT * FROM discounts where $key  = :value ORDER BY created_at DESC Limit  $limit";
+
+        $stmt = $this -> db -> prepare($sql);
+        $stmt -> execute([
+            ':value' => $value,
+        ]);
+        if($limit != null && $limit == 1) {
+            $discount = null;
+            $result = $stmt -> fetch(PDO::FETCH_ASSOC);
+            if($result){
+                $discount = new Discount();
+                $this -> to_discount($discount, $result); 
+            }
+            return $discount;
+
+        }else{
+            $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+            $discounts = null;
+            if ($result) {
+                $discounts = [];
+                foreach ($result as $discount) {
+                    $obj = new Discount();
+                    $this -> to_discount($obj, $discount);
+                    array_push($discounts, $obj);
+                }
+            }
+            return $discounts;
+        }
+    }
 
     public function to_discount($discount, $discount_in_db)
     {

@@ -8,7 +8,7 @@
     </div>
     </div>
     <div class="card-body p-4">
-        <form id="form-create-category" action=<?="/" . URL_SUBFOLDER . "/Admin/Category/UpsertPost/" .$category -> get_id() ?> method="post" class="row">
+        <form id="form-upsert-category" action=<?="/" . URL_SUBFOLDER . "/Admin/Category/UpsertPost/" .$category -> get_id() ?> method="post" class="row">
             <div cl ass="border p-3">
                
                 <div class="form-group form-floating py-2 col-12">
@@ -51,6 +51,6 @@
 <script src=<?=URL_ROOT . URL_SUBFOLDER ."/wwwroot/js/Validator.js"?>></script>
 <script>
         
-        Validator("#form-create-category");
+        Validator("#form-upsert-category");
 
 </script>

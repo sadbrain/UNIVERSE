@@ -113,7 +113,39 @@ class ProductInventoryRepository implements IRepository
         ]);
     }
 
+    public function get_by_key($key, $value, $limit = null)
+    {
+        if($limit == null) $sql = "SELECT * FROM product_inventories where $key  = :value ORDER BY created_at DESC";
+        else $sql = "SELECT * FROM product_inventories where $key  = :value ORDER BY created_at DESC Limit $limit";
+        $stmt = $this -> db -> prepare($sql);
+        $stmt -> execute([
+            ':value' => $value,
+        ]);
 
+        if($limit != null && $limit == 1) {
+            $product_inventory = null;
+            $result = $stmt -> fetch(PDO::FETCH_ASSOC);
+            if($result){
+                $product_inventory = new ProductInventory();
+                $this -> to_product_inventory($product_inventory, $result); 
+            }
+            return $product_inventory;
+
+        }else{
+            $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+            $product_inventories = null;
+            if ($result) {
+                $product_inventories = [];
+                foreach ($result as $product_inventory) {
+                    $obj = new ProductInventory();
+                    $this -> to_product_inventory($obj, $product_inventory);
+                    array_push($product_inventories, $obj);
+                }
+            }
+            return $product_inventories;
+        }
+
+    }
     public function to_product_inventory($product_inventory, $product_inventory_in_db)
     {
         if($product_inventory_in_db["id"] != null)
@@ -140,5 +172,6 @@ class ProductInventoryRepository implements IRepository
              $product_inventory -> set_updated_at(new DateTime($product_inventory_in_db["updated_at"]));
         if( $product_inventory_in_db["deleted_at"] != null)
              $product_inventory -> set_deleted_at(new DateTime($product_inventory_in_db["deleted_at"]));
-}
+    }
+    
 }

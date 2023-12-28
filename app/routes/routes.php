@@ -20,3 +20,9 @@ $router->add("/" . URL_SUBFOLDER . "/Admin/Category/Index", "admin", "CategoryCo
 $router->add("/" . URL_SUBFOLDER . "/Admin/Category/Upsert", "admin", "CategoryController", "Upsert", array('0' => '[0-9]'));
 $router->add("/" . URL_SUBFOLDER . "/Admin/Category/UpsertPost", "admin", "CategoryController", "UpsertPost", array('0' => '[0-9]'));
 $router->add("/" . URL_SUBFOLDER . "/Admin/Category/Delete", "admin", "CategoryController", "Delete", array('0' => '[0-9]'));
+
+$router->add("/" . URL_SUBFOLDER . "/Admin/Product", "admin", "ProductController", "Index");
+$router->add("/" . URL_SUBFOLDER . "/Admin/Product/Index", "admin", "ProductController", "Index");
+$router->add("/" . URL_SUBFOLDER . "/Admin/Product/Upsert", "admin", "ProductController", "Upsert", array('0' => '[0-9]'));
+$router->add("/" . URL_SUBFOLDER . "/Admin/Product/UpsertPost", "admin", "ProductController", "UpsertPost", array('0' => '[0-9]'));
+$router->add("/" . URL_SUBFOLDER . "/Admin/Product/Delete", "admin", "ProductController", "Delete", array('0' => '[0-9]'));

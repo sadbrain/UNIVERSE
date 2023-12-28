@@ -1,5 +1,4 @@
 <?php
-var_dump($_SESSION);
 if (isset($_SESSION["success"]) && $_SESSION["success"] != null) {
     ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

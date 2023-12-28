@@ -17,18 +17,18 @@ function Validator(formSelector, options = {}){
     // nếu không có lỗi thì return unđifile
     let validatorRules = {
         required: function(value){
-            return value ? undefined : "Vui lòng nhập trường này";
+            return value ? undefined : "Please enter this field";
         },
         phone: function(value){
             if(value){
                 const regex = /^(\d+-)*(\d+)$/; 
-                return regex.test(value) ? undefined : "Số điện thoại nhập vào không chính xác";
+                return regex.test(value) ? undefined : "The phone number entered is incorrect";
             }
          },
         email: function(value) {
             if(value){
                 const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
-                return regex.test(value) ? undefined : "Vui lòng nhập email";
+                return regex.test(value) ? undefined : "Please enter email";
            
             }
 
@@ -36,14 +36,14 @@ function Validator(formSelector, options = {}){
         password: function(value){
             if(value){
                 let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-                return regex.test(value) ? undefined : "ít nhất 1 số, gồm chữ hoa và thường, một ký tự đặt biệt, ít nhất 8 kí tự";
+                return regex.test(value) ? undefined : "at least 1 number, including upper and lower case letters, one special character, at least 8 characters";
            
             }
         },
         minLength: function(min){
             return function(value){
                 if(value){
-                    return value.length >= min ? undefined : `Vui lòng nhập ít nhât ${min} kí tự`;
+                    return value.length >= min ? undefined : `Please enter as little as possible ${min} characters`;
 
                 }
 
@@ -53,7 +53,7 @@ function Validator(formSelector, options = {}){
             return function(value){
                 if(value){
 
-                return value.length <= max ? undefined : `Vui lòng nhập tối đa ${max} kí tự`;
+                return value.length <= max ? undefined : `Please enter max ${max} characters`;
                 }
             }
         },
@@ -61,7 +61,7 @@ function Validator(formSelector, options = {}){
             return function(value){
                 if(value){
 
-                    return value >= min ? undefined : `Vui lòng nhập số lớn hơn ${min}`;
+                    return value >= min ? undefined : `Please enter a larger number ${min}`;
                 }
             }
         },
@@ -69,7 +69,7 @@ function Validator(formSelector, options = {}){
             return function(value){
                 if(value){
 
-                return value <= max ? undefined : `Vui lòng nhập số nhỏ hơn ${max}`;
+                return value <= max ? undefined : `Please enter a smaller number ${max}`;
                 }
             }
         }

@@ -33,6 +33,41 @@ class ProductImageRepository implements IRepository
 
         return $product_images;
     }
+    public function get_by_key($key, $value, $limit = null)
+    {
+        if($limit == null)
+        $sql = "SELECT * FROM product_images where $key  = :value";
+        else
+        $sql = "SELECT * FROM product_images where $key  = :value Limit $limit";
+
+        $stmt = $this -> db -> prepare($sql);
+        $stmt -> execute([
+            ':value' => $value,
+        ]);
+        
+       if($limit != null && $limit == 1) {
+            $product_image = null;
+            $result = $stmt -> fetch(PDO::FETCH_ASSOC);
+            if($result){
+                $product_image = new ProductImage();
+                $this -> to_product_image($product_image, $result); 
+            }
+            return $product_image;
+
+        }else{
+            $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+            $product_images = null;
+            if ($result) {
+                $product_images = [];
+                foreach ($result as $product_image) {
+                    $obj = new ProductImage();
+                    $this -> to_product_image($obj, $product_image);
+                    array_push($product_images, $obj);
+                }
+            }
+            return $product_images;
+        }
+    }
     public function get($id)
     {
         $sql = "SELECT * FROM product_images where id  = :id LIMIT 1";
@@ -87,6 +122,7 @@ class ProductImageRepository implements IRepository
 
     public function to_product_image($product_image, $product_image_in_db)
     {
+        echo $product_image_in_db["id"];
         if($product_image_in_db["id"] != null)
             $product_image -> set_id((int) $product_image_in_db["id"]);
         if($product_image_in_db["url"] != null)
