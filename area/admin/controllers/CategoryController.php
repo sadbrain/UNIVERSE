@@ -12,11 +12,8 @@ class CategoryController extends BaseController
     }
     public function Upsert(?int $id = null){
 
-        //call view
-        //call view create
         if($id == null || $id == 0){
             $category = new Category();
-            //call view update
         }else{
             $category = $this -> unit_of_work -> get_category() -> get($id);
         }
@@ -41,7 +38,7 @@ class CategoryController extends BaseController
             $this -> unit_of_work -> get_category() -> update($category);
         }
 
-        $this -> redirect_to_action("Index", ["category_name" => $category -> get_name(), "category_id" => $category -> get_id()]);
+        $this -> redirect_to_action("Index");
     }
     public function Delete(?int $id){
         if($id == null || $id == 0){

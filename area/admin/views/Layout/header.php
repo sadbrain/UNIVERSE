@@ -41,7 +41,7 @@
                 <div class="dropdown-menu" id="list_managment">
                     <a class="dropdown-item" href="<?=URL_ROOT . URL_SUBFOLDER ."/Admin/Category"?>">Category</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Product</a>
+                    <a class="dropdown-item" href="<?=URL_ROOT . URL_SUBFOLDER ."/Admin/Product"?>">Product</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Order</a>
                     <div class="dropdown-divider"></div>

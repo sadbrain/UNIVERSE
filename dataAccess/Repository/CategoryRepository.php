@@ -15,7 +15,7 @@ class CategoryRepository implements IRepository
     }
     public function get_all()
     {
-        $sql = "SELECT * FROM categories ORDER BY created_at DESC ";
+        $sql = "SELECT * FROM categories Where deleted_by IS null && deleted_at IS null ORDER BY created_at DESC ";
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute();
         $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
