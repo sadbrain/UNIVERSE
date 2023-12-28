@@ -72,6 +72,7 @@ class ProductInventoryRepository implements IRepository
             ':updated_at'       => $entity -> get_updated_at() ? $entity -> get_updated_at()  -> format('Y-m-d H:i:s') : null,
             ':deleted_at'       => $entity -> get_deleted_at() ? $entity -> get_deleted_at()  -> format('Y-m-d H:i:s') : null,
         ]);
+        return $stmt -> fetch();
     }
     public function remove($entity)
     {

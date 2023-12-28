@@ -122,7 +122,6 @@ class ProductImageRepository implements IRepository
 
     public function to_product_image($product_image, $product_image_in_db)
     {
-        echo $product_image_in_db["id"];
         if($product_image_in_db["id"] != null)
             $product_image -> set_id((int) $product_image_in_db["id"]);
         if($product_image_in_db["url"] != null)

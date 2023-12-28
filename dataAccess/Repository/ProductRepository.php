@@ -57,7 +57,7 @@ class ProductRepository implements IRepository
          updated_by, deleted_by, created_at, updated_at, deleted_at)
         VALUES (:name, :thumbnail, :brand, :slug, :description,  
         :price, :rating, :category_id, :created_by, 
-         :updated_by, deleted_by, :created_at, :updated_at, :deleted_at)";
+         :updated_by, :deleted_by, :created_at, :updated_at, :deleted_at)";
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute([
             ':name'         => $entity -> get_name(),
@@ -75,6 +75,19 @@ class ProductRepository implements IRepository
             ':updated_at'   => $entity -> get_updated_at() ? $entity -> get_updated_at() -> format('Y-m-d H:i:s') : null,
             ':deleted_at'   => $entity -> get_deleted_at() ? $entity -> get_deleted_at() -> format('Y-m-d H:i:s') : null,
         ]);
+    }
+    public function get_last_entity(){
+        $sql = "SELECT * FROM products where deleted_by IS null && deleted_at IS null  ORDER BY id DESC limit 1";
+        $stmt = $this -> db -> prepare($sql);
+        $stmt -> execute();
+        $result = $stmt -> fetch(PDO::FETCH_ASSOC);
+        $product = null;
+        if ($result) {
+            $product = new Product();
+            $this -> to_product($product, $result);
+        }
+
+        return $product;
     }
     public function remove($entity)
     {
