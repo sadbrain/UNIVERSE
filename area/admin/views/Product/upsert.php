@@ -21,7 +21,7 @@ $product_inventory = $productvm -> get_product_inventory();
                     <label class="ms-2">Name</label>
                 </div>
 
-                <div class="form-group form-floating py-2 col-12" >
+                <div class="form-group form-floating py-2 col-12" > 
                     <textarea class="form-control border-0 shadow"  name="Product[description]" value=<?= $product -> get_id() != 0 ? $product -> get_description() : null?>><?= $product -> get_id() != 0 ? $product -> get_description() : null?></textarea>
                     <label class="ms-2">Description</label>
                 </div>
@@ -32,19 +32,19 @@ $product_inventory = $productvm -> get_product_inventory();
                 </div>
 
                 <div class="form-group form-floating py-2 col-12">
-                    <input rules="required|min:100000" type="number" class="form-control border-0 shadow"  name="Product[price]" value ="<?= $product -> get_id() != 0 ? $product -> get_slug() : null?>"/>
+                    <input rules="required|min:100000" type="number" class="form-control border-0 shadow"  name="Product[price]" value ="<?= $product -> get_id() != 0 ? $product -> get_price() : null?>"/>
                     <label class="ms-2">Price</label>
                 </div>
 
                 <div class="form-floating col-12 py-2">
                     <label class="ms-2">Brand</label>
                     <select class="form-select border-0 shadow" name ="Product[brand]">
-                        <option  selected>--Select brand--</option>
-                        <option  value = "Chanel" selected>Chanel</option>
-                        <option  value = "Prada" selected>Prada</option>
-                        <option  value = "Denim" selected>Denim</option>
-                        <option  value = "Louis vuitton" selected>Louis vuitton</option>
-                        <option  value = "Calvin Klein" selected>Calvin Klein</option>
+                        <option value = "<?=$product -> get_id() != 0 ? $product -> get_brand() :null?>" selected><?= $product -> get_id() != 0 ? $product -> get_brand() :"--Select brand--"?></option>
+                        <option  value = "Chanel">Chanel</option>
+                        <option  value = "Prada">Prada</option>
+                        <option  value = "Denim">Denim</option>
+                        <option  value = "Louis vuitton">Louis vuitton</option>
+                        <option  value = "Calvin Klein">Calvin Klein</option>
 
                     </select>
                 </div>
@@ -82,9 +82,10 @@ $product_inventory = $productvm -> get_product_inventory();
                 <div class="form-floating col-12 py-2">
                     <label class="ms-2">Category</label>
                     <select class="form-select border-0 shadow" name ="Product[category_id]">
-                        <option disabled selected>--Select Category--</option>
+                        <option value = "<?=$product -> get_id() != 0 ? $product -> get_category() -> get_id() :null?>" selected><?= $product -> get_id() != 0 ? $product -> get_category() -> get_name() :"--Select brand--"?></option>
+
                         <?php foreach ($categories as $category):?>
-                            <option value="<?=$category -> get_id()?>" selected><?=$category -> get_name()?></option>
+                            <option value="<?=$category -> get_id()?>"><?=$category -> get_name()?></option>
                         <?php endforeach?>
 
                     </select>

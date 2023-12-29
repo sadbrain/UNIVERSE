@@ -34,7 +34,16 @@ class ProductController extends BaseController
             $product_images = [];
             $discount = new Discount();
             $productvm = new ProductVM($product, $product_inventory, $product_images, $discount);
-        } 
+        } else{
+            $product = $this -> unit_of_work -> get_product() -> get($id);
+            $category = $this -> unit_of_work -> get_category() -> get($product -> get_category_id());
+            $product -> set_category($category);
+            $product_inventory = $this -> unit_of_work -> get_product_inventory() -> get_by_key("product_id", $product -> get_id(), 1);
+            $product_images = $this -> unit_of_work -> get_product_image() -> get_by_key("product_id", $product -> get_id());
+            $discount = $this -> unit_of_work -> get_discount() -> get_by_key("product_id", $product -> get_id(), 1);
+            $productvm = new ProductVM($product, $product_inventory, $product_images, $discount);
+    
+        }
         $view_body = $this -> view();
         require_once $this -> use_layout($view_body,"admin");
     }
@@ -67,11 +76,27 @@ class ProductController extends BaseController
             $this -> unit_of_work -> get_discount() -> add($discount);
             
         }else{
+            $product -> set_id($id);
+            $product -> set_updated_at(new DateTime());
+            $product -> set_updated_by(1);
+            $product -> set_slug($product -> create_slug($product -> get_name()));
+            $this -> unit_of_work -> get_product() -> update($product);
 
+            $product_inventory_in_db = $this -> unit_of_work -> get_product_inventory() -> get_by_key("product_id", $product -> get_id(), 1);
+            $product_inventory -> set_id((int) $product_inventory_in_db -> get_id());
+            $product_inventory -> set_updated_at(new DateTime());
+            $product_inventory -> set_updated_by(1);
+            $product_inventory -> set_product_id((int) $product -> get_id());   
+            $this -> unit_of_work -> get_product_inventory() -> update($product_inventory);
+            // var_dump($product_inventory);
+            $discount_in_db = $this -> unit_of_work -> get_discount() -> get_by_key("product_id", $product -> get_id(), 1);
+            $discount -> set_id((int) $discount_in_db -> get_id());
+            $discount -> set_updated_at(new DateTime());
+            $discount -> set_updated_by(1);
+            $discount -> set_product_id((int) $product -> get_id());
+            $this -> unit_of_work -> get_discount() -> update($discount);
         }
         $this -> redirect_to_action("Index");
-        // var_dump($_POST);
-        // var_dump($_POST);
+
     }
-    
 }

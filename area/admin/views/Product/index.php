@@ -49,10 +49,10 @@
                             <td><?= $productvm -> get_product() -> get_created_by()?></td> 
                             <td> 
                                 <div class="w-75 btn-group" role="group"> 
-                                    <a href=<?=URL_ROOT . URL_SUBFOLDER ."/Admin/Product/Upsert/".$category -> get_id()?> class="btn btn-primary mx-2"> 
-                                         <i class="bi bi-pencil-square"></i> Edit 
+                                    <a href=<?=URL_ROOT . URL_SUBFOLDER ."/Admin/Product/Upsert/".$productvm -> get_product() -> get_id()?> class="btn btn-primary mx-2"> 
+                                        <i class="bi bi-pencil-square"></i> Edit 
                                     </a> 
-                                    <a onclick="Delete('<?=URL_ROOT . URL_SUBFOLDER .'/Admin/Product/Delete/'.$category -> get_id()?>')" class="btn btn-danger mx-2"> 
+                                    <a onclick="Delete('<?=URL_ROOT . URL_SUBFOLDER .'/Admin/Product/Delete/'.$productvm -> get_product() -> get_id()?>')" class="btn btn-danger mx-2"> 
                                         <i class="bi bi-trash-fill"></i> Delete 
                                     </a> 
                                 </div> 

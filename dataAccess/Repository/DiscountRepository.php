@@ -86,7 +86,7 @@ class DiscountRepository implements IRepository
         discount_price  = :discount_price,
         discount_from   = :discount_from,
         discount_to     = :discount_to,
-        product_id,     = :product_id,
+        product_id      = :product_id,
         deleted_at      = :deleted_at,
         updated_at      = :updated_at,
         created_at      = :created_at,
