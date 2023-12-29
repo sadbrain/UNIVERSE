@@ -35,15 +35,15 @@ function Delete(url){
             $.ajax({
                 url: url,
                 type: "DELETE",
+                
                 success: function (data) {
-                    window.location.reload();
                     console.log(data);
                     toastr.success(data.message);
                 },
                 error: function (error) {
+                    window.location.reload();
                     console.error("Error:", error);
-                    toastr.error("An error occurred while processing your request.");
-
+                    // toastr.error("An error occurred while processing your request.");
                 }
             });
         }

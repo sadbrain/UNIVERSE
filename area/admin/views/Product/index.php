@@ -50,7 +50,9 @@
                             <td> 
                                 <div class="w-75 btn-group" role="group"> 
                                     <a href=<?=URL_ROOT . URL_SUBFOLDER ."/Admin/Product/Upsert/".$productvm -> get_product() -> get_id()?> class="btn btn-primary mx-2"> 
-                                        <i class="bi bi-pencil-square"></i> Edit 
+
+                                         <i class="bi bi-pencil-square"></i> Edit 
+
                                     </a> 
                                     <a onclick="Delete('<?=URL_ROOT . URL_SUBFOLDER .'/Admin/Product/Delete/'.$productvm -> get_product() -> get_id()?>')" class="btn btn-danger mx-2"> 
                                         <i class="bi bi-trash-fill"></i> Delete 
@@ -64,3 +66,5 @@
        
     </div>
 </div>
+<script src=<?=URL_ROOT . URL_SUBFOLDER . "/area/admin/views/Product/product.js"?>></script>
+<?php require_once APP_ROOT . "/area/admin/views/Layout/_notification.php" ?>

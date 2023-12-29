@@ -99,4 +99,35 @@ class ProductController extends BaseController
         $this -> redirect_to_action("Index");
 
     }
+  
+    public function Delete(?int $id){
+        if($id == null || $id == 0){
+            echo "page not found";
+            return;
+        }
+        header('Content-Type: application/json');
+        $product = $this -> unit_of_work -> get_product() -> get($id);
+        // if ($product == null) {
+        //     // Product not found, return error response
+        //     $this -> json(['success' => false, 'message' => 'Error while deleting']);
+        //     exit;
+        // }
+        $product -> set_deleted_at(new DateTime());
+        $product -> set_deleted_by(1);
+        $this-> unit_of_work -> get_product() -> update($product);
+       
+        $product_inventory = $this -> unit_of_work -> get_product_inventory() -> get_by_key("product_id", $product -> get_id(), 1);
+        $product_inventory -> set_deleted_at(new DateTime());
+        $product_inventory -> set_deleted_by(1);
+        $this -> unit_of_work -> get_product_inventory() -> update($product_inventory);
+
+        $discount = $this -> unit_of_work -> get_discount() -> get_by_key("product_id", $product -> get_id(), 1);
+        $discount -> set_deleted_at(new DateTime());
+        $discount -> set_deleted_by(1);
+        $this -> unit_of_work -> get_discount() -> update($discount);
+
+        $this -> json(['success' => true, 'message' => 'Product deleted successfully']);
+
+    }
+
 }

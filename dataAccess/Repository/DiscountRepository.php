@@ -16,7 +16,7 @@ class DiscountRepository implements IRepository
 
     public function get_all()
     {
-        $sql = "SELECT * FROM discounts ORDER BY created_at DESC";
+        $sql = "SELECT * FROM discounts where deleted_by IS null && deleted_at IS null ORDER BY created_at DESC";
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute();
         $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
@@ -116,7 +116,7 @@ class DiscountRepository implements IRepository
         if($limit == null)
         $sql = "SELECT * FROM discounts where $key  = :value ORDER BY created_at DESC";
         else
-        $sql = "SELECT * FROM discounts where $key  = :value ORDER BY created_at DESC Limit  $limit";
+        $sql = "SELECT * FROM discounts where $key  = :value && deleted_by IS null && deleted_at IS null ORDER BY created_at DESC Limit $limit";
 
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute([
