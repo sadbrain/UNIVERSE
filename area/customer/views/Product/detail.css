@@ -1,0 +1,316 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.fs_product {
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+.fs_product h2 {
+    height: 10px;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+    animation: colorChange 5s infinite;
+}
+.price-container {
+    font-size: 20px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    margin:0 0 0 20px ;
+    color: #9b079b; /* Màu sắc của giá gốc */
+}
+
+.discounted-price {
+    color: #000; /* Màu sắc của giá giảm giá */
+}
+
+.unit {
+    font-size: 15px;
+}
+
+
+@keyframes colorChange {
+    0% {
+        color: red; /* Start color */
+    }
+    50% {
+        color: #53cbfe; /* Middle color */
+    }
+    100% {
+        color: red; /* End color, same as start for a continuous loop */
+    }
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    justify-content: center;
+}
+.breadcrumb> * {
+margin-right: 10px;
+}
+.breadcrumb .active{
+    color:#FF6699;
+}
+.breadcrumb h5 {
+    margin: 5px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.breadcrumb a:hover {
+    color: #53cbfe; /* Change color to green on hover */
+}
+
+.main_detail {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info_detail {
+    display: flex;
+}
+
+.info_detail img {
+    width: 400px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.spec_detail {
+    flex: 1;
+}
+.spec_detail > *{
+    margin-bottom: 10px;
+}
+.star_rating {
+    color: #f8d32a;
+}
+.rat_detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.star_rating {
+    display: flex;
+}
+
+.star_rating i {
+    margin-right: 5px; /* Adjust margin as needed */
+}
+.pri {
+    color: red;
+}
+.siz{
+    color: #FF6699;
+}
+.but_detail button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+}
+
+.but_detail button:hover {
+    background-color: #53cbfe; /* Change to the desired hover color */
+}
+
+.color_options {
+    display: flex;
+    gap: 10px;
+    background-color: #FCA120;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.color_options button {
+    display: flex;
+    justify-content: space-between; /* Adjust as needed */
+    align-items: center; /* Vertically center the color options */
+    border: 0;
+    border-radius: 8px;
+    background: rgb(252, 121, 73);
+    padding: 0;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.color_option {
+    width: 25px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    flex: 1; /* Distribute available space evenly among color options */
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+}
+
+.color_option:hover {
+    background-color: #007bff; /* Change to the desired hover color */
+}
+.checkout_detail{
+    display: flex;
+}
+.quantity_buttons {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.quantity_buttons button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px; /* Adjust margin as needed */
+}
+
+.quantity_input {
+    width: 40px;
+    text-align: center;
+    margin-right: 5px; /* Adjust margin as needed */
+}
+
+a button {
+    background-color: #FF6699;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a button:hover {
+    background-color: #53cbfe; /* Change to the desired hover color */
+}
+.inf {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #FF6699;
+    color: #fff;
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+.inf p {
+    margin: 0; /* Remove default paragraph margin */
+}
+
+.product_main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 30px; /* Adjust padding as needed */
+}
+
+.product_info {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 400px;
+    width: 100%; /* Adjust width to fill the grid column */
+    background-color: #FF6699;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.product_info img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.product_info h5 {
+    margin-top: 10px 0;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+
+.product_info a {
+    text-decoration: none;
+}
+.brand{
+    margin: 10px 0;
+}
+
+.price-container {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    margin:0 0 0 5px ;
+    color: #9b079b; /* Màu sắc của giá gốc */
+}
+
+.discounted-price {
+    color: #000; /* Màu sắc của giá giảm giá */
+}
+
+.unit {
+    font-size: 14px;
+}
+
+.product_action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:10px 0;
+
+}
+
+.star_rating {
+    color: #FCA120;
+}
+
+/* Apply general styling to buttons container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+/* Style for the buttons */
+.button-container a {
+    text-decoration: none;
+}
+
+.button-container button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block; /* Make buttons inline-block for horizontal arrangement */
+}

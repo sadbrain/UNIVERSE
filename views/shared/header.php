@@ -25,8 +25,8 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Product</a></li>
+                    <li><a href=<?= "/" . URL_SUBFOLDER . "/"?>>Home</a></li>
+                    <li><a href= <?= "/" . URL_SUBFOLDER . "/Customer/Product"?>>Product</a></li>
                     <li><a href="">Privacy</a></li>
                     <li><a href="">About Us</a></li>
                 </ul>
@@ -40,3 +40,4 @@
             </div>
         </div>
     </header>
+

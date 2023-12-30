@@ -7,7 +7,6 @@ INSERT INTO `universe`.`categories` (`name`, `created_by`, `created_at`) VALUES 
 INSERT INTO `universe`.`categories` (`name`, `created_by`, `created_at`) VALUES ('jewelry', '1', ' 2023-12-18 20:11:21');
 
 
-
 -- đẩy dữ liệu vào bảng Products
 INSERT INTO `universe`.`products` (`thumbnail`, `name`, `brand`, `price`, `rating`, `created_by`, `created_at`, `category_id`) VALUES ('TƯ VẤN CHỌN SIZE\\nDép đúng size, vì size đôi nên không thể vừa khít tất cả các chân, các bạn nên lựa chọn theo thói quen đi dép của cá nhân ạ.\\n\\nĐế dép dày khoảng 3.5cm (đo bằng tay).\\nĐế dép thiết kế chống trơn, chất liệu EVA hàng loại 1 thân thiện với môi trường.Dép đang hot lắm các bạn thích màu và size nào order luôn không hết màu, hết size ạ.Vì là size đôi nên có thể rộng hoặc chật hơn so với chân xíu các bạn lựa chọn theo thói quen thích đi rộng, chật của mỗi cá nhân ạ.', '[Có sẵn] Giày Nữ Đi Học Giày Vải Đế Cao Màu Be Phong Cách Hàn', 'Chanel', '300000', '0', '1', '2023-12-18 20:11:21', '3');
 INSERT INTO `universe`.`products` (`thumbnail`, `name`, `brand`, `price`, `rating`, `created_by`, `created_at`, `category_id`) VALUES ('TƯ VẤN CHỌN SIZE\\nDép đúng size, vì size đôi nên không thể vừa khít tất cả các chân, các bạn nên lựa chọn theo thói quen đi dép của cá nhân ạ.\\n\\nĐế dép dày khoảng 3.5cm (đo bằng tay).\\nĐế dép thiết kế chống trơn, chất liệu EVA hàng loại 1 thân thiện với môi trường.Dép đang hot lắm các bạn thích màu và size nào order luôn không hết màu, hết size ạ.Vì là size đôi nên có thể rộng hoặc chật hơn so với chân xíu các bạn lựa chọn theo thói quen thích đi rộng, chật của mỗi cá nhân ạ.', '[Có sẵn] Dép Đi Học Siêu Nhẹ Hình Mặt Cười', 'Prada', '400000', '0', '1', '2023-12-18 20:11:21', '3');
@@ -105,3 +104,28 @@ UPDATE `universe`.`products` SET `thumbnail` = 'wwwroot/images/products/quần_�
 UPDATE `universe`.`products` SET `thumbnail` = 'wwwroot/images/products/quần_áo_5.jfif' WHERE (`id` = '21');
 UPDATE `universe`.`products` SET `thumbnail` = 'wwwroot/images/products/quần_áo_7.jfif' WHERE (`id` = '22');
 UPDATE `universe`.`products` SET `thumbnail` = 'wwwroot/images/products/quần_áo_8.jfif' WHERE (`id` = '23');
+
+INSERT INTO `universe`.`discounts` (`id`, `discount_price`, `discount_from`, `discount_to`, `product_id`) VALUES ('1', '50', '2023-12-18 20:11:21', '2023-12-31 20:11:21', '1');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('2', '2');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('3', '3');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('4', '4');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('5', '5');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('6', '6');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('7', '7');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('8', '8');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('9', '9');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('10', '10');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('11', '11');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('12', '12');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('13', '13');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('14', '14');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('15', '15');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('16', '16');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('17', '17');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('18', '18');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('19', '19');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('20', '20');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('21', '21');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('22', '22');
+INSERT INTO `universe`.`discounts` (`id`, `product_id`) VALUES ('23', '23');
+

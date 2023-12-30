@@ -1,70 +1,101 @@
-section {
-  padding: 2rem 9%;
+/* product.css */rod
+
+.product_page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.home {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  /* background: url() no-repeat;   */
-  background-size: cover;
-  background-position: center;
+.fs_product {
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-direction: column;
 }
-.home .content {
-  max-width: 50rem;
-}
-.home .content h3 {
-  font-size: 2rem;
-  color: #333;
-  padding: 1rem 0;
-  line-height: 1.5;
-}
-.home .content span {
-  font-size: 6rem;
-  color: pink !important;
-  padding: 1rem 0;
-  line-height: 1.5;
-}
-.home .content p {
-  font-size: 1rem;
-  color: #999;
-  padding: 1rem 0;
-  line-height: 1.5;
-}
-.content {
-  display: flex;
+.fs_product h2 {
+    height: 10px;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+    animation: colorChange 5s infinite;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+@keyframes colorChange {
+    0% {
+        color: red; /* Start color */
+    }
+    50% {
+        color: #53cbfe; /* Middle color */
+    }
+    100% {
+        color: red; /* End color, same as start for a continuous loop */
+    }
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    justify-content: center;
+}
+.breadcrumb> * {
+margin-right: 10px;
+}
+.breadcrumb .active{
+    color:#FF6699;
+}
+.breadcrumb h5 {
+    margin: 5px;
 }
 
-.home,
-.slider {
-  flex: 1;
-  box-sizing: border-box;
-  padding: 15px;
+.breadcrumb a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease; /* Add a smooth transition effect */
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
+.breadcrumb a:hover {
+    color: #53cbfe; /* Change color to green on hover */
 }
 
-.container .row {
-  flex: 1;
+.category_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    display: inline-block;
+    padding: 0px 460px;
 }
-.carousel {
-  position: relative;
-  margin-bottom: 70px;
+.category_buttons button.active{
+    background-color: #FF6699!important;
+}
+.category_buttons a {
+    margin-right: 10px;
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Set the default text color for links */
 }
 
+.category_buttons a:hover,
+.category_buttons button:hover {
+    background-color: #53cbfe;
+    color: #fff;
+}
+
+.category_buttons button {
+    margin: 0;
+    height: 30px;
+    width: 100px;
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Optional: Add border-radius to buttons */
+    background-color: #f5f5f5;
+    color: #333;
+    cursor: pointer;
+}
+
+.category_buttons button:hover {
+    background-color: #53cbfe;
+    color: #fff;
+}
 
 .product_main {
     display: grid;
