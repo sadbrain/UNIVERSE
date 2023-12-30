@@ -1,3 +1,4 @@
+<?php session_start();?>
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
@@ -65,6 +66,6 @@
          </table>
        
     </div>
-</div>
+</>
 <script src=<?=URL_ROOT . URL_SUBFOLDER . "/area/admin/views/Product/product.js"?>></script>
 <?php require_once APP_ROOT . "/area/admin/views/Layout/_notification.php" ?>

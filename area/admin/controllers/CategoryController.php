@@ -24,11 +24,14 @@ class CategoryController extends BaseController
     public function UpsertPost(?int $id = null) {
         $category = new Category();
         $this -> unit_of_work -> get_category() -> to_category($category, $_POST);
+        session_start();
         if($id == null || $id == 0){
             $category -> set_created_at(new DateTime());
             $category -> set_created_by(1);
             $category -> set_slug($category -> create_slug($category -> get_name()));
             $this -> unit_of_work -> get_category() -> add($category);
+            $_SESSION["success"]="Category created successfully";
+
         }
         else{
             $category -> set_id($id);
@@ -36,6 +39,8 @@ class CategoryController extends BaseController
             $category -> set_updated_by(1);
             $category -> set_slug($category -> create_slug($category -> get_name()));
             $this -> unit_of_work -> get_category() -> update($category);
+            $_SESSION["success"]="Category updated successfully";
+
         }
 
         $this -> redirect_to_action("Index");

@@ -49,16 +49,17 @@ class ProductController extends BaseController
     }
 
     public function UpsertPost(?int $id = null){
-        // var_dump($_POST);
-
         $product = new Product();
         $discount = new Discount();
         $product_inventory = new ProductInventory();
+
         $this -> unit_of_work -> get_product() -> to_product($product, $_POST["Product"]);
         $this -> unit_of_work -> get_discount() -> to_discount($discount, $_POST["Discount"]);
         $this -> unit_of_work -> get_product_inventory() -> to_product_inventory($product_inventory, $_POST["ProductInventory"]);
-        //create product
+
+        // create product
         if($id == null || $id == 0){
+
             $product -> set_created_at(new DateTime());
             $product -> set_created_by(1);
             $product -> set_slug($product -> create_slug($product -> get_name()));
@@ -69,11 +70,14 @@ class ProductController extends BaseController
             $product_inventory -> set_created_by(1);
             $product_inventory -> set_product_id((int) $product_in_db -> get_id());
             $this -> unit_of_work -> get_product_inventory() -> add($product_inventory);
-
+            
             $discount -> set_created_at(new DateTime());
             $discount -> set_created_by(1);
             $discount -> set_product_id((int) $product_in_db -> get_id());
             $this -> unit_of_work -> get_discount() -> add($discount);
+            $product_id = $product_in_db -> get_id();
+
+            $_SESSION["success"]="Product created successfully";
             
         }else{
             $product -> set_id($id);
@@ -95,7 +99,58 @@ class ProductController extends BaseController
             $discount -> set_updated_by(1);
             $discount -> set_product_id((int) $product -> get_id());
             $this -> unit_of_work -> get_discount() -> update($discount);
+            $product_id = $product -> get_id();
+            $_SESSION["success"]="Product updated successfully";
+
+
         }
+        
+        if(isset($_FILES["file"]) && $_FILES["file"] != null){
+            $files = $_FILES["file"];
+            $file_number = count($files["name"]);
+            $product_path = "wwwroot/images/products/product-" . $product_id;
+           //neu thu muc chua anh san pham khong ton tai thi tao 
+            if(!file_exists($product_path)){
+                mkdir($product_path, 0777, true);
+            }
+            for($i = 0; $i < $file_number; $i++){
+                $file = [
+                    "name" => $files['name'][$i],
+                    "type" => $files['type'][$i],
+                    "tmp_name" => $files['tmp_name'][$i],
+                    "error" => $files['error'][$i],
+                    "size" => $files['size'][$i],
+                ];
+                $file_path = $product_path ."/". $file['name'];
+                $flag = $this ->check_file_valid($file, $file_path);
+                if($flag["success"]){
+                    move_uploaded_file($file["tmp_name"], $file_path);
+                    echo "<script>alert(".$flag['message'].")</script>";
+                    $product_images = new ProductImage();
+                    $product_images -> set_product_id($product_id);
+                    $product_images -> set_title($file["name"]);
+                    $product_images -> set_url($file_path);
+                    $this -> unit_of_work -> get_product_image() -> add($product_images);
+                    
+                }else{
+                    echo "<script>alert(".$flag['message'].")</script>";
+
+                }
+                
+            }   
+            
+        }
+
+        
+        if($id == null || $id == 0){
+
+        $product =  $this -> unit_of_work -> get_product() -> get($product_id);
+        $product_images = $this -> unit_of_work -> get_product_image() -> get_by_key("product_id", $product -> get_id());
+        $product -> set_thumbnail($product_images[0]);
+        $this -> unit_of_work -> get_product() -> update($product);
+
+        }
+
         $this -> redirect_to_action("Index");
 
     }
@@ -107,11 +162,11 @@ class ProductController extends BaseController
         }
         header('Content-Type: application/json');
         $product = $this -> unit_of_work -> get_product() -> get($id);
-        // if ($product == null) {
-        //     // Product not found, return error response
-        //     $this -> json(['success' => false, 'message' => 'Error while deleting']);
-        //     exit;
-        // }
+        if ($product == null) {
+            // Product not found, return error response
+            $this -> json(['success' => false, 'message' => 'Error while deleting']);
+            exit;
+        }
         $product -> set_deleted_at(new DateTime());
         $product -> set_deleted_by(1);
         $this-> unit_of_work -> get_product() -> update($product);
@@ -128,6 +183,29 @@ class ProductController extends BaseController
 
         $this -> json(['success' => true, 'message' => 'Product deleted successfully']);
 
+    }
+
+    private function check_file_valid($file, $file_path){
+        $flag = ["success" => true, 
+                "message" => "upload file successfully",];
+
+        $ex = array('jpg', 'png', 'jpeg', 'gif', 'jfif');
+        $file_type = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
+        if(!in_array($file_type, $ex)){
+            $flag["success"]  = false;
+            $flag["message"] =  $file["name"]."file invalid";
+        }
+        //check dung luong
+        if($file["size"]>5000000){
+            $flag["success"] = false;
+            $flag["message"] = $file["name"] . "size is too big";
+
+        }
+        if(file_exists($file_path)){
+            $flag["success"]  = false;
+            $flag["message"] =  $file["name"]."file is exits";
+        }
+        return $flag;
     }
 
 }
