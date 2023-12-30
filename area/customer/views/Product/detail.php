@@ -93,204 +93,59 @@
     
 
     <div class="inf"><p>OTHER PRODUCTS OF THE SHOP</p></div>
-            <div class="product_main">
-                <div class="product_info">
-                  <img
-                    src="<?= URL_ROOT . URL_SUBFOLDER . "/wwwroot/images/products/quần_áo_1.jfif"?>"
-                    alt="Fashion Product Image"
-                  />
+            
+    <div class="product_main">
+        <?php
+            foreach($products as $obj){
+                $product = $obj['Product'];
+                $discount = $obj['Discount'];
+                $product_inventory = $obj['ProductInventory'];
+        ?>
+            <div class="product_info">
+                <a class="d-block" href=<?="/" . URL_SUBFOLDER . "/Customer/Product/Detail/". $product-> get_id()?>>
+                <img
+                src="<?=URL_ROOT.URL_SUBFOLDER. '/'.$product -> get_thumbnail()?>"
+                alt="Fashion Product Image"/>
                 <div class="p-3">
-                <a href="javascript:void(0)"
-                    ><h5><b>Sét bộ áo nỉ Hộp sữa + quần bom đen...</b></h5></a
-                  >
-                  <h6 class="brand"><b>Dior</b></h6>
-                  <p class="price-container">
-                    <span class='discounted-price'>800000</span>
-                    <span class='unit'>VND</span>
-                    <span class='original-price'>1800000</span>
-                    <span class='unit'>VND</span>
-                  </p>
-                  <div class="product_action">
-                    <div class="star_rating">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h6 class="quantity">4.1k sold</h6>
-                  </div>
-                </div>
+                        <a href="javascript:void(0)"
+                        ><h5><b><?=$product -> get_name()?></b></h5></a
+                    >
+                    <h6 class="brand"><b><?=$product -> get_brand()?></b></h6>
+                        <p class="price-container">
+                            <?php
+                                $current_date = new DateTime();
+                                $discount_to = $discount -> get_discount_to();
+                                if($current_date <= $discount_to){
+                                    $price = $product -> get_price();
+                                    $discount_price = ($price-$price * $discount-> get_discount_price()/100);
+                                    echo "  <span class='discounted-price'>".$discount_price."</span>
+                                            <span class='unit'>VND</span>
+                                            <span class='original-price'>".$price."</span>
+                                            <span class='unit'>VND</span>";
+                                }else{
+                                    echo"<span class=''>".$product -> get_price()."</span>
+                                    <span class='unit'>VND</span>";
+                                }
+                            ?>
 
-                </div>
-                <div class="product_info">
-                  <img
-                    src="../Assets/img-pro/quần áo 1.jfif"
-                    alt="Fashion Product Image"
-                  />
-                  <a href="javascript:void(0)"
-                    ><h5>Sét bộ áo nỉ Hộp sữa + quần bom đen...</h5></a
-                  >
-                  <h6>Dior</h6>
-                  <p>890.000VND</p>
-                  <div class="product_action">
-                    <div class="star_rating">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
+                        </p>
+                    <div class="product_action">
+                        <div class="star_rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h6 class="quantity"><?= $product_inventory -> get_quantity_buyed() . " sold"?></h6>
                     </div>
-                    <h6>4.1k sold</h6>
-                  </div>
                 </div>
-                <div class="product_info">
-                  <img
-                    src="../Assets/img-pro/quần áo 1.jfif"
-                    alt="Fashion Product Image"
-                  />
-                  <a href="javascript:void(0)"
-                    ><h5>Sét bộ áo nỉ Hộp sữa + quần bom đen...</h5></a
-                  >
-                  <h6>Dior</h6>
-                  <p>890.000VND</p>
-                  <div class="product_action">
-                    <div class="star_rating">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h6>4.1k sold</h6>
-                  </div>
-                </div>
-                <div class="product_info">
-                  <img
-                    src="../Assets/img-pro/quần áo 1.jfif"
-                    alt="Fashion Product Image"
-                  />
-                  <a href="javascript:void(0)"
-                    ><h5>Sét bộ áo nỉ Hộp sữa + quần bom đen...</h5></a
-                  >
-                  <h6>Dior</h6>
-                  <p>890.000VND</p>
-                  <div class="product_action">
-                    <div class="star_rating">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h6>4.1k sold</h6>
-                  </div>
-                </div>
-                <div class="product_info">
-                  <img
-                    src="../Assets/img-pro/quần áo 1.jfif"
-                    alt="Fashion Product Image"
-                  />
-                  <a href="javascript:void(0)"
-                    ><h5>Sét bộ áo nỉ Hộp sữa + quần bom đen...</h5></a
-                  >
-                  <h6>Dior</h6>
-                  <p>890.000VND</p>
-                  <div class="product_action">
-                    <div class="star_rating">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h6>4.1k sold</h6>
-                  </div>
-                </div>
-                <div class="product_info">
-                  <img
-                    src="../Assets/img-pro/quần áo 1.jfif"
-                    alt="Fashion Product Image"
-                  />
-                  <a href="javascript:void(0)"
-                    ><h5>Sét bộ áo nỉ Hộp sữa + quần bom đen...</h5></a
-                  >
-                  <h6>Dior</h6>
-                  <p>890.000VND</p>
-                  <div class="product_action">
-                    <div class="star_rating">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h6>4.1k sold</h6>
-                  </div>
-                </div>
-                <div class="product_info">
-                  <img
-                    src="../Assets/img-pro/quần áo 1.jfif"
-                    alt="Fashion Product Image"
-                  />
-                  <a href="javascript:void(0)"
-                    ><h5>Sét bộ áo nỉ Hộp sữa + quần bom đen...</h5></a
-                  >
-                  <h6>Dior</h6>
-                  <p>890.000VND</p>
-                  <div class="product_action">
-                    <div class="star_rating">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h6>4.1k sold</h6>
-                  </div>
-                </div>
-                <div class="product_info">
-                  <img
-                    src="../Assets/img-pro/quần áo 1.jfif"
-                    alt="Fashion Product Image"
-                  />
-                  <a href="javascript:void(0)"
-                    ><h5>Sét bộ áo nỉ Hộp sữa + quần bom đen...</h5></a
-                  >
-                  <h6>Dior</h6>
-                  <p>890.000VND</p>
-                  <div class="product_action">
-                    <div class="star_rating">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h6>4.1k sold</h6>
-                  </div>
-                </div>
-                <div class="product_info">
-                  <img
-                    src="../Assets/img-pro/quần áo 1.jfif"
-                    alt="Fashion Product Image"
-                  />
-                  <a href="javascript:void(0)"
-                    ><h5>Sét bộ áo nỉ Hộp sữa + quần bom đen...</h5></a
-                  >
-                  <h6>Dior</h6>
-                  <p>890.000VND</p>
-                  <div class="product_action">
-                    <div class="star_rating">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h6>4.1k sold</h6>
-                  </div>
-                </div>       
-              </div>
-        </div>
+                </a>
+
+            </div>
+        <?php }?>    
+        
+
+    
+    </div>
 </div>
