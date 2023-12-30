@@ -114,7 +114,7 @@ class DiscountRepository implements IRepository
     public function get_by_key($key, $value, $limit = null)
     {
         if($limit == null)
-        $sql = "SELECT * FROM discounts where $key  = :value ORDER BY created_at DESC";
+        $sql = "SELECT * FROM discounts where $key  = :value && deleted_by IS null && deleted_at IS null ORDER BY created_at DESC";
         else
         $sql = "SELECT * FROM discounts where $key  = :value && deleted_by IS null && deleted_at IS null ORDER BY created_at DESC Limit $limit";
 

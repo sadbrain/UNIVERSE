@@ -18,6 +18,23 @@ body {
     text-align: center;
     animation: colorChange 5s infinite;
 }
+.price-container {
+    font-size: 20px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    margin:0 0 0 20px ;
+    color: #9b079b; /* Màu sắc của giá gốc */
+}
+
+.discounted-price {
+    color: #000; /* Màu sắc của giá giảm giá */
+}
+
+.unit {
+    font-size: 15px;
+}
 
 
 @keyframes colorChange {
