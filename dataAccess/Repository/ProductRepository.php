@@ -89,6 +89,26 @@ class ProductRepository implements IRepository
 
         return $product;
     }
+    public function get_by_category_id($id){
+        $sql = "SELECT * FROM universe.products where category_id = :id";
+        $stmt = $this -> db -> prepare($sql);
+        $stmt -> execute([
+            ':id' => $id,
+        ]);
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        $products = null;
+        if ($result) {
+            $products = [];
+            foreach ($result as $product) {
+                $obj = new Product();
+                $this -> to_product($obj, $product);
+                array_push($products, $obj);
+            }
+        }
+
+        return $products;
+    }
     public function remove($entity)
     {
         $sql = "DELETE FROM products WHERE id = :id";
@@ -136,7 +156,6 @@ class ProductRepository implements IRepository
         ]);
     }
 
-
     public function to_product($product, $product_in_db)
     {
         if($product_in_db["id"] != null)
@@ -171,3 +190,4 @@ class ProductRepository implements IRepository
              $product->set_deleted_at(new DateTime($product_in_db["deleted_at"]));
     }
 }
+
