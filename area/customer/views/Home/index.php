@@ -1,36 +1,31 @@
+<link rel="stylesheet" href="<?= URL_ROOT . URL_SUBFOLDER . '/area/customer/views/Home/index.css' ?>">
 
-<?php
-var_dump($category);
-// var_dump($categoryl2);
-// echo "<br>";
-// var_dump($categoryl2);
-// var_dump($product);
-// var_dump($product_image);
-// var_dump($product_inventory);
-// foreach($product_inventory as $product_inventor){
-//     echo $product_inventor -> get_quantity()."\n";
-//     echo $product_inventor -> get_size()."\n";
-//     foreach(explode(" ",$product_inventor -> get_color()) as $color){
-//         echo "<div style='width:40px;background: $color'>color</div>" ."\n";
+  <!-- slider -->
 
-//     }
-    
-// }
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block mx-auto rounded" style="width: 60%; max-height: 400px;" src="wwwroot/images/slider/slider2.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block mx-auto rounded" style="width: 60%; max-height: 400px;" src="wwwroot/images/slider/slider2.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block mx-auto rounded" style="width: 60%; max-height: 400px;" src="wwwroot/images/slider/slider2.jpg" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon color:pink" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 
-var_dump($discount);
-var_dump($order);
-var_dump($order_detail);
-var_dump($payment_detail);
-// foreach($product as $p){
-// // echo $p -> get_id() ."<br>"; 
-// // var_dump($p);
-// // echo "<br>";
-// // var_dump($p ->get_size()) ;
-// // echo "<br>";
-
-// }
-?>;
-
-welcome customer homepage
-<a href="/Uni/Customer/Product">product page</a>
-<img src=<?= "/" . URL_SUBFOLDER . "/wwwroot/images/users/avatar_default.jpg" ?>>
