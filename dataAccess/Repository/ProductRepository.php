@@ -155,7 +155,55 @@ class ProductRepository implements IRepository
             // Add other columns as needed
         ]);
     }
+    public function get_product_best_seller($limit = 6){
+            $sql = "SELECT 
+                p.id,
+                p.thumbnail,
+                p.name,
+                p.brand,
+                p.slug,
+                p.description,
+                p.price,
+                p.rating,
+                p.created_by,
+                p.created_at,
+                p.updated_by,
+                p.updated_at,
+                p.deleted_by,
+                p.deleted_at,
+                p.category_id
+            FROM 
+                products p
+            JOIN 
+                product_inventories i ON p.id = i.product_id
+            WHERE 
+                i.quantity > 0 and
+                i.deleted_at IS NULl
+                and i.deleted_by is NUll
+                AND p.deleted_at IS NULL
+                AND p.deleted_by IS NULL
+            ORDER BY 
+                i.quantity_buyed DESC
+            LIMIT :limit";
 
+        $stmt = $this -> db -> prepare($sql);
+        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $stmt -> execute(); 
+
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        $products = null;
+        if ($result) {
+            $products = [];
+            foreach ($result as $product) {
+                $obj = new Product();
+                $this -> to_product($obj, $product);
+                array_push($products, $obj);
+            }
+        }
+
+        return $products;
+    }
     public function to_product($product, $product_in_db)
     {
         if($product_in_db["id"] != null)
