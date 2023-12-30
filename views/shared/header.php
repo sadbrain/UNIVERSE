@@ -2,18 +2,41 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="<?= "/".URL_SUBFOLDER."/wwwroot/css/site.css"?>"> 
-    <link rel="stylesheet" href="<?= "/".URL_SUBFOLDER."/views/shared/header.css"?>">
-    <link rel="stylesheet" href="<?= "/".URL_SUBFOLDER."/views/shared/footer.css"?>">
-    
+    <link rel="stylesheet" href="<?= URL_ROOT . URL_SUBFOLDER . "/wwwroot/css/site.css" ?>">
+    <link rel="stylesheet" href="<?= URL_ROOT . URL_SUBFOLDER . "/views/shared/header.css" ?>">
+    <link rel="stylesheet" href="<?= URL_ROOT . URL_SUBFOLDER . "/views/shared/footer.css" ?>">
+
     <style>
     </style>
 </head>
 
 <body>
-đây là header
+    <header>
+        <div class="header">
+            <h3>UNIVERSEPINK</h3>
+            <div class="search_header">
+                <input type="text" name="search" placeholder="search">
+                <i class="fa-brands fa-searchengin"></i>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Product</a></li>
+                    <li><a href="">Privacy</a></li>
+                    <li><a href="">About Us</a></li>
+                </ul>
+            </div>
+            <!-- <div class="auth-buttons">
+                <button>Sign In</button>
+                <button>Sign Up</button>
+            </div> -->
+            <div class="auth-buttons">
+                <img src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png">
+            </div>
+        </div>
+    </header>

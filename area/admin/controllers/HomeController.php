@@ -1,9 +1,10 @@
 <?php
-class HomeController {
-    function index(){
-        echo "hello";
-        require_once "views/Home/index.php";
-        echo "end";
-        
+require_once APP_ROOT ."/app/BaseController.php";
+class HomeController extends BaseController
+{
+
+    function Index(){
+        $view_body = $this -> view();
+        require_once $this -> use_layout($view_body, "admin");
     }
 }

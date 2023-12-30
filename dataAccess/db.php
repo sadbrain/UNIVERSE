@@ -1,4 +1,5 @@
 <?php
+
 //a db class for connecting to the database
   class Db {
     private static $instance = NULL;
@@ -11,7 +12,6 @@
                 
                 self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 self::$instance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); 
-                echo 'Connection success: ';
               } catch (PDOException $e) {
                 echo 'Connection failed: ' . $e->getMessage();
             }
