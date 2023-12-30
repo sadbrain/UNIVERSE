@@ -44,20 +44,19 @@
     <section class="slider">
       <div id="carouselExample" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="wwwroot/images/slider/slider2.jpg" class="d-block w-100" alt="First product">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Mũ Gucci</h5>
-              <p>Sang trọng, quý phái</p>
-            </div>
+          <?php for($i =0; $i<count($product_best_rating); $i++):?>
+            <div class="carousel-item <?= $i == 0 ?"active" : null?>">
+            <a class="d-block" href=<?="/" . URL_SUBFOLDER . "/Customer/Product/Detail/". $product_best_rating[$i]-> get_id()?>>
+            <img src=<?= URL_ROOT. URL_SUBFOLDER . "/". $product_best_rating[$i] -> get_thumbnail() ?> class="d-block w-100" alt="First product">
+          <div class="carousel-caption d-none d-md-block">
+
           </div>
-          <div class="carousel-item">
-            <img src="wwwroot/images/slider/slider2.jpg" class="d-block w-100" alt="Second product">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Mũ Adidas</h5>
-              <p>Thể thao, năng động</p>
-            </div>
+          </a>
+
           </div>
+
+
+            <?php endfor?>
         </div>
       </div>
     </section>

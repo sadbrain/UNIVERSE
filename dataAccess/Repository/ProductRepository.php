@@ -155,6 +155,33 @@ class ProductRepository implements IRepository
             // Add other columns as needed
         ]);
     }
+    public function get_product_best_rating_of_month($limit = 12){
+        $sql = "SELECT p.*
+        FROM products p
+        WHERE p.rating IS NOT NULL AND p.rating > 0
+        AND MONTH(p.created_at) = MONTH(CURRENT_DATE())
+        ORDER BY p.rating DESC limit :limit";
+
+        $stmt = $this -> db -> prepare($sql);
+        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $stmt -> execute(); 
+
+
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        $products = null;
+        if ($result) {
+            $products = [];
+            foreach ($result as $product) {
+                $obj = new Product();
+                $this -> to_product($obj, $product);
+                array_push($products, $obj);
+            }
+        }
+
+        return $products;
+
+    }
         public function get_product_best_seller($limit = 6){
             $sql = "SELECT 
                 p.id,
