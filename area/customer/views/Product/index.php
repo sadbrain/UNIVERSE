@@ -8,9 +8,9 @@
     <div class="breadcrumb">
         <a  href=<?= "/" . URL_SUBFOLDER . "/"?>><h5>Home</h5></a>
         <i class="fa-solid fa-chevron-right"></i>
-        <a href=""><h5>Fashion</h5></a>
+        <a href="#"><h5>Fashion</h5></a>
         <i class="fa-solid fa-chevron-right"></i>
-        <a class="active" href=""><h5>Chanel</h5></a>
+        <a class="active" href="#"><h5>Chanel</h5></a>
     </div>
     </div>
     

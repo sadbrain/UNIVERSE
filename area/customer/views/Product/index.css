@@ -116,7 +116,6 @@ margin-right: 10px;
     width: 100%; /* Use width instead of max-width to fill the container */
     height: auto;
     border-radius: 4px; 
-    height: auto;
 /* Optional: Add border-radius to the image */
     margin: 0; /* Remove default margin */
 /* Optional: Add border-radius to the image */
@@ -154,12 +153,7 @@ margin-right: 10px;
     font-size: 15px;
 }
 
-.price::after {
-    content: "-";
-    display: inline-block;
-    margin: 0 5px;
-    color: #000; /* Màu sắc của dấu gạch giữa */
-}
+
 .star_rating{
     color: #FCA120;
     margin-right: 0 10px;

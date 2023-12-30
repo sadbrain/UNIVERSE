@@ -49,7 +49,6 @@ class ProductController extends BaseController
 
     }
     public function Detail(?int $id){
-        echo "id la $id";
         $view_body = $this -> view();
         require_once $this -> use_layout($view_body);
     }

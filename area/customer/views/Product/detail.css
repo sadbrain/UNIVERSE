@@ -5,6 +5,58 @@ body {
     background-color: #f8f9fa;
 }
 
+.fs_product {
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+.fs_product h2 {
+    height: 10px;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+    animation: colorChange 5s infinite;
+}
+
+
+@keyframes colorChange {
+    0% {
+        color: red; /* Start color */
+    }
+    50% {
+        color: #53cbfe; /* Middle color */
+    }
+    100% {
+        color: red; /* End color, same as start for a continuous loop */
+    }
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    justify-content: center;
+}
+.breadcrumb> * {
+margin-right: 10px;
+}
+.breadcrumb .active{
+    color:#FF6699;
+}
+.breadcrumb h5 {
+    margin: 5px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.breadcrumb a:hover {
+    color: #53cbfe; /* Change color to green on hover */
+}
+
 .main_detail {
     max-width: 800px;
     margin: 20px auto;
@@ -147,7 +199,7 @@ a button:hover {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 .inf p {
     margin: 0; /* Remove default paragraph margin */
@@ -163,8 +215,7 @@ a button:hover {
 .product_info {
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 15px;
-    height: 420px;
+    height: 400px;
     width: 100%; /* Adjust width to fill the grid column */
     background-color: #FF6699;
     box-sizing: border-box; /* Include padding in the width calculation */
@@ -177,7 +228,7 @@ a button:hover {
 }
 
 .product_info h5 {
-    margin-top: 10px;
+    margin-top: 10px 0;
     font-size: 16px;
     color: black;
     text-decoration: none;
@@ -186,11 +237,35 @@ a button:hover {
 .product_info a {
     text-decoration: none;
 }
+.brand{
+    margin: 10px 0;
+}
+
+.price-container {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    margin:0 0 0 5px ;
+    color: #9b079b; /* Màu sắc của giá gốc */
+}
+
+.discounted-price {
+    color: #000; /* Màu sắc của giá giảm giá */
+}
+
+.unit {
+    font-size: 14px;
+}
 
 .product_action {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin:10px 0;
+
 }
 
 .star_rating {
