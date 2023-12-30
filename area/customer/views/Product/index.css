@@ -1,0 +1,248 @@
+/* product.css */rod
+
+.product_page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.fs_product {
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+.fs_product h2 {
+    height: 10px;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+    animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+    0% {
+        color: red; /* Start color */
+    }
+    50% {
+        color: #53cbfe; /* Middle color */
+    }
+    100% {
+        color: red; /* End color, same as start for a continuous loop */
+    }
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    justify-content: center;
+}
+.breadcrumb> * {
+margin-right: 10px;
+}
+.breadcrumb .active{
+    color:#FF6699;
+}
+.breadcrumb h5 {
+    margin: 5px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.breadcrumb a:hover {
+    color: #53cbfe; /* Change color to green on hover */
+}
+
+.category_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    display: inline-block;
+    padding: 0px 460px;
+}
+.category_buttons button.active{
+    background-color: #FF6699!important;
+}
+.category_buttons a {
+    margin-right: 10px;
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Set the default text color for links */
+}
+
+.category_buttons a:hover,
+.category_buttons button:hover {
+    background-color: #53cbfe;
+    color: #fff;
+}
+
+.category_buttons button {
+    margin: 0;
+    height: 30px;
+    width: 100px;
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Optional: Add border-radius to buttons */
+    background-color: #f5f5f5;
+    color: #333;
+    cursor: pointer;
+}
+
+.category_buttons button:hover {
+    background-color: #53cbfe;
+    color: #fff;
+}
+
+.product_main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0px 230px;
+}
+
+.product_info {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 500px;
+    width: 300px;
+    background-color: #FF6699;
+}
+
+.product_info img {
+    width: 100%; /* Use width instead of max-width to fill the container */
+    height: auto;
+    border-radius: 4px; 
+    height: auto;
+/* Optional: Add border-radius to the image */
+    margin: 0; /* Remove default margin */
+/* Optional: Add border-radius to the image */
+}
+
+
+.product_info h5 {
+    margin: 10px 0;
+    font-size: 18px; 
+    text-decoration: none;
+    color: black; /* Remove underline from the title */
+}
+.product_info a {
+    text-decoration: none; /* Remove underline from all links within .product_info */
+}
+
+.brand{
+    margin-bottom: 10px;
+}
+.price-container {
+    font-size: 20px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    margin:0 0 0 20px ;
+    color: #9b079b; /* Màu sắc của giá gốc */
+}
+
+.discounted-price {
+    color: #000; /* Màu sắc của giá giảm giá */
+}
+
+.unit {
+    font-size: 15px;
+}
+
+.price::after {
+    content: "-";
+    display: inline-block;
+    margin: 0 5px;
+    color: #000; /* Màu sắc của dấu gạch giữa */
+}
+.star_rating{
+    color: #FCA120;
+    margin-right: 0 10px;
+    width: 70%;
+}
+.product_action{
+    display: flex;
+    margin:10px 0;
+}
+.product_action .quantity{
+flex:1;
+font-size: 18px;
+}
+.nav_product {
+    grid-column: span 3;
+    height: 100px;
+    border: 1px solid #ddd;
+}
+/* Apply general styling to buttons container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Apply general styling to buttons */
+/* Apply general styling to buttons container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px; /* Add margin as needed */
+}
+
+/* Container for the buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+/* Style for the buttons */
+.button-container a {
+    text-decoration: none;
+}
+
+.button-container button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block; /* Make buttons inline-block for horizontal arrangement */
+    
+}
+
+/* Style the last button differently to indicate it's the "Next" button */
+.button-container button:last-child {
+    background-color: #fff;
+    color: black;
+}
+
+/* Add hover effect */
+.button-container button:hover {
+    background-color: #53cbfe;
+}
+
+/* Style the icon inside the last button */
+.button-container button:last-child i {
+    margin-left: 5px;
+}
+
+/* Center the icon vertically */
+.button-container button i {
+    vertical-align: middle;
+}
+
+.button-container button.active{
+    border-radius: 50%;
+}
