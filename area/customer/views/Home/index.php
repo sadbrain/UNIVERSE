@@ -29,3 +29,38 @@
     </a>
   </div>
 
+  <!-- sản phẩm nổi bật-->
+
+  <div class="container" style="display: flex;">
+
+    <section class="home d-block" id="home">
+      <div class="content d-block">
+        <h3 style="display: block; margin-bottom: 0;">Outstanding products</h3>
+        <p style="display: block; margin-top: 0;">Welcome to our premier fashion store! Explore uniqueness and luxury
+          in standout products from Gucci, Adidas, and Nike. Be the first to experience new styles and
+          sophistication.</p>
+      </div>
+    </section>
+    <section class="slider">
+      <div id="carouselExample" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="wwwroot/images/slider/slider2.jpg" class="d-block w-100" alt="First product">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mũ Gucci</h5>
+              <p>Sang trọng, quý phái</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="wwwroot/images/slider/slider2.jpg" class="d-block w-100" alt="Second product">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mũ Adidas</h5>
+              <p>Thể thao, năng động</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
