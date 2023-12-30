@@ -16,4 +16,6 @@ if (isset($_SESSION["error"]) && $_SESSION["error"] != null) {
     </script>
     <?php
 }
+session_destroy();
+
 ?>
