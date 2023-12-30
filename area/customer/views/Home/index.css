@@ -1,0 +1,66 @@
+section {
+  padding: 2rem 9%;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  /* background: url() no-repeat;   */
+  background-size: cover;
+  background-position: center;
+}
+.home .content {
+  max-width: 50rem;
+}
+.home .content h3 {
+  font-size: 2rem;
+  color: #333;
+  padding: 1rem 0;
+  line-height: 1.5;
+}
+.home .content span {
+  font-size: 6rem;
+  color: pink !important;
+  padding: 1rem 0;
+  line-height: 1.5;
+}
+.home .content p {
+  font-size: 1rem;
+  color: #999;
+  padding: 1rem 0;
+  line-height: 1.5;
+}
+.content {
+  display: flex;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home,
+.slider {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .row {
+  flex: 1;
+}
+.carousel {
+  position: relative;
+  margin-bottom: 70px;
+}
