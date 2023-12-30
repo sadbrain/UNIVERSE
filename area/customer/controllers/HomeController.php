@@ -18,6 +18,8 @@ class HomeController extends BaseController
             array_push($products, $obj);
         }
         
+
+        $product_best_rating = $this -> unit_of_work -> get_product() ->get_product_best_rating_of_month(); 
         $view_body = $this->view();
         require_once $this -> use_layout($view_body);
         
