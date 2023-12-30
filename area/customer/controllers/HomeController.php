@@ -5,14 +5,18 @@ class HomeController extends BaseController
 
     function Index()
     {
-        $product = $this->unit_of_work->get_product()->get_all();
-        $category = $this->unit_of_work->get_category()->get_all();
-        $product_image = $this->unit_of_work->get_product_image()->get_all();
-        $product_inventory = $this->unit_of_work->get_product_inventory()->get_all();
-        $discount = $this->unit_of_work->get_discount()->get_all();
-        $order = $this->unit_of_work->get_order()->get_all();
-        $order_detail = $this->unit_of_work->get_order_detail()->get_all();
-        $payment_detail = $this->unit_of_work->get_payment_detail()->get_all();
+        $products_best_sellers = $this -> unit_of_work ->get_product() ->get_product_best_seller();
+        $products = [];
+        foreach($products_best_sellers as $pro){
+            $discount = $this -> unit_of_work -> get_discount() -> get_by_key("product_id",$pro ->get_id(),1);
+            $product_inventory = $this -> unit_of_work -> get_product_inventory() -> get_by_key("product_id", $pro -> get_id(), 1);
+            $obj = [
+                "Product" => $pro,
+                "Discount" => $discount,
+                "ProductInventory" => $product_inventory,
+            ];
+            array_push($products, $obj);
+        }
         
         $view_body = $this->view();
         require_once $this -> use_layout($view_body);
