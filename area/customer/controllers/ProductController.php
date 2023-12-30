@@ -49,6 +49,10 @@ class ProductController extends BaseController
 
     }
     public function Detail(?int $id){
+        $product = $this-> unit_of_work -> get_product()->get($id);
+        $discount = $this -> unit_of_work ->get_discount()->get_by_key("product_id", $id,1);
+        $product_inventory = $this -> unit_of_work -> get_product_inventory()-> get_by_key("product_id", $id,1);
+
         $view_body = $this -> view();
         require_once $this -> use_layout($view_body);
     }

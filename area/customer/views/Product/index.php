@@ -30,6 +30,7 @@
                 $product_inventory = $obj['ProductInventory'];
         ?>
             <div class="product_info">
+                <a class="d-block" href=<?="/" . URL_SUBFOLDER . "/Customer/Product/Detail/". $product-> get_id()?>>
                 <img
                 src="<?=URL_ROOT.URL_SUBFOLDER. '/'.$product -> get_thumbnail()?>"
                 alt="Fashion Product Image"/>
@@ -67,6 +68,8 @@
                         <h6 class="quantity"><?= $product_inventory -> get_quantity_buyed() . " sold"?></h6>
                     </div>
                 </div>
+                </a>
+
             </div>
         <?php }?>    
         

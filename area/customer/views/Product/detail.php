@@ -13,9 +13,9 @@
             </div>
         </div>
     <div class="info_detail">
-        <img src="https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lkz7zyofeifff5" alt="Dễ Thương Dép Lê Chống Trượt Thời Trang Mùa Thu Dạo Phố Đáng Yêu 2023">
+        <img src="<?= URL_ROOT. URL_SUBFOLDER. '/'. $product-> get_thumbnail() ?>" alt="Dễ Thương Dép Lê Chống Trượt Thời Trang Mùa Thu Dạo Phố Đáng Yêu 2023">
         <div class="spec_detail">
-            <p><b>[Available] Super Cute Smiley Face Super Light School Slippers with High Sole for Comfortable Walking</b></p>
+            <p><b> <?=  $product-> get_name() ?></b></p>
             <div class="rat_detail">
                 <div class="star_rating">
                     <i class="fa-solid fa-star"></i>
@@ -24,26 +24,52 @@
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                 </div>
-                <p>4,6k Ratings</p>
-                <p>100k sold</p>
+                <p><?=  $product -> get_rating() . " ratings"?></p>
+                <p> <?= $product_inventory-> get_quantity_buyed() . ' sold '?></p>
             </div>
-            <p class="pri">300.000VND</p>
+            <p class="price-container">
+                            <?php
+                                $current_date = new DateTime();
+                                $discount_to = $discount -> get_discount_to();
+                                if($current_date <= $discount_to){
+                                    $price = $product -> get_price();
+                                    $discount_price = ($price-$price * $discount-> get_discount_price()/100);
+                                    echo "  <span class='discounted-price'>".$discount_price."</span>
+                                            <span class='unit'>VND</span>
+                                            <span class='original-price'>".$price."</span>
+                                            <span class='unit'>VND</span>";
+                                }else{
+                                    echo"<span class=''>".$product -> get_price()."</span>
+                                    <span class='unit'>VND</span>";
+                                }
+                            ?>
+
+                        </p>
             <p class="siz"><b>Size</b></p>
             <div class="but_detail">
-                <button>36</button>
-                <button>37</button>
-                <button>38</button>
-                <button>39</button>
-                <button>40</button>
+              <?php
+              $size= $product_inventory -> get_size();
+              if ($size != null){
+                $size_arr = explode(" ",$size);
+                foreach( $size_arr as $value){
+                  echo  "<button> $value </button>";
+                }
+              }
+              ?>
+                
             </div>
             <p class="siz"><b>Color</b></p>
 
             <div class="color_options">
-                    <div class="color_option" style="background-color: #ff0000;"></div>
-                    <div class="color_option" style="background-color: #00ff00;"></div>
-                    <div class="color_option" style="background-color: #0000ff;"></div>
-                    <div class="color_option" style="background-color: #ffff00;"></div>
-                    <div class="color_option" style="background-color: #ff00ff;"></div></button>
+              
+            <?php
+              $color = $product_inventory -> get_color() ;
+              $color_arr = explode(" ",$color);
+              foreach( $color_arr as $value){
+                echo  " <div class='color_option' style='background-color: ".$value.";'></div> "  ;  
+              }
+
+              ?>
             </div>
 
             <p class="siz"><b>Quantity</b></p>
@@ -59,11 +85,12 @@
     </div>
 
     <div class="inf"><p>PRODUCT DESCRIPTION</p></div>
-    <p>SIZE SELECTION CONSULTATION</p>
-    <p>Sandals are the right size, because the size is twin, it cannot fit all feet, you should choose according to your personal sandal wearing habits.</p>
-    <p>Sandal sole is about 3.5cm thick (measured by hand).</p>
-    <p>The sole is anti-slip, made of first-class environmentally friendly EVA material. Sandals are very hot.</p>
-    <p> If you like the color or size, order it so you don't run out of color or size. Because it's a twin size, it may be looser or tighter than your tiny feet, so you can choose based on your personal preference for loose or tight fits.</p> 
+    <p>
+      <?= $product-> get_description (); 
+      ?>
+    </p>
+ 
+    
 
     <div class="inf"><p>OTHER PRODUCTS OF THE SHOP</p></div>
             <div class="product_main">
