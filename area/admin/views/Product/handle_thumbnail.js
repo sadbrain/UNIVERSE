@@ -18,5 +18,5 @@ btn_thumbnails.forEach(element => {
         thumbnail_input.value = path_picture;
         show_list_picture.classList.toggle("d-none");
 
-    }
+    }   
 });

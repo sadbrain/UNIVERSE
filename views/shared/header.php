@@ -18,7 +18,9 @@
 <body>
     <header>
         <div class="header">
-            <h3>UNIVERSEPINK</h3>
+            
+
+            <h3><a class="navbar-brand" href="<?=URL_ROOT . URL_SUBFOLDER?>">UNIVERSEPINK</a></h3>
             <div class="search_header">
                 <input type="text" name="search" placeholder="search">
                 <i class="fa-brands fa-searchengin"></i>

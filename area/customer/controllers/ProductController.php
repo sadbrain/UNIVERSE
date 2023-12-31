@@ -2,7 +2,7 @@
 require_once APP_ROOT ."/app/BaseController.php";
 class ProductController extends BaseController
 {
-    function Index(?int $category_id = null)
+    function Index(?int $category_id = null, $brand = null)
     {
         // print_r($id);
         // print_r($query);
@@ -11,8 +11,13 @@ class ProductController extends BaseController
             $categories = $this -> unit_of_work ->get_category()->get_all();
             $category = $categories[0];
             $products_by_category = $this -> unit_of_work ->get_product() ->get_by_category_id($category -> get_id());
+            
             $products = [];
             foreach($products_by_category as $pro){
+                if($brand != null && $pro-> get_brand() != $brand){
+                    continue;
+                }
+        
                 $discount = $this -> unit_of_work -> get_discount() -> get_by_key("product_id",$pro ->get_id(),1);
                 $product_inventory = $this -> unit_of_work -> get_product_inventory() -> get_by_key("product_id", $pro -> get_id(), 1);
                 $obj = [
@@ -21,6 +26,9 @@ class ProductController extends BaseController
                     "ProductInventory" => $product_inventory,
                 ];
                 array_push($products, $obj);
+                
+                
+
             }
             // var_dump($category-> get_id());
             // var_dump($products[3] -> get_category_id());
@@ -31,6 +39,9 @@ class ProductController extends BaseController
             $products_by_category = $this -> unit_of_work -> get_product() ->get_by_category_id($category_id);
             $products = [];
             foreach($products_by_category as $pro){
+                if($brand != null && $pro-> get_brand() != $brand){
+                    continue;
+                }
                 $discount = $this -> unit_of_work -> get_discount() -> get_by_key("product_id",$pro ->get_id(),1);
                 $product_inventory = $this -> unit_of_work -> get_product_inventory() -> get_by_key("product_id", $pro -> get_id(), 1);
                 $obj = [

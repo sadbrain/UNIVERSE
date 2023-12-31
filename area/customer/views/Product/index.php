@@ -2,24 +2,33 @@
 <link rel="stylesheet" href="<?php echo URL_ROOT.URL_SUBFOLDER."/area/customer/views/Product/index.css"?>" />
 </head>
 <body>
-<div class="product_page">
+<div class="product_page mb-5">
     <div class="fs_product">
     <h2><b>Fashion</b></h2>
     <div class="breadcrumb">
         <a  href=<?= "/" . URL_SUBFOLDER . "/"?>><h5>Home</h5></a>
         <i class="fa-solid fa-chevron-right"></i>
-        <a href="#"><h5>Fashion</h5></a>
-        <i class="fa-solid fa-chevron-right"></i>
-        <a class="active" href="#"><h5>Chanel</h5></a>
+        <a class=" <?= $brand==null ? "active" : null?>" href=<?= "/" . URL_SUBFOLDER . "/Customer/Product"?>><h5>Fashion</h5></a>
+        <?php if($brand != null):?>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a class="active" href="#"><h5><?=$brand?></h5></a>
+        <?php endif?>
+        
     </div>
     </div>
     
     <div class="category_buttons">
         <?php
             foreach($categories as $cate):
+                if($brand != null):
         ?>
-        <a  href=<?= "/" . URL_SUBFOLDER . "/Customer/Product/".$cate -> get_id()?>><button class="<?= $category -> get_name() == $cate -> get_name() ? "active" : null?>"><?= $cate -> get_name()?></button></a>
-    <?php endforeach?>    
+        
+        <a  href=<?= "/" . URL_SUBFOLDER . "/Customer/Product?category_id=".$cate -> get_id() ."&brand=".$brand?>><button class="<?= $category -> get_name() == $cate -> get_name() ? "active" : null?>"><?= $cate -> get_name()?></button></a>
+        <?php else:?>    
+        <a  href=<?= "/" . URL_SUBFOLDER . "/Customer/Product?category_id=".$cate -> get_id()?>><button class="<?= $category -> get_name() == $cate -> get_name() ? "active" : null?>"><?= $cate -> get_name()?></button></a>
+        <?php endif?>    
+        
+        <?php endforeach?>    
     </div>
     
     <div class="product_main">
@@ -76,7 +85,7 @@
 
     
     </div>
-    <div class="button-container">
+    <div class="button-container mt-5">
     <a href="#"><button><i class="fa-solid fa-chevron-left"></i> Pre</button></a>
     <a href="#"><button class="active">1</button></a>
     <a href="#"><button>2</button></a>

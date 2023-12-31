@@ -4,7 +4,7 @@ $router->add("/" . URL_SUBFOLDER . "/Home", "customer", "HomeController", "Index
 $router->add("/" . URL_SUBFOLDER . "/", "customer", "HomeController", "Index");
 // $router->add("/" . URL_SUBFOLDER . "/Detail/", "customer", "DetailController", "Index", array('id' => '[0-9]+'));
 // $router->add("/" . URL_SUBFOLDER . "/Detail?", "customer", "DetailController", "Index", array('id' => '[0-9]+'));
-$router->add("/" . URL_SUBFOLDER . "/Customer/Product", "customer", "ProductController", "Index", array('id' => '[0-9]'));
+$router->add("/" . URL_SUBFOLDER . "/Customer/Product", "customer", "ProductController", "Index", array('id' => '[0-9]', "brand"));
 $router->add("/" . URL_SUBFOLDER . "/Customer/Product/Index", "customer", "ProductController", "Index", array('0' => '[0-9]'));
 $router->add("/" . URL_SUBFOLDER . "/Customer/Product/Detail", "customer", "ProductController", "Detail", array('0' => '[0-9]'));
 $router->add("/" . URL_SUBFOLDER . "/Customer/Cart/Index", "customer", "CartController", "Index");
