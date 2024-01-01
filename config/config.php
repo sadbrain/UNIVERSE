@@ -5,7 +5,7 @@ define('SITE_NAME', 'Universe');
 //App Root
 define('APP_ROOT', dirname(dirname(__FILE__)));
 define('URL_ROOT', '/');
-define('URL_SUBFOLDER', 'UNIVERSE');
+define('URL_SUBFOLDER', 'Uni');
 
 
 //DB Params

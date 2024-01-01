@@ -29,6 +29,13 @@
     </a>
   </div>
 
+  <ul class="list-brand nav col-12 justify-content-center my-5">
+    <li class="nav-item"><a href="<?="/" . URL_SUBFOLDER . "/Customer/Product?brand=Chanel"?>" class="nav-link">Chanel</a></li>
+    <li class="nav-item"><a href="<?="/" . URL_SUBFOLDER . "/Customer/Product?brand=Prada"?>" class="nav-link">Prada</a></li>
+    <li class="nav-item"><a href="<?="/" . URL_SUBFOLDER . "/Customer/Product?brand=Denim"?>" class="nav-link">Denim</a></li>
+    <li class="nav-item"><a href="<?="/" . URL_SUBFOLDER . "/Customer/Product?brand=Louis vuitton"?>" class="nav-link">Louis vuitton</a></li>
+    <li class="nav-item"><a href="<?="/" . URL_SUBFOLDER . "/Customer/Product?brand=Calvin Klein"?>" class="nav-link">Calvin Klein</a></li>
+  </ul>
   <!-- sản phẩm nổi bật-->
 
   <div class="container" style="display: flex;">
