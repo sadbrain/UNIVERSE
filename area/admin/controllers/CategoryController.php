@@ -1,13 +1,15 @@
 <?php
-require_once APP_ROOT ."/app/BaseController.php";
-class CategoryController extends BaseController
+require_once APP_ROOT ."/app/AdminController.php";
+class CategoryController extends AdminController
 {   
+    function __construct($unit_of_work) {
+        parent::__construct($unit_of_work);
+    }
 
     public function Index(){
         // $categories = $this -> unit_of_work -> get_category() -> get_all();
         $categories = $this -> unit_of_work -> get_category() -> get_all();
-        $view_body = $this -> view();
-        require_once $this -> use_layout($view_body,"admin");
+        return $this->view("Category/index", compact('categories'));
 
     }
     public function Upsert(?int $id = null){
@@ -17,8 +19,8 @@ class CategoryController extends BaseController
         }else{
             $category = $this -> unit_of_work -> get_category() -> get($id);
         }
-        $view_body = $this -> view();
-        require_once $this -> use_layout($view_body, "admin");
+        return $this->view("Category/upsert", compact('category'));
+
 
     }
     public function UpsertPost(?int $id = null) {
@@ -43,7 +45,7 @@ class CategoryController extends BaseController
 
         }
 
-        $this -> redirect_to_action("Index");
+        CategoryController :: redirect("/Admin/Category");
     }
     public function Delete(?int $id){
         if($id == null || $id == 0){
@@ -61,6 +63,11 @@ class CategoryController extends BaseController
         $category -> set_deleted_by(1);
         $this -> unit_of_work -> get_category() -> update($category);
         $this -> json(['success' => true, 'message' => 'category deleted successfully']);
+    }
+    public function GetAll(){
+        $categories = $this -> unit_of_work -> get_category()->get_all();
+        $this -> json(["data" => $categories]);
+
     }
     
 }

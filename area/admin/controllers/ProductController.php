@@ -1,8 +1,11 @@
 <?php
-require_once APP_ROOT ."/app/BaseController.php";
+require_once APP_ROOT ."/app/AdminController.php";
 require_once APP_ROOT ."/models/vm/ProductVM.php";
-class ProductController extends BaseController
+class ProductController extends AdminController
 {   
+    function __construct($unit_of_work) {
+        parent::__construct($unit_of_work);
+    }
 
     public function Index(){
         // $categories = $this -> unit_of_work -> get_category() -> get_all();
@@ -21,8 +24,7 @@ class ProductController extends BaseController
             $productvm = new ProductVM($product, $product_inventory, $product_images, $discount);
             array_push($productvm_list, $productvm);
         }
-        $view_body = $this -> view();
-        require_once $this -> use_layout($view_body,"admin");
+        return $this->view("Product/index", compact('productvm_list'));
 
     }
     public function Upsert(?int $id = null){
@@ -44,8 +46,8 @@ class ProductController extends BaseController
             $productvm = new ProductVM($product, $product_inventory, $product_images, $discount);
     
         }
-        $view_body = $this -> view();
-        require_once $this -> use_layout($view_body,"admin");
+        return $this->view("Product/upsert", compact('categories', 'productvm'));
+
     }
 
     public function UpsertPost(?int $id = null){
@@ -58,6 +60,7 @@ class ProductController extends BaseController
         $this -> unit_of_work -> get_product_inventory() -> to_product_inventory($product_inventory, $_POST["ProductInventory"]);
 
         // create product
+        session_start();
         if($id == null || $id == 0){
 
             $product -> set_created_at(new DateTime());
@@ -146,12 +149,12 @@ class ProductController extends BaseController
 
         $product =  $this -> unit_of_work -> get_product() -> get($product_id);
         $product_images = $this -> unit_of_work -> get_product_image() -> get_by_key("product_id", $product -> get_id());
-        $product -> set_thumbnail($product_images[0]);
+        $product -> set_thumbnail($product_images[0]->get_url());
         $this -> unit_of_work -> get_product() -> update($product);
 
         }
 
-        $this -> redirect_to_action("Index");
+        ProductController :: redirect("/Admin/Product");
 
     }
   

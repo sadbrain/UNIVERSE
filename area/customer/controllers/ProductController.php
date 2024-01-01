@@ -1,7 +1,10 @@
 <?php
-require_once APP_ROOT ."/app/BaseController.php";
-class ProductController extends BaseController
+require_once APP_ROOT ."/app/AppController.php";
+class ProductController extends AppController
 {
+    function __construct($unit_of_work) {
+        parent::__construct($unit_of_work);
+    }
     function Index(?int $category_id = null, $brand = null)
     {
         // print_r($id);
@@ -53,10 +56,9 @@ class ProductController extends BaseController
             }
 
         }
-        $view_body = $this -> view();
-        require_once $this -> use_layout($view_body);
-        
 
+        return $this->view("Product/index", compact("categories", "products", "brand", "category"));
+        
     }
     public function Detail(?int $id){
         $product = $this-> unit_of_work -> get_product()->get($id);
@@ -77,9 +79,7 @@ class ProductController extends BaseController
 
         }
 
-
-        $view_body = $this -> view();
-        require_once $this -> use_layout($view_body);
+        return $this->view("Product/detail", compact("product", "discount", "product_inventory", "products"));
 
 
     }
