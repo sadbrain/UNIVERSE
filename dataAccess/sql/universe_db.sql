@@ -40,7 +40,7 @@ create table if not exists product_images(
 );
 create table if not exists discounts(
 	id INT AUTO_INCREMENT PRIMARY KEY,
-    discount_price DECIMAL(10, 2) NOT NULL,
+    discount_price DECIMAL(10, 2),
     discount_from datetime,
     discount_to datetime,
     created_by int,

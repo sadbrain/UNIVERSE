@@ -34,14 +34,16 @@ class Request{
             if($arr_req[count($arr_req) - 1] == ""){
                 array_pop($arr_req);
             }
+
             if(count($arr_req) >= 3){
-                $area = $arr_req[1];
-                $controller = $arr_req[2];
+                $area = $arr_req[0];
+                $controller = $arr_req[1];
          
                 //case 1
                     //không có tên action
                     //chỉ có controller
                 $controllerPath = "area/".strtolower($area)."/controllers/".$controller."Controller.php";
+
                 if(file_exists(APP_ROOT . "/" . $controllerPath)){
                     $action = isset($arr_req[3]) ? $arr_req[3] : null;
                     //không có action
@@ -51,7 +53,7 @@ class Request{
                     //không có action nhưng nó là index và có tham số
                     require_once($controllerPath);
                     $controller_instance =  $controller."Controller";
-                     $controller_instance = new $controller_instance($this -> unit_of_work, $controller, $controllerPath, $area, $action);
+                     $controller_instance = new $controller_instance($this -> unit_of_work);
                         if(!method_exists($controller_instance, $action)){
                         $this -> route = "/".implode("/", array_slice($arr_req,0,3));
                         $this -> parameter = array_slice($arr_req,3,count($arr_req)-1);

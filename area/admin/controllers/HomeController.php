@@ -1,10 +1,11 @@
 <?php
-require_once APP_ROOT ."/app/BaseController.php";
-class HomeController extends BaseController
+require_once APP_ROOT ."/app/AdminController.php";
+class HomeController extends AdminController
 {
-
+    function __construct($unit_of_work) {
+        parent::__construct($unit_of_work);
+    }
     function Index(){
-        $view_body = $this -> view();
-        require_once $this -> use_layout($view_body, "admin");
+        return $this->view("Home/index");
     }
 }

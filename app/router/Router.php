@@ -53,7 +53,8 @@ class Router
 
             if ($controllerPath) {
                 require_once($controllerPath);
-                $controller = new $controller($unit_of_work, $controller, $controllerPath, $area, $action);
+                $controller = new $controller($unit_of_work);
+                
                 // Kiểm tra và gọi action
 
                 if (method_exists($controller, $action)) {

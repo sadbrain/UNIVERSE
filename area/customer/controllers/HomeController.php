@@ -1,8 +1,10 @@
 <?php
-require_once APP_ROOT ."/app/BaseController.php";
-class HomeController extends BaseController
+require_once APP_ROOT ."/app/AppController.php";
+class HomeController extends AppController
 {
-
+    function __construct($unit_of_work) {
+        parent::__construct($unit_of_work);
+    }
     function Index()
     {
         $products_best_sellers = $this -> unit_of_work ->get_product() ->get_product_best_seller();
@@ -20,8 +22,8 @@ class HomeController extends BaseController
         
 
         $product_best_rating = $this -> unit_of_work -> get_product() ->get_product_best_rating_of_month(); 
-        $view_body = $this->view();
-        require_once $this -> use_layout($view_body);
+        
+        return $this->view("Home/index", compact('products', 'product_best_rating'));
         
     }
 }

@@ -1,4 +1,4 @@
-<div class="card shadow border-0 mt-4">
+<div class="card shadow border-0 my-4">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
     <div class="row">
         <div class="col-12 text-center">
@@ -8,7 +8,7 @@
     </div>
     </div>
     <div class="card-body p-4">
-        <form id="form-upsert-category" action=<?="/" . URL_SUBFOLDER . "/Admin/Category/UpsertPost/" .$category -> get_id() ?> method="post" class="row">
+        <form id="form-upsert-category" action=<?="/Admin/Category/UpsertPost/" .$category -> get_id() ?> method="post" class="row">
             <div cl ass="border p-3">
                
                 <div class="form-group form-floating py-2 col-12">
@@ -36,7 +36,7 @@
                         <button type="submit" class="btn btn-primary form-control"><?= $category -> get_id() != 0 ? "Update" : "Create"?></button>
                     </div>
                     <div class="col-6 col-md-3">
-                        <a href=<?=URL_ROOT . URL_SUBFOLDER ."/Admin/Category"?> class="btn btn-info btn-outline-primary border form-control">
+                        <a href=<?="/Admin/Category"?> class="btn btn-info btn-outline-primary border form-control">
                             Back to List
                         </a>
                     </div>
@@ -48,7 +48,7 @@
 </div>
 
 
-<script src=<?=URL_ROOT . URL_SUBFOLDER ."/wwwroot/js/Validator.js"?>></script>
+<?= load_js('/wwwroot/lib/js/Validator.js')?>
 <script>
         
         Validator("#form-upsert-category");

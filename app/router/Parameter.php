@@ -13,6 +13,7 @@ class Parameter{
                 $key = trim($p[0]);
                 $value = trim($p[1]);
                 $this->pairs[$key] = $value;
+                
             }
         }
     }

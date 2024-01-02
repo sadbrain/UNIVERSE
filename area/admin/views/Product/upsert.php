@@ -4,8 +4,8 @@ $discount = $productvm -> get_discount();
 $product_inventory = $productvm -> get_product_inventory();
 $product_images = $productvm -> get_product_images();
 ?>
-<link rel="stylesheet" href=<?= URL_ROOT.URL_SUBFOLDER."/area/admin/views/Product/upsert.css"?>>
-<div class="card shadow border-0 mt-4">
+<?= load_css("/wwwroot/admin/css/pages/Product/upsert.css")?>
+<div class="card shadow border-0 my-4">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
@@ -15,7 +15,7 @@ $product_images = $productvm -> get_product_images();
         </div>
     </div>
     <div class="card-body p-4">
-        <form id="form-upsert-productvm" action=<?="/" . URL_SUBFOLDER . "/Admin/Product/UpsertPost/" .$product -> get_id() ?>   method="post" class="row"  enctype="multipart/form-data">
+        <form id="form-upsert-productvm" action=<?= "/Admin/Product/UpsertPost/" .$product -> get_id() ?>   method="post" class="row"  enctype="multipart/form-data">
             <div class="row">
                 <div class="col-10">
                     <div cl ass="border p-3">
@@ -23,6 +23,7 @@ $product_images = $productvm -> get_product_images();
                         <div class="form-group form-floating py-2 col-12">
                             <input rules="required" class="form-control border-0 shadow"  name="Product[name]" value ="<?= $product -> get_id() != 0 ? $product -> get_name() : null?>"/>
                             <label class="ms-2">Name</label>
+                            <span class="form-message text-danger"></span>
                         </div>
 
                         <div class="form-group form-floating py-2 col-12" > 
@@ -30,19 +31,16 @@ $product_images = $productvm -> get_product_images();
                             <label class="ms-2">Description</label>
                         </div>
 
-                        <div class="form-group form-floating py-2 col-12">
-                            <input class="form-control border-0 shadow"  name="Product[slug]" value ="<?= $product -> get_id() != 0 ? $product -> get_slug() : null?>"/>
-                            <label class="ms-2">Slug</label>
-                        </div>
 
                         <div class="form-group form-floating py-2 col-12">
                             <input rules="required|min:100000" type="number" class="form-control border-0 shadow"  name="Product[price]" value ="<?= $product -> get_id() != 0 ? $product -> get_price() : null?>"/>
                             <label class="ms-2">Price</label>
+                            <span class="form-message text-danger"></span>
                         </div>
 
-                        <div class="form-floating col-12 py-2">
+                        <div class="form-group form-floating col-12 py-2">
                             <label class="ms-2">Brand</label>
-                            <select class="form-select border-0 shadow" name ="Product[brand]">
+                            <select  rules="required" class="form-select border-0 shadow" name ="Product[brand]">
                                 <option value = "<?=$product -> get_id() != 0 ? $product -> get_brand() :null?>" selected><?= $product -> get_id() != 0 ? $product -> get_brand() :"--Select brand--"?></option>
                                 <option  value = "Chanel">Chanel</option>
                                 <option  value = "Prada">Prada</option>
@@ -51,6 +49,8 @@ $product_images = $productvm -> get_product_images();
                                 <option  value = "Calvin Klein">Calvin Klein</option>
 
                             </select>
+                            <span class="form-message text-danger"></span>
+
                         </div>
 
                         <div class="form-group form-floating py-2 col-12">
@@ -71,6 +71,7 @@ $product_images = $productvm -> get_product_images();
                         <div class="form-group form-floating py-2 col-12">
                             <input rules="required|min:1" type="number" class="form-control border-0 shadow"  name="ProductInventory[quantity]" value ="<?= $product -> get_id() != 0 ? $product_inventory -> get_quantity() : null?>"/>
                             <label class="ms-2">Quatity</label>
+                            <span class="form-message text-danger"></span>
                         </div>
 
                         <div class="form-group form-floating py-2 col-12">
@@ -83,17 +84,20 @@ $product_images = $productvm -> get_product_images();
                             <label class="ms-2">color</label>
                         </div>
 
-                        <div class="form-floating col-12 py-2">
+                        <div class=" form-group form-floating col-12 py-2">
                             <label class="ms-2">Category</label>
-                            <select class="form-select border-0 shadow" name ="Product[category_id]">
+                            <select rules="required" class="form-select border-0 shadow" name ="Product[category_id]">
                                 <option value = "<?=$product -> get_id() != 0 ? $product -> get_category() -> get_id() :null?>" selected><?= $product -> get_id() != 0 ? $product -> get_category() -> get_name() :"--Select category--"?></option>
 
                                 <?php foreach ($categories as $category):?>
                                     <option value="<?=$category -> get_id()?>"><?=$category -> get_name()?></option>
                                 <?php endforeach?>
+                                <span class="form-message text-danger"></span>
 
 
                             </select>
+                            <span class="form-message text-danger"></span>
+
                         </div>
 
                         <?php if ($product->get_id() != 0): ?>
@@ -102,12 +106,12 @@ $product_images = $productvm -> get_product_images();
                                 <div class="list_picture row col-10">
                                     <?php foreach ($product_images as $product_image): ?>
                                         <button class="btn-thumbnail m-1 col-5" type="button">
-                                            <img width="85%" height="85%" src="<?= "/" . URL_SUBFOLDER . "/" . $product_image->get_url() ?>" style="border-radius:5px; border:1px solid #bbb9b9"/>
+                                            <img width="85%" height="85%" src="<?= "/" . $product_image->get_url() ?>" style="border-radius:5px; border:1px solid #bbb9b9"/>
                                         </button>
                                     <?php endforeach ?>
                                 </div>
                              <input class="form-control border-0 shadow" name="Product[thumbnail]" value="<?= $product->get_thumbnail() ?>">
-                                <img  class="img_thumbnail mt-1" width="100px" height="100px" src="<?= URL_ROOT . URL_SUBFOLDER . "/" . $product->get_thumbnail() ?>">
+                                <img  class="img_thumbnail mt-1" width="100px" height="100px" src="<?= "/" . $product->get_thumbnail() ?>">
                             </div>
                         <?php else: ?>
                             <input type="hidden" name="Product[thumbnail]" value="<?= $product->get_thumbnail() ?>">
@@ -122,6 +126,7 @@ $product_images = $productvm -> get_product_images();
 
                         <input hidden name="Product[id]" value="<?=$product -> get_id()?>">
                         <input hidden name="Product[rating]" value="<?=$product -> get_rating()?>">
+                        <input hidden name="Product[slug]" value ="<?= $product -> get_slug()?>"/>
                         <input hidden name="Product[created_by]" value="<?=$product -> get_created_by()?>">
                         <input hidden name="Product[updated_by]" value="<?=$product -> get_updated_by()?>">
                         <input hidden name="Product[deleted_by]" value="<?=$product -> get_deleted_by()?>">
@@ -152,7 +157,7 @@ $product_images = $productvm -> get_product_images();
                                 <button type="submit" class="btn btn-primary form-control"><?= $product -> get_id() != 0 ? "Update" : "Create"?></button>
                             </div>
                             <div class="col-6 col-md-3">
-                                <a href=<?=URL_ROOT . URL_SUBFOLDER ."/Admin/Product"?> class="btn btn-info btn-outline-primary border form-control">
+                                <a href=<?="/Admin/Product"?> class="btn btn-info btn-outline-primary border form-control">
                                     Back to List
                                 </a>
                             </div>
@@ -162,7 +167,7 @@ $product_images = $productvm -> get_product_images();
                 </div>
                 <div class="col-2">
                     <?php foreach ($product_images as $product_image):?>
-                        <img class="mt-2" src="<?= "/".URL_SUBFOLDER."/".$product_image ->get_url()?>" width="100%" style="border-radius:5px; border:1px solid #bbb9b9"/>
+                        <img class="mt-2" src="<?="/".$product_image ->get_url()?>" width="100%" style="border-radius:5px; border:1px solid #bbb9b9"/>
                     <?php endforeach?>
                 </div>
             </div>
@@ -172,10 +177,11 @@ $product_images = $productvm -> get_product_images();
 </div>
 
 
-<script src=<?=URL_ROOT . URL_SUBFOLDER ."/wwwroot/js/Validator.js"?>></script>
+<?= load_js('/wwwroot/lib/js/Validator.js')?>
 <script>
         
         Validator("#form-upsert-productvm");
 
 </script>
-<script src=<?=URL_ROOT . URL_SUBFOLDER ."/area/admin/views/Product/handle_thumbnail.js"?>></script>
+<?= load_js('/wwwroot/admin/js/pages/Product/handle_thumbnail.js')?>
+
