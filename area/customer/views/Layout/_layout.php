@@ -28,4 +28,5 @@
     <script src="https://kit.fontawesome.com/51de929979.js" crossorigin="anonymous"></script>
     <?= load_js('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js') ?>
     <?= load_js('https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js') ?>
+    
 </html>
