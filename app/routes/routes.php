@@ -26,3 +26,7 @@ $router->add("/" . "Admin/Product/Index", "admin", "ProductController", "Index")
 $router->add("/" . "Admin/Product/Upsert", "admin", "ProductController", "Upsert", array('0' => '[0-9]'));
 $router->add("/" . "Admin/Product/UpsertPost", "admin", "ProductController", "UpsertPost", array('0' => '[0-9]'));
 $router->add("/" . "Admin/Product/Delete", "admin", "ProductController", "Delete", array('0' => '[0-9]'));
+
+$router->add("/" . "Admin/Account/Login", "admin", "AccountController", "Login");
+$router->add("/" . "Admin/Account/LoginPost", "admin", "AccountController", "LoginPost",);
+$router->add("/" . "Admin/Account/Logout", "admin", "AccountController", "Logout",);
