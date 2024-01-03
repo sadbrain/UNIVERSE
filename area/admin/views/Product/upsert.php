@@ -5,7 +5,7 @@ $product_inventory = $productvm -> get_product_inventory();
 $product_images = $productvm -> get_product_images();
 ?>
 <?= load_css("/wwwroot/admin/css/pages/Product/upsert.css")?>
-<div class="card shadow border-0 my-4">
+<div class="card shadow border-0 m-4">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">

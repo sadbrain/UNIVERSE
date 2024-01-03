@@ -15,7 +15,7 @@
     <?= load_css('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css') ?>
     <?= load_js("https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js")?>
 </head>
-
+    
 <body>
     <!-- $items is shared to all pages, check app/AdminController or app/AppController  -->
     <?php require_once get_view('admin', 'Layout/header') ?>

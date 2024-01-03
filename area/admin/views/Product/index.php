@@ -1,5 +1,5 @@
 <?php session_start()?>
-<div class="card shadow border-0 my-4">
+<div class="card shadow border-0 m-4">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">

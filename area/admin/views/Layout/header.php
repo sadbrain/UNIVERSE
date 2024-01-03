@@ -11,10 +11,19 @@
                         <a class="nav-link active" href="/Admin/Home">Home
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/Admin/Home">Login
-                        </a>
-                    </li>
+                    <?php if(isset($_SESSION["username"])){
+                            ?>
+                            <div class="auth-buttons">
+                            <li class="nav-item">
+                                    <a class="nav-link" href="/Admin/Account/Logout">Logout</a>
+                                </li>
+                            </div>
+                            <?php } else{?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Admin/Account/Login">Login</a>
+                                </li>
+                            <?php }?>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" onclick="show_list_managment()">Content Managment</a>
                         <div class="dropdown-menu" id="list_managment">
@@ -24,8 +33,11 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Order</a>
                             <div class="dropdown-divider"></div>
+             
                         </div>
                     </li>
+
+ 
                 </ul>
 
             </div>
