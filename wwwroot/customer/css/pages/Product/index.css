@@ -201,10 +201,13 @@ font-size: 18px;
 /* Style for the buttons */
 .button-container a {
     text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+
 }
 
 .button-container button {
-    padding: 10px 15px;
     margin: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;

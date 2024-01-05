@@ -93,13 +93,27 @@
 
 
     </div>
-    <div class="button-container mt-5">
-        <a href="#"><button><i class="fa-solid fa-chevron-left"></i> Pre</button></a>
-        <a href="#"><button class="active">1</button></a>
-        <a href="#"><button>2</button></a>
-        <a href="#"><button>3</button></a>
-        <a href="#"><button>...</button></a>
-        <a href="#"><button>4</button></a>
-        <a href="#"><button>Next <i class="fa-solid fa-chevron-right"></i></button></a>
+    <div class="button-container pagination_container mt-5">
+        <button class="pre_pagination"><a  href="#"><i class="fa-solid fa-chevron-left"></i> Pre</a></button>
+        <?php for($i = 1; $i <= $num_of_pagination; $i++):?>
+            <?php if($brand != null){?>
+                
+                <button id="pagination-<?=$i?>" class=<?=  $page == $i ? "active" : ""?>> 
+                    <a href=<?= "?brand=$brand&page=" . $i?>> <?=$i?>
+                    </a>
+                </button>
+
+            <?php }else{?>
+                <button id="pagination-<?=$i?>" class=<?=  $page == $i ? "active" : ""?>>
+                    <a href=<?= "?page=" . $i?>> <?=$i?>
+                    </a>
+                </button>
+            <?php }?>
+        <?php endfor?>
+       
+        <button class="next_pagination"><a href="#"> Next <i class="fa-solid fa-chevron-right"></i></a></button>
     </div>
 </div>
+
+
+<?= load_js("\wwwroot\customer\js\pages\Product\index.js")?>

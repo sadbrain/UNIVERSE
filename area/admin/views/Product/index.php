@@ -66,6 +66,6 @@
          </table>
        
     </div>
-</>
+</div>
 <?= load_js("/wwwroot/admin/js/pages/Product/product.js")?>
 <?php require_once APP_ROOT . "/area/admin/views/Partial/_notification.php" ?>
