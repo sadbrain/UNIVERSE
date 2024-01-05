@@ -16,6 +16,8 @@
         </div>
     </div>
     <div class="info_detail">
+    <input hidden name='id' value='<?php echo $product-> get_id()?>'>
+
         <img class="pro-thumb" src="<?= '/' . $product->get_thumbnail() ?>" alt="Dễ Thương Dép Lê Chống Trượt Thời Trang Mùa Thu Dạo Phố Đáng Yêu 2023">
         <div class="spec_detail">
             <p class="pro-name"><b> <?= $product->get_name() ?></b></p>
@@ -150,7 +152,6 @@ echo  " <div class='color_option' style='background-color: " . $value . ";'><inp
             </div>
         <?php } ?>
 
-        <input hidden name='id' value='<?php echo $product-> get_id()?>'>
 
     </div>
 </div>

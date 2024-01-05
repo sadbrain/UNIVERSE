@@ -64,7 +64,7 @@ function addToCart(){
             quantity:parseFloat(quantity.value),
             total:quantity.value*parseFloat (price.innerText.trim()),
         }
-        console.log(orderInfor);
+        // console.log(orderInfor);
         $.ajax({
             type: 'POST',
             url: '/Customer/Cart/Create',

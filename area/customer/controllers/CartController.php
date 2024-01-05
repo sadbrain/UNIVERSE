@@ -26,6 +26,23 @@ class CartController extends AppController
         echo json_encode($response);
         exit;
     }
+    function Delete(?int $id){
+        if($id == 0 || $id == null){
+            echo "Page not found";
+            return;
+        }
+        session_start();
+        $carts = isset($_SESSION['cart'])? $_SESSION['cart']:[];
+        foreach($carts as $key => $cart){
+            if($cart['id']== $id){
+                unset($carts[$key]);
+            }
+        }
+        $_SESSION["cart"] = $carts;
+
+        CartController::redirect("/Customer/Cart");
+
+    }
     
 }
 
