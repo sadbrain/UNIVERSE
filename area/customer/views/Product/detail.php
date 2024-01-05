@@ -1,4 +1,4 @@
-<title>Details Page</title>
+ <title>Details Page</title>
 <?= load_css("/wwwroot/customer/css/pages/Product/detail.css") ?>
 
 
@@ -18,7 +18,7 @@
     <div class="info_detail">
         <img src="<?= '/' . $product->get_thumbnail() ?>" alt="Dễ Thương Dép Lê Chống Trượt Thời Trang Mùa Thu Dạo Phố Đáng Yêu 2023">
         <div class="spec_detail">
-            <p><b> <?= $product->get_name() ?></b></p>
+            <p class="pro-name"><b> <?= $product->get_name() ?></b></p>
             <div class="rat_detail">
                 <div class="star_rating">
                     <i class="fa-solid fa-star"></i>
@@ -37,12 +37,12 @@
                 if ($current_date <= $discount_to) {
                     $price = $product->get_price();
                     $discount_price = ($price - $price * $discount->get_discount_price() / 100);
-                    echo "  <span class='discounted-price'>" . $discount_price . "</span>
+                    echo "  <span  class='pro-price discounted-price'>" . $discount_price . "</span>
                                             <span class='unit'>VND</span>
                                             <span class='original-price'>" . $price . "</span>
                                             <span class='unit'>VND</span>";
                 } else {
-                    echo "<span class=''>" . $product->get_price() . "</span>
+                    echo "<span class='pro-price'>" . $product->get_price() . "</span>
                                     <span class='unit'>VND</span>";
                 }
                 ?>
@@ -55,7 +55,7 @@
                 if ($size != null) {
                     $size_arr = explode(" ", $size);
                     foreach ($size_arr as $value) {
-                        echo  "<button> $value </button>";
+                        echo  "<button> <input type='radio' name='size' value=$value> $value </button>";
                     }
                 }
                 ?>
@@ -69,7 +69,7 @@
                 $color = $product_inventory->get_color();
                 $color_arr = explode(" ", $color);
                 foreach ($color_arr as $value) {
-                    echo  " <div class='color_option' style='background-color: " . $value . ";'></div> ";
+echo  " <div class='color_option' style='background-color: " . $value . ";'><input type='radio' name='color' value=$value></div> ";
                 }
 
                 ?>
@@ -79,10 +79,10 @@
             <div class="checkout_detail">
                 <div class="quantity_buttons">
                     <button id="decrease">-</button>
-                    <input type="text" id="quantity" value="1" readonly class="quantity_input">
+                    <input type="number" id="quantity" name="quantity"  class="quantity_input">
                     <button id="increase">+</button>
                 </div>
-                <a href=""><button>Add to cart</button></a>
+                <a href="#"><button onclick="addToCart()"> Add to cart</button></a>
             </div>
         </div>
     </div>
@@ -110,7 +110,7 @@
         ?>
             <div class="product_info">
                 <a class="d-block" href=<?=  "/Customer/Product/Detail/" . $product->get_id() ?>>
-                    <img src="<?=  '/' . $product->get_thumbnail() ?>" alt="Fashion Product Image" />
+                    <img class="pro-thumb" src="<?=  '/' . $product->get_thumbnail() ?>" alt="Fashion Product Image" />
                     <div class="p-3">
                         <a href="javascript:void(0)">
                             <h5><b><?= $product->get_name() ?></b></h5>
@@ -138,7 +138,7 @@
                             <div class="star_rating">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                             </div>
@@ -150,7 +150,8 @@
             </div>
         <?php } ?>
 
-
+        <input hidden name='id' value='<?php echo $product-> get_id()?>'>
 
     </div>
 </div>
+<script src="\wwwroot\customer\js\pages\Cart\cart.js"></script>
