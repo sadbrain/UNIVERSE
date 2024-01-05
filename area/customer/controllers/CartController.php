@@ -7,7 +7,9 @@ class CartController extends AppController
         parent::__construct($unit_of_work);
     }
     function Index(){
-       return $this -> view("Cart/index");
+        session_start();
+        $carts = isset($_SESSION['cart'])? $_SESSION['cart']:[];
+        return $this -> view("Cart/index", compact('carts'));
     }
     function Create(){
         session_start();
