@@ -94,6 +94,8 @@ class ProductController extends AppController
         }
         if($products_by_category != null)
             $num_of_pagination = ceil(count($products_by_category)/$item_per_page);
+        else
+            $num_of_pagination = 1;
         return $this->view("Product/index", compact("categories", "products", "brand", "category", "num_of_pagination", "page"));
         
     }
