@@ -9,6 +9,7 @@ $router->add("/" . "Customer/Product/Detail", "customer", "ProductController", "
 $router->add("/" . "Customer/Cart/Index", "customer", "CartController", "Index");
 $router->add("/" . "Customer/Checkout/Index", "customer", "CheckoutController", "Index");
 $router->add("/" . "Customer/Cart", "customer", "CartController", "Index");
+$router->add("/" . "Customer/Cart/Create", "customer", "CartController", "Create");
 $router->add("/" . "Customer/Checkout", "customer", "CheckoutController", "Index");
 //admin
 //admin
