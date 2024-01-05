@@ -10,6 +10,7 @@ $router->add("/" . "Customer/Cart/Index", "customer", "CartController", "Index")
 $router->add("/" . "Customer/Checkout/Index", "customer", "CheckoutController", "Index");
 $router->add("/" . "Customer/Cart", "customer", "CartController", "Index");
 $router->add("/" . "Customer/Cart/Create", "customer", "CartController", "Create");
+$router->add("/" . "Customer/Cart/Delete", "customer", "CartController", "Delete", array('id' => '[0-9]'));
 $router->add("/" . "Customer/Checkout", "customer", "CheckoutController", "Index");
 //admin
 //admin
