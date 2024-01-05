@@ -12,6 +12,7 @@
                 <li><a href="/Customer/Product">Product</a></li>
                 <li><a href="">Privacy</a></li>
                 <li><a href="">About Us</a></li>
+                <li><a href="/Customer/Cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
             </ul>
         </div>
         <!-- <div class="auth-buttons">
