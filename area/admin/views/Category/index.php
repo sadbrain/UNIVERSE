@@ -45,8 +45,9 @@
                         </tr> 
                 <?php endforeach; ?>
             </tbody>
+
          </table>
-       
+
     </div>
 </div>
 <?= load_js("/wwwroot/admin/js/pages/Category/category.js")?>

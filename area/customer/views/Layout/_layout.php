@@ -11,6 +11,8 @@
     <?= load_css('/wwwroot/lib/css/site.css') ?>
     <?= load_css('/wwwroot/customer/css/layout/header.css') ?>
     <?= load_css('/wwwroot/customer/css/layout/footer.css') ?>
+    <?= load_js("https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js")?>
+
 </head>
 
 <body>

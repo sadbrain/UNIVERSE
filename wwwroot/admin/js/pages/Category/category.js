@@ -14,7 +14,6 @@
 //             { data: 'name', "width": "15%" },
 //             { data: 'created_by', "width": "10%" },
 //             { data: 'created_by', "width": "10%" },
-//             { data: 'created_by', "width": "10%" },
 
 //         ]
 //     });
@@ -34,6 +33,7 @@ function Delete(url){
 
     }).then((result) => {
         if (result.isConfirmed) {
+
             $.ajax({
                 url: url,
                 type: "DELETE",

@@ -19,6 +19,27 @@
     text-align: center;
     animation: colorChange 5s infinite;
 }
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+
+  .pagination li {
+    margin-right: 5px;
+  }
+
+  .pagination a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  .pagination a.active {
+    background-color: #007bff;
+    color: #fff;
+  }
 
 @keyframes colorChange {
     0% {
@@ -201,10 +222,13 @@ font-size: 18px;
 /* Style for the buttons */
 .button-container a {
     text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+
 }
 
 .button-container button {
-    padding: 10px 15px;
     margin: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
