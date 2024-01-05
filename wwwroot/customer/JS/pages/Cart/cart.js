@@ -44,9 +44,19 @@ function checkvalidate(){
 }
 function addToCart(){
     if (checkvalidate()){
+        var imageUrl = img.src;
+        // Create a new URL object
+        var urlObject = new URL(imageUrl);
+        
+        // Get the base URL
+        var baseUrl = urlObject.origin;
+        
+        // Get the path starting from /wwwroot
+        var pathAfterWwwroot = urlObject.pathname.includes('/wwwroot') ? urlObject.pathname.substring(urlObject.pathname.indexOf('/wwwroot')) : '';
+        // console.log(img);
         var orderInfor={
             id:id.value,
-            thumbnail:img.src,
+            thumbnail:pathAfterWwwroot,
             name:fullname.innerText,
             size:size.value,
             color:color.value,
@@ -54,7 +64,7 @@ function addToCart(){
             quantity:parseFloat(quantity.value),
             total:quantity.value*parseFloat (price.innerText.trim()),
         }
-        // console.log(orderInfor);
+        console.log(orderInfor);
         $.ajax({
             type: 'POST',
             url: '/Customer/Cart/Create',
