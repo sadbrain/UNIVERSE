@@ -54,7 +54,7 @@ class UserRepository implements IRepository
         $sql = "INSERT INTO users 
         (name, email, password, role, created_by,
          updated_by, deleted_by, created_at, updated_at, deleted_at)
-        VALUES (:name, :email, :password, :role, , :created_by, 
+        VALUES (:name, :email, :password, :role, :created_by, 
          :updated_by, :deleted_by, :created_at, :updated_at, :deleted_at)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([

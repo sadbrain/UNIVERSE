@@ -10,4 +10,19 @@ class UserController extends AdminController
 
         return $this->view("User/index",compact("users"));
     }
+    function Create(){
+        return $this-> view("User/create");
+    }
+    function CreatePost(){
+        $user = new User();
+        $this-> unit_of_work -> get_user() -> to_user($user, $_POST);
+        $user -> set_role("user");
+        $user -> set_created_at(new DateTime());
+        $user -> set_created_by(1);
+        $this -> unit_of_work -> get_user() -> add($user);
+        $_SESSION["success"]="User created successfully";
+        UserController :: redirect("/Admin/User");
+
+
+    }
 }
