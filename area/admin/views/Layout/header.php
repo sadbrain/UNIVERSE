@@ -33,7 +33,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/Admin/Product">Product</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Order</a>
+                            <a class="dropdown-item" href="/Admin/Order">Order</a>
                             <div class="dropdown-divider"></div>
              
                         </div>

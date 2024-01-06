@@ -49,6 +49,24 @@ class OrderDetailRepository implements IRepository
         }
         return $order_detail;
     }
+
+    public function get_by_order_id($order_id)
+    {
+        $sql = "SELECT * FROM order_details where order_id  = :order_id LIMIT 1";
+        $stmt = $this -> db -> prepare($sql);
+        $stmt -> execute([
+            ':order_id' => $order_id,
+        ]);
+        $result = $stmt -> fetch(PDO::FETCH_ASSOC);
+
+        $order_detail = null;
+        if ($result) {
+            $order_detail = new OrderDetail();
+            $this -> to_order_detail($order_detail, $result);
+        }
+
+        return $order_detail;
+    }
     public function add($entity)
     {
         $sql = "INSERT INTO order_details 
@@ -108,23 +126,23 @@ class OrderDetailRepository implements IRepository
 
     public function to_order_detail($order_detail, $order_detail_in_db)
     {
-        if(!$order_detail_in_db["id"] != null)
+        if($order_detail_in_db["id"] != null)
             $order_detail -> set_id((int) $order_detail_in_db["id"]);
-        if(!$order_detail_in_db["product_name"] != null)
+        if($order_detail_in_db["product_name"] != null)
             $order_detail -> set_product_name($order_detail_in_db["product_name"]);
-        if(!$order_detail_in_db["product_quantity"] != null)      
+        if($order_detail_in_db["product_quantity"] != null)      
             $order_detail -> set_product_quantity((int) $order_detail_in_db["product_quantity"]);
-        if(!$order_detail_in_db["product_price"] != null)      
+        if($order_detail_in_db["product_price"] != null)      
             $order_detail -> set_product_price((float) $order_detail_in_db["product_price"]);
-        if(!$order_detail_in_db["product_discount_price"] != null)      
+        if($order_detail_in_db["product_discount_price"] != null)      
             $order_detail -> set_product_discount_price((float) $order_detail_in_db["product_discount_price"]);
-        if(!$order_detail_in_db["product_color"] != null)      
+        if($order_detail_in_db["product_color"] != null)      
             $order_detail -> set_product_color($order_detail_in_db["product_color"]);
-        if(!$order_detail_in_db["product_size"] != null)      
+        if($order_detail_in_db["product_size"] != null)      
             $order_detail -> set_product_size($order_detail_in_db["product_size"]);
-        if(!$order_detail_in_db["product_id"] != null)      
+        if($order_detail_in_db["product_id"] != null)      
              $order_detail -> set_product_id((int) $order_detail_in_db["product_id"]);
-        if(!$order_detail_in_db["order_id"] != null)      
+        if($order_detail_in_db["order_id"] != null)      
             $order_detail -> set_order_id((int) $order_detail_in_db["order_id"]);
     }
 }
