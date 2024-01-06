@@ -27,6 +27,25 @@ class UserController extends AdminController
         $_SESSION["success"] = "User created successfully";
         UserController::redirect("/Admin/User");
     }
+    function Update(?int $id)
+    {
+        if ($id === null || $id === 0) {
+            echo 'page not found';
+            return;
+        }
+        $user = $this->unit_of_work->get_user()->get($id);
+        return $this->view("User/update", compact("user"));
+    }
+    function UpdatePost()
+    {
+        $user = new User();
+        $this->unit_of_work->get_user()->to_user($user, $_POST);
+        $user->set_updated_at(new DateTime());
+        $user->set_updated_by(1);
+        $this->unit_of_work->get_user()->update($user);
+        $_SESSION["success"] = "User updated successfully";
+        UserController::redirect("/Admin/User");
+    }
     function Delete(?int $id)
     {
         if ($id === null || $id === 0) {
