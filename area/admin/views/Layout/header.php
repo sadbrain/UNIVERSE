@@ -27,6 +27,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" onclick="show_list_managment()">Content Managment</a>
                         <div class="dropdown-menu" id="list_managment">
+                            <a class="dropdown-item" href="/Admin/User">User</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/Admin/Category">Category</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/Admin/Product">Product</a>

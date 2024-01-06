@@ -100,3 +100,16 @@ create table if not exists payment_details(
     order_id int not null,
 	FOREIGN KEY (order_id) REFERENCES orders(id)
 )
+create table if not exists users(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(100),
+    email varchar(255),
+    `password` varchar(255),
+    role enum("user","admin"),
+    created_by int,
+    created_at datetime,
+	updated_by int,
+    updated_at datetime,
+	deleted_by int,
+    deleted_at datetime
+);
