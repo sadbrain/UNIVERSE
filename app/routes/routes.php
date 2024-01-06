@@ -37,6 +37,8 @@ $router->add("/" . "Admin/User/Update", "admin", "UserController", "Update", arr
 $router->add("/" . "Admin/User/UpdatePost", "admin", "UserController", "UpdatePost", array('0' => '[0-9]'));
 $router->add("/" . "Admin/User/Delete", "admin", "UserController", "Delete", array('0' => '[0-9]'));
 
+$router->add("/" . "Admin/Order", "admin", "OrderController", "Index");
+
 $router->add("/" . "Admin/Account/Login", "admin", "AccountController", "Login");
 $router->add("/" . "Admin/Account/LoginPost", "admin", "AccountController", "LoginPost");
 $router->add("/" . "Admin/Account/Logout", "admin", "AccountController", "Logout");
