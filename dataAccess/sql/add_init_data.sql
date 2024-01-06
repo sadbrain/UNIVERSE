@@ -176,3 +176,8 @@ UPDATE `universe`.`products` SET `created_at` = '2024-01-01 02:22:12' WHERE (`id
 UPDATE `universe`.`products` SET `created_at` = '2024-01-01 02:22:12' WHERE (`id` = '12');
 UPDATE `universe`.`products` SET `created_at` = '2024-01-01 02:22:12' WHERE (`id` = '11');
 UPDATE `universe`.`products` SET `created_at` = '2024-01-01 02:22:12' WHERE (`id` = '10');
+
+INSERT INTO `universe`.`users` (`name`, `email`, `password`, `role`, `created_by`, `created_at`) VALUES ('admin', 'universe@gmail.com', 'Admin@123', 'admin', '1', '2024-01-01 02:22:12');
+INSERT INTO `universe`.`users` (`name`, `email`, `password`, `role`, `created_by`, `created_at`) VALUES ('Tinh', 'tinh.tran@gmail.com', 'Tinh@123', 'user', '1', '2024-01-01 02:22:12');
+INSERT INTO `universe`.`users` (`name`, `email`, `password`, `role`, `created_by`, `created_at`) VALUES ('Nhung', 'nhung.phan@gmail.com', 'Nhung@123', 'user', '1', '2024-01-01 02:22:12');
+INSERT INTO `universe`.`users` (`name`, `email`, `password`, `role`, `created_by`, `created_at`) VALUES ('Nhi', 'nhi.tuong@gmail.com', 'Nhi@123', 'user', '1', '2024-01-01 02:22:12');

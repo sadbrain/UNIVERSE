@@ -29,6 +29,15 @@ $router->add("/" . "Admin/Product/Upsert", "admin", "ProductController", "Upsert
 $router->add("/" . "Admin/Product/UpsertPost", "admin", "ProductController", "UpsertPost", array('0' => '[0-9]'));
 $router->add("/" . "Admin/Product/Delete", "admin", "ProductController", "Delete", array('0' => '[0-9]'));
 
+$router->add("/" . "Admin/User", "admin", "UserController", "Index");
+$router->add("/" . "Admin/User/Index", "admin", "UserController", "Index");
+$router->add("/" . "Admin/User/Create", "admin", "UserController", "Create");
+$router->add("/" . "Admin/User/CreatePost", "admin", "UserController", "CreatePost");
+$router->add("/" . "Admin/User/Update", "admin", "UserController", "Update", array('0' => '[0-9]'));
+$router->add("/" . "Admin/User/UpdatePost", "admin", "UserController", "UpdatePost", array('0' => '[0-9]'));
+$router->add("/" . "Admin/User/Delete", "admin", "UserController", "Delete", array('0' => '[0-9]'));
+
 $router->add("/" . "Admin/Account/Login", "admin", "AccountController", "Login");
-$router->add("/" . "Admin/Account/LoginPost", "admin", "AccountController", "LoginPost",);
-$router->add("/" . "Admin/Account/Logout", "admin", "AccountController", "Logout",);
+$router->add("/" . "Admin/Account/LoginPost", "admin", "AccountController", "LoginPost");
+$router->add("/" . "Admin/Account/Logout", "admin", "AccountController", "Logout");
+
