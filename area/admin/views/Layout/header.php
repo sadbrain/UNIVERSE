@@ -35,7 +35,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/Admin/Order">Order</a>
                             <div class="dropdown-divider"></div>
-             
+                            <a class="dropdown-item" href="/Admin/Payment">Payment Detail</a>
+                            <div class="dropdown-divider"></div>
                         </div>
                     </li>
 
