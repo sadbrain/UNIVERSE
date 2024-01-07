@@ -36,22 +36,23 @@
                                 </div>
                                 <div class="size">Size: <?= $cart['size']?></div>
                                 <div class="price_cart">
-                                    <p>Price: <?= $cart['price'] ?>VND</p>
+                                    <p>Price: <span class="price"><?= $cart['price'] ?></span> <span class="unit">VND<span></p>
                                 </div>
                             </div>
                             <div class="total_cart">
-                                <div class="product-price"><?= $cart['total'] ?>VND</div>
+                                <div class="product-price"><span class="total"><?= $cart['total']?></span> VND</div>
                             </div>
                             <div class="action_cart">
                                 <div class="quantity_buttons mb-3">
                                     <button id="decrease">-</button>
-                                    <input type="text" id="quantity" value=<?= $cart['quantity'] ?> readonly class="quantity_input">
+                                    <input type="text" id="quantity" value=<?= $cart['quantity'] ?>  class="quantity_input">
                                     <button id="increase">+</button>
                                 </div>
                                 <div>
-                                    <a href="#"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="<?= '/Customer/Cart/Delete/' . $cart['id'] ?>"><i class="fa-solid fa-trash"></i></a>
+                                    <a class="edit_cart" href="#"><i class="fa-solid fa-pen"></i></a>
+                                    <a  href="<?= '/Customer/Cart/Delete/' . $cart['id'] ?>"><i class="fa-solid fa-trash"></i></a>
                                 </div>
+                                <input name ="id_cart" hidden value="<?= $cart['id']?>">
                             </div>
                         </div>
                     </div>
@@ -83,3 +84,4 @@
     </div>
 </div>
 </div>
+<?= load_js("/wwwroot/customer/js/pages/Cart/updateCart.js")?>
