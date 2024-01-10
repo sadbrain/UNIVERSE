@@ -4,3 +4,18 @@ footer{
     left: 0;
     right: 0;
 }
+.order-quantity-chart .revenue{
+    margin-top: 10px;
+    width: 100%;
+    
+}
+.order-quantity-chart  .revenue .infor{
+    margin: 10px;
+}
+.order-quantity-chart .revenue .infor ul {
+}
+.order-quantity-chart  .revenue .infor li {
+    border: 1px solid #07155c;
+    border-radius: 10px;
+    text-align: center;
+}

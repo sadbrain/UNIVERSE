@@ -4,6 +4,7 @@ define('DEBUG_MODE', env('DEBUG_MODE', true));
 
 //site name
 define('SITE_NAME', env('SITE_NAME', 'Universe'));
+define('START_DATE', env('START_DATE', '2023-01-10 00:00:00' ));
 
 //App Root
 define('APP_ROOT', dirname(dirname(__FILE__)));
