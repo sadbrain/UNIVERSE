@@ -51,7 +51,7 @@
       <div class="carousel-inner">
         <?php for ($i = 0; $i < count($product_best_rating); $i++) : ?>
           <div class="carousel-item <?= $i == 0 ? "active" : null ?>">
-            <a class="d-block" href=<?= "Customer/Product/Detail/" . $product_best_rating[$i]->get_id() ?>>
+            <a class="d-block" href=<?= "Customer/Product/Detail/" . $product_best_rating[$i]->get_slug() . "-". $product_best_rating[$i]->get_id() ?>>
               <img src=<?= $product_best_rating[$i]->get_thumbnail() ?> class="d-block w-100" alt="First product">
               <div class="carousel-caption d-none d-md-block">
 
@@ -76,7 +76,7 @@
     $product_inventory = $obj['ProductInventory'];
   ?>
     <div class="product_info">
-      <a class="d-block" href="<?="/Customer/Product/Detail/" . $product->get_id() ?>">
+      <a class="d-block" href="<?="/Customer/Product/Detail/" . $product->get_slug() . "-". $product->get_id() ?>">
         <img src="<?= "/".  $product->get_thumbnail() ?>" alt="Fashion Product Image" />
         <div class="p-3">
           <a href="javascript:void(0)">

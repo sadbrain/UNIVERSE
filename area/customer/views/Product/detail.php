@@ -111,7 +111,7 @@ echo  " <div class='color_option' style='background-color: " . $value . ";'><inp
             $product_inventory = $obj['ProductInventory'];
         ?>
             <div class="product_info">
-                <a class="d-block" href=<?=  "/Customer/Product/Detail/" . $product->get_id() ?>>
+                <a class="d-block" href=<?=  "/Customer/Product/Detail/" . $product->get_slug() ."-".$product->get_id() ?>>
                     <img  src="<?=  '/' . $product->get_thumbnail() ?>" alt="Fashion Product Image" />
                     <div class="p-3">
                         <a href="javascript:void(0)">

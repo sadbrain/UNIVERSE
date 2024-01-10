@@ -5,10 +5,10 @@ class ProductController extends AppController
     function __construct($unit_of_work) {
         parent::__construct($unit_of_work);
     }
-    function Index(?int $category_id = null, $brand = null, $page = 1)
+    function Index(?string $slug = null, $brand = null, $page = 1)
     {
-        // print_r($id);
-        // print_r($query);
+        $slug_arr = explode("-",$slug);
+        $category_id = $slug_arr[count($slug_arr)-1];
         $item_per_page = 9;
         $start = ($page - 1) * $item_per_page;   
         if($category_id == null || $category_id == 0){
@@ -100,7 +100,9 @@ class ProductController extends AppController
         
     }
 
-    public function Detail(?int $id){
+    public function Detail(?string $slug){
+        $slug_arr = explode("-",$slug);
+        $id = $slug_arr[count($slug_arr)-1];
         $product = $this-> unit_of_work -> get_product()->get($id);
         $discount = $this -> unit_of_work ->get_discount()->get_by_key("product_id", $id,1);
         $product_inventory = $this -> unit_of_work -> get_product_inventory()-> get_by_key("product_id", $id,1);

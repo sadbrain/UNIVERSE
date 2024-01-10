@@ -26,13 +26,13 @@
         foreach ($categories as $cate) :
             if ($brand != null) {
         ?>
-                <a href=<?= "/Customer/Product?category_id=" . $cate->get_id() . "&brand=" . $brand ?>>
+                <a href=<?= "/Customer/Product?slug=" . $cate->get_slug() ."-".$cate->get_id() . "&brand=" . $brand ?>>
                     <button class="<?= $category->get_name() == $cate->get_name() ? "active" : null ?>">
                         <?= $cate->get_name() ?>
                     </button>
                 </a>
             <?php } else { ?>
-                <a href=<?= "/Customer/Product?category_id=" . $cate->get_id() ?>>
+                <a href=<?= "/Customer/Product?slug=" . $cate->get_slug() ."-".$cate->get_id() ?>>
                     <button class="<?= $category->get_name() == $cate->get_name() ? "active" : null ?>">
                         <?= $cate->get_name() ?>
                     </button>
@@ -49,7 +49,7 @@
             $product_inventory = $obj['ProductInventory'];
         ?>
             <div class="product_info">
-                <a class="d-block" href=<?= "/Customer/Product/Detail/" . $product->get_id() ?>>
+                <a class="d-block" href=<?= "/Customer/Product/Detail/" .$product->get_slug() ."-". $product->get_id() ?>>
                     <img src="<?= '/' . $product->get_thumbnail() ?>" alt="Fashion Product Image" />
                     <div class="p-3">
                         <a href="javascript:void(0)">
@@ -99,13 +99,13 @@
             <?php if($brand != null){?>
                 
                 <button id="pagination-<?=$i?>" class="button-pagination <?=  $page == $i ? "active" : ""?>"> 
-                    <a href="<?= "?brand=$brand&page=" . $i?>"> <?=$i?>
+                    <a href="<?= "?slug=".$category->get_slug() ."-".$category->get_id()."&brand=$brand&page=" . $i?>"> <?=$i?>
                     </a>
                 </button>
 
             <?php }else{?>
                 <button id="pagination-<?=$i?>" class="button-pagination <?=  $page == $i ? "active" : ""?>">
-                    <a href=<?= "?page=" . $i?>> <?=$i?>
+                    <a href=<?= "?slug=".$category->get_slug() ."-".$category->get_id()."&page=" . $i?>> <?=$i?>
                     </a>
                 </button>
             <?php }?>
