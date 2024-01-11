@@ -110,7 +110,23 @@ class UserRepository implements IRepository
             // Add other columns as needed
         ]);
     }
+    public function login($email, $password){
+        $sql = "SELECT * FROM users WHERE email = :email AND password = :password";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':email' => $email ,
+            ':password' => $password,
+        ]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        $user = null;
+        if ($result) {
+            $user = new User();
+            $this -> to_user($user, $result);
+        }
+        return $user;
+
+    }
     public function to_user($user, $user_in_db)
     {
         if ($user_in_db["id"] != null)
