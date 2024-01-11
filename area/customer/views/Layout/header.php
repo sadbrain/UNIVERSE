@@ -1,3 +1,4 @@
+<?php session_start()?>
 <header>
     <div class="header">
 
@@ -15,12 +16,28 @@
                 <li><a href="/Customer/Cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
             </ul>
         </div>
-        <!-- <div class="auth-buttons">
-            <button>Sign In</button>
-            <button>Sign Up</button>
-        </div> -->
+        <?php
+            if(!isset($_SESSION['user_id'])):
+        ?>
         <div class="auth-buttons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png">
+            <button><a href="/Customer/Account/Login">Sign In</a></button>
+            <button><a href="/Customer/Account/Register">Sign Up</a></button>
         </div>
+        <?php else:?>
+        <div class="auth-buttons">
+            
+            <div class="dropdown">
+                <a onclick="show_user_menu()" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png">
+                </a>
+
+                <ul class="dropdown-menu user_menu">
+                    <li><a class="dropdown-item" href="/Customer/Account/Logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <?php endif?>
     </div>
 </header>
+<?=load_js("/wwwroot/customer/js/layout/header.js")?>
