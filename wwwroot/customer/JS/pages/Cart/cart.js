@@ -7,7 +7,13 @@ const price = infor.querySelector(".pro-price");
 const quantity = infor.querySelector("input[name='quantity']");
 const id = document.querySelector("input[name='id']");
 let size;
-let color; 
+let color;
+quantity.oninput = (event) => {
+    if(event.target.value <= 0){
+        event.target.value = 0;
+    }
+    console.log(event.target.value);
+}
 function checkvalidate(){
     isValidate = true;
     if(!quantity.value){
@@ -75,7 +81,9 @@ function addToCart(){
                 console.log(response)
 
                 var responseData = JSON.parse(response);
-                // Check the status from the server
+                // Check the status from the 
+                alert("Successfully!");
+                
                 if (responseData.status === 'success') {
                     // Handle success - for example, update the UI or display a message
                     console.log(responseData.message);}

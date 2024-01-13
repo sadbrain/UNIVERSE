@@ -7,12 +7,10 @@ class CartController extends AppController
         parent::__construct($unit_of_work);
     }
     function Index(){
-        session_start();
         $carts = isset($_SESSION['cart'])? $_SESSION['cart']:[];
         return $this -> view("Cart/index", compact('carts'));
     }
     function Create(){
-        session_start();
         $orderInfor = isset($_POST['orderInfor']) ? json_decode($_POST['orderInfor'], true) : null;
         if (!isset($_SESSION['cart'])) {
             $_SESSION['cart'] = array();
@@ -30,7 +28,6 @@ class CartController extends AppController
             echo "Page not found";
             return;
         }
-        session_start();
         $carts = isset($_SESSION['cart'])? $_SESSION['cart']:[];
         foreach($carts as $key => $cart){
             if($cart['id']== $id){
@@ -44,19 +41,19 @@ class CartController extends AppController
 
     }
     function Update() {
-        session_start();
-        $orderInfor = isset($_POST['orderInfor']) ? $_POST['orderInfor'] : [];
+        $orderInfor = isset($_POST['orderInfor']) ? json_decode($_POST['orderInfor'], true) : [];
         $carts = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
-        foreach ($carts as $cart) {
+
+        foreach ($carts as $key => $cart) {
             if ($cart['id'] == $orderInfor['id']) {
-                $cart['quantity'] = $orderInfor['quantity'];
-                $cart['total'] = $orderInfor['total'];
+                $carts[$key]['quantity'] = $orderInfor['quantity'];
+                $carts[$key]['total'] = $orderInfor['total'];
             }
         }
-        
-        $_SESSION['cart'] = $carts;
 
+        $_SESSION['cart'] = $carts;
+        var_dump($_SESSION["cart"]);
         header('Content-Type: application/json');
         $response = array('status' => 'success', 'message' => 'Order updated to cart successfully');
         echo json_encode($response);

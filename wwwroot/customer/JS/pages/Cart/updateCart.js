@@ -5,6 +5,7 @@ inputs.forEach(input => {
         if(!event.target.value){
             return;
         }
+        if(event.target.value <= 0) event.target.value = 0;
         cart = getParent(event.target, ".inf_cart");
         price = cart.querySelector('.price');
         total = cart.querySelector('.total');
@@ -62,7 +63,7 @@ edits.forEach(edit =>{
     } 
     
 })
-function getParent(element, selector){
+function     getParent(element, selector){
     while(element.parentElement){
         if(element.parentElement.matches(selector)){
             return element.parentElement;
