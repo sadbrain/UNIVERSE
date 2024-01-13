@@ -82,7 +82,7 @@ function addToCart(){
             },
             error: function(error){
                 console.log(error);
-                alert("thanh cong");
+                alert("Successfully!");
             }
         });
     }
