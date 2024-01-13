@@ -12,14 +12,14 @@
             <div cl ass="border p-3">
                
                 <div class="form-group form-floating py-2 col-12">
-                    <input class="form-control border-0 shadow" rules="required" name="username"/>
-                    <label class="ms-2">Name</label>
+                    <input class="form-control border-0 shadow" rules="required|email" name="email"/>
+                    <label class="ms-2">Email</label>
                     <span class="form-message text-danger"></span>
                 </div>
                 <div class="form-group form-floating py-2 col-12" >
-                    <input rules="required|password" class="form-control border-0 shadow"  name="password" />
+                    <input type="password" rules="required|password" class="form-control border-0 shadow"  name="password" />
                     <label class="ms-2">Password</label>
-                    <span class="form-message text-danger"></span>
+                    <slass="form-message text-danger"></slass=>
                 </div>
 
 

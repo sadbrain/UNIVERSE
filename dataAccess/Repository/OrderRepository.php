@@ -50,14 +50,29 @@ class OrderRepository implements IRepository
         }
         return $order;
     }
+    
+    public function get_last_entity()
+    {
+        $sql = "SELECT * FROM orders ORDER BY id DESC LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $order = null;
+        if ($result) {
+            $order = new Order();
+            $this->to_order($order, $result);
+        }
+        return $order;
+    }
     public function add($entity)
     {
         $sql = "INSERT INTO orders (buyer_name, buyer_email, buyer_phone, 
         buyer_address, total,
-         shipping_cost, status, created_at, product_id )
+         shipping_cost, status, created_at )
          VALUES (:buyer_name, :buyer_email, :buyer_phone, 
         :buyer_address, :total, 
-        :shipping_cost, :status, :created_at, :product_id)";
+        :shipping_cost, :status, :created_at)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
             ':buyer_name'       => $entity->get_buyer_name(),
@@ -68,7 +83,6 @@ class OrderRepository implements IRepository
             ':shipping_cost'    => $entity->get_shipping_cost(),
             ':status'           => $entity->get_status(),
             ':created_at'       => $entity->get_created_at() ? $entity->get_created_at()->format('Y-m-d H:i:s') : null,
-            ':product_id'       => $entity->get_product_id(),
 
         ]);
     }
@@ -91,7 +105,6 @@ class OrderRepository implements IRepository
         shipping_cost   = :shipping_cost,
         status          = :status,
 created_at      = :created_at,
-        product_id      = :product_id
         WHERE id        = :id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
@@ -104,7 +117,6 @@ created_at      = :created_at,
             ':shipping_cost'    => $entity->get_shipping_cost(),
             ':status'           => $entity->get_status(),
             ':created_at'       => $entity->get_created_at() ? $entity->get_created_at()->format('Y-m-d H:i:s') : null,
-            ':product_id'       => $entity->get_product_id(),
             // Add other columns as needed
         ]);
     }

@@ -11,7 +11,7 @@
                         <a class="nav-link active" href="/Admin/Home">Home
                         </a>
                     </li>
-                    <?php if(isset($_SESSION["username"])){
+                    <?php if(isset($_SESSION["user_id"])){
                             ?>
                             <div class="auth-buttons">
                             <li class="nav-item">

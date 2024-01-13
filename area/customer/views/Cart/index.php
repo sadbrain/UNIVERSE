@@ -24,6 +24,8 @@
             ?>
             <div class="inf_cart p-3 border border-radius shadow">
                 <div class="row p-2">
+                <input type="checkbox" name="cart_id[]" value=<?= $cart['id']?>>
+
                     <img src="<?= urldecode($cart['thumbnail']) ?>" alt="Giày dép">
                     <div class="ord_cart row ">
                         <div class="col_cart">
@@ -66,22 +68,23 @@
     </div>
 
     <div class="spec_detail">
-        <p class="specific">Chi Tiết Thanh Toán</p>
+        <p class="specific">Payment Details</p>
         <div class=" tol_detail">
-            <p>Tổng Tiền Hàng</p>
-            <div class="price_detail">1.400.000VND</div>
+            <p>Total Item Price</p>
+            <div class="price_detail total_product_price">0</div>
         </div>
         <div class=" tola_detail">
-            <p>Tổng Phí Vận Chuyển</p>
-            <div class="price_detail">60.000VND</div>
+            <p>Shipping Fee</p>
+            <div class="price_detail total-shipping-cost">30000</div>
         </div>
         <hr>
         <div class=" tolal_detail">
-            <p>Tổng Thanh Toán</p>
-            <div class="price_detail">1.460.000VND</div>
+            <p>Total payment</p>
+            <div class="price_detail total_price">0</div>
         </div>
-        <a href="#"><button>Checkout</button></a>
+        <a href="#"><button onclick="navigate_to_Checkout('/Customer/Checkout')">Checkout</button></a>
     </div>
 </div>
 </div>
+<?= load_js("/wwwroot/customer/js/pages/Cart/hanleInfoToCheckout.js")?>
 <?= load_js("/wwwroot/customer/js/pages/Cart/updateCart.js")?>

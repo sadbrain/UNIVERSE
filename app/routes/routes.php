@@ -13,6 +13,8 @@ $router->add("/" . "Customer/Cart/Create", "customer", "CartController", "Create
 $router->add("/" . "Customer/Cart/Delete", "customer", "CartController", "Delete", array('id' => '[0-9]'));
 $router->add("/" . "Customer/Cart/Update", "customer", "CartController", "Update");
 $router->add("/" . "Customer/Checkout", "customer", "CheckoutController", "Index");
+$router->add("/" . "Customer/Checkout/PaymentFunc", "customer", "CheckoutController", "PaymentFunc");
+
 $router->add("/" . "Customer/Account/Login", "customer", "AccountController", "Login");
 $router->add("/" . "Customer/Account/LoginPost", "customer", "AccountController", "LoginPost");
 $router->add("/" . "Customer/Account/Logout", "customer", "AccountController", "Logout");
