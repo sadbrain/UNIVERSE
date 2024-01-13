@@ -54,6 +54,7 @@ class CategoryRepository implements IRepository
     {
         $sql = "SELECT * FROM categories where $key  = :value ORDER BY created_at DESC";
         $stmt = $this -> db -> prepare($sql);
+        
         $stmt -> execute([
             ':value' => $value,
         ]);

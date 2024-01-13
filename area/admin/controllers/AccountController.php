@@ -12,7 +12,6 @@ class AccountController extends AdminController
 
     }
    public function LoginPost(){
-        session_start();
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $username = isset($_POST["username"]) ? $_POST["username"] : "";
             $password = isset($_POST["password"]) ? $_POST["password"] : "";

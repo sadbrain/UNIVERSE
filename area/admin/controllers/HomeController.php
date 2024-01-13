@@ -6,7 +6,6 @@ class HomeController extends AdminController
         parent::__construct($unit_of_work);
     }
     function Index(){
-        session_start();
         if (!isset($_SESSION['username'])) {
             // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
             $_SESSION["info"] = "You have to login";

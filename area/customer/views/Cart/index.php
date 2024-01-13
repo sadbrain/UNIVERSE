@@ -45,7 +45,7 @@
                             <div class="action_cart">
                                 <div class="quantity_buttons mb-3">
                                     <button id="decrease">-</button>
-                                    <input type="text" id="quantity" value=<?= $cart['quantity'] ?>  class="quantity_input">
+                                    <input type="number" id="quantity" value=<?= $cart['quantity'] ?>  class="quantity_input">
                                     <button id="increase">+</button>
                                 </div>
                                 <div>
