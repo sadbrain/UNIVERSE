@@ -1,6 +1,30 @@
 
 inputs = document.querySelectorAll('.quantity_input');
+
+
+
 inputs.forEach(input => {
+    cart = getParent(input, ".inf_cart");
+    price = cart.querySelector('.price');
+    total = cart.querySelector('.total');
+    next_value_btn = cart.querySelector('#increase');
+    pre_value_btn = cart.querySelector('#decrease');
+    next_value_btn.onclick = (event) =>{
+        input.value = parseInt(input.value) + 1;
+        cart = getParent(event.target, ".inf_cart");
+        price = cart.querySelector('.price');
+        total = cart.querySelector('.total');
+        total.innerText =  parseFloat(price.innerText) * parseFloat(input.value);
+    }
+    pre_value_btn.onclick = (event) =>{
+
+        input.value = parseInt(input.value) - 1;
+        if(input.value <= 0) input.value = 0;
+        total.innerText =  parseFloat(price.innerText) * parseFloat(input.value);
+        cart = getParent(event.target, ".inf_cart");
+        price = cart.querySelector('.price');
+        total = cart.querySelector('.total');
+    }
     input.oninput = (event) => {
         if(!event.target.value){
             return;
@@ -9,6 +33,8 @@ inputs.forEach(input => {
         cart = getParent(event.target, ".inf_cart");
         price = cart.querySelector('.price');
         total = cart.querySelector('.total');
+
+       
         // edit = cart.querySelector('.edit_cart');
         // id = cart.querySelector("input[name='id_cart']")
         total.innerText =  parseFloat(price.innerText) * parseFloat(input.value);

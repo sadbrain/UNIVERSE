@@ -6,36 +6,41 @@ class AccountController extends AdminController
         parent::__construct($unit_of_work);
     }
 
-    public function Login(){
-        // $categories = $this -> unit_of_work -> get_category() -> get_all();
-        return $this->view("Account/login");
+    function Login(){
+        return $this -> view("Account/login");
+    }
+    function LoginPost(){
 
-    }
-   public function LoginPost(){
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            $username = isset($_POST["username"]) ? $_POST["username"] : "";
-            $password = isset($_POST["password"]) ? $_POST["password"] : "";
-            if($username == "admin" && $password == "Admin@123"){
-                $_SESSION["success"] = "Login is successfully";
-                $_SESSION["username"] = $username;
-                AccountController::redirect("/Admin/Home");
-            }else{
-                $_SESSION["error"] = "Wrong password or username";
-                AccountController::redirect("/Admin/Account/Login");
-            }
+        $email = isset($_POST['email']) ? $_POST['email'] : "";
+        $password = isset($_POST['password']) ? $_POST['password'] : "";
+
+        $user = $this -> unit_of_work -> get_user() -> login($email, $password);
+
+        if($user == null){
+            return $this -> view("Account/login");
+
         }else{
-            AccountController::redirect("/Admin/Account/Login");
+            session_start();
+            $_SESSION["user_id"] = $user -> get_id();
+            echo "Login is successfully";
+            if($user -> get_role() == "user"){
+                AccountController :: redirect('/');
+
+            }else{
+                AccountController :: redirect('/Admin/Home');
+
+            }
+            
         }
-    }
-    public function Logout(){
-        session_start();
-        if(isset($_SESSION["username"])){
-            unset($_SESSION["username"]);
-            $_SESSION["success"] = "Logout is successfully";
-            AccountController::redirect("/Admin/Account/Login");
-        }
-       
         
     }
+    function Logout(){
+        session_start();
+        unset($_SESSION['user_id']);
+        AccountController :: redirect('/');
+        
+    }
+       
+        
     
 }

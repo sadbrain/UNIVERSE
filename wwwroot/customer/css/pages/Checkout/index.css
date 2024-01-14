@@ -1,6 +1,55 @@
 .flex-container {
   display: flex;
 }
+.fs_product {
+  width: 100%;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+.fs_product h2 {
+  height: 10px;
+  align-items: center;
+  font-size: 30px;
+  text-align: center;
+  animation: colorChange 5s infinite;
+}
+@keyframes colorChange {
+  0% {
+    color: red; /* Start color */
+  }
+  50% {
+    color: #53cbfe; /* Middle color */
+  }
+  100% {
+    color: red; /* End color, same as start for a continuous loop */
+  }
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+  justify-content: center;
+}
+.breadcrumb > * {
+  margin-right: 10px;
+}
+.breadcrumb .active {
+  color: #ff6699;
+}
+.breadcrumb h5 {
+  margin: 5px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.breadcrumb a:hover {
+  color: #53cbfe; /* Change color to green on hover */
+}
 
 .box {
   margin-left: 300px;

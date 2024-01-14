@@ -6,13 +6,23 @@ const sizes = infor.querySelectorAll("input[name='size']");
 const price = infor.querySelector(".pro-price");
 const quantity = infor.querySelector("input[name='quantity']");
 const id = document.querySelector("input[name='id']");
+const pre_quantity_btn = infor.querySelector("#decrease");
+const next_quantity_btn = infor.querySelector("#increase");
 let size;
 let color;
+pre_quantity_btn.onclick = () => {
+    quantity.value -= 1;
+    if(quantity.value <= 0){
+        quantity.value = 0;
+    }
+}
+next_quantity_btn.onclick = () => {
+    quantity.value = parseInt(quantity.value) + 1;
+}
 quantity.oninput = (event) => {
     if(event.target.value <= 0){
         event.target.value = 0;
     }
-    console.log(event.target.value);
 }
 function checkvalidate(){
     isValidate = true;
@@ -63,7 +73,7 @@ function addToCart(){
         var orderInfor={
             id:id.value,
             thumbnail:pathAfterWwwroot,
-            name:fullname.innerText,
+            name:  fullname.innerText,
             size:size.value,
             color:color.value,
             price:parseFloat (price.innerText.trim()),
@@ -79,10 +89,10 @@ function addToCart(){
                 // Cập nhật nội dung giỏ hàng mà không cần reload trang
                 // $("#cart").html(response);
                 console.log(response)
+                alert("Successfully!");
 
                 var responseData = JSON.parse(response);
                 // Check the status from the 
-                alert("Successfully!");
                 
                 if (responseData.status === 'success') {
                     // Handle success - for example, update the UI or display a message

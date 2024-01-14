@@ -81,7 +81,7 @@ echo  " <div class='color_option' style='background-color: " . $value . ";'><inp
             <div class="checkout_detail">
                 <div class="quantity_buttons">
                     <button id="decrease">-</button>
-                    <input type="number" id="quantity" name="quantity"  class="quantity_input">
+                    <input type="number" id="quantity" name="quantity"  class="quantity_input" value="0">
                     <button id="increase">+</button>
                 </div>
                 <a href="#"><button onclick="addToCart()"> Add to cart</button></a>

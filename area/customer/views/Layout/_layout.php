@@ -12,6 +12,7 @@
     <?= load_css('/wwwroot/customer/css/layout/header.css') ?>
     <?= load_css('/wwwroot/customer/css/layout/footer.css') ?>
     <?= load_js("https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js")?>
+    <?= load_css('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css') ?>
 
 </head>
 
@@ -31,5 +32,6 @@
     <script src="https://kit.fontawesome.com/51de929979.js" crossorigin="anonymous"></script>
     <?= load_js('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js') ?>
     <?= load_js('https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js') ?>
+    <?= load_js('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js') ?>
     
 </html>
