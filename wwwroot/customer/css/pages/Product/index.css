@@ -81,11 +81,14 @@ margin-right: 10px;
 
 .category_buttons {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    height: 70px;
-    display: inline-block;
+    /* height: 70px; */
+    /* display: inline-block; */
     padding: 0px 460px;
+    margin: 0 auto;
+    /* display: block; */
+    margin: 50px 0;
 }
 .category_buttons button.active{
     background-color: #FF6699!important;
@@ -104,13 +107,15 @@ margin-right: 10px;
 
 .category_buttons button {
     margin: 0;
-    height: 30px;
+    /* height: 30px; */
     width: 100px;
     border: none; /* Remove default button border */
-    border-radius: 5px; /* Optional: Add border-radius to buttons */
+    border-radius: 10px; /* Optional: Add border-radius to buttons */
     background-color: #f5f5f5;
     color: #333;
     cursor: pointer;
+    padding: 20px;
+
 }
 
 .category_buttons button:hover {
@@ -119,19 +124,26 @@ margin-right: 10px;
 }
 
 .product_main {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 0px 230px;
-}
+    display: flex;
+    /* display: grid; */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* gap: 20px; */
+    /* padding: 0 230px; */
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    padding:0 100px;
+    margin:50px 0;
+  }
 
-.product_info {
+  .product_info {
     border: 1px solid #ddd;
     border-radius: 5px;
-    height: 500px;
-    width: 300px;
+    /* width: 350px; */
     background-color: #FF6699;
-}
+    width: 30%;
+    margin-bottom: 50px;
+  }
 
 .product_info img {
     width: 100%; /* Use width instead of max-width to fill the container */
@@ -144,11 +156,16 @@ margin-right: 10px;
 
 
 .product_info h5 {
-    margin: 10px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     font-size: 18px; 
+    height: 45px;
     text-decoration: none;
-    color: black; /* Remove underline from the title */
+    color: black; /* /* Remove underline from the title */
 }
+
 .product_info a {
     text-decoration: none; /* Remove underline from all links within .product_info */
 }
@@ -188,6 +205,9 @@ margin-right: 10px;
 flex:1;
 font-size: 18px;
 }
+.product_info > * {
+    margin-bottom: 10px;
+  }
 .nav_product {
     grid-column: span 3;
     height: 100px;

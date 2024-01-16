@@ -26,7 +26,7 @@
         <div class="auth-buttons">
             
             <div class="dropdown">
-                <a onclick="show_user_menu()" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a onclick="show_user_menu()" class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png">
                 </a>
 

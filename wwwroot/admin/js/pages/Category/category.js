@@ -1,23 +1,35 @@
-// var dataTable;
-// $(document).ready(() => {
-//     loadDataTable();
-// });
-// function loadDataTable() {
-//     dataTable = $('#tblData').DataTable({
-//         "ajax": {   url: 'http://universe-shop.vn/Admin/Category/GetAll',
-//                     contentType: 'application/json',
-//                     dataType: 'json',
-    
-//      },
-//         "columns": [
-//             { data: 'id', "width": "25%" },
-//             { data: 'name', "width": "15%" },
-//             { data: 'created_by', "width": "10%" },
-//             { data: 'created_by', "width": "10%" },
+var dataTable;
+$(document).ready(() => {
+    loadDataTable();
+});
+function loadDataTable() {
+    dataTable = $('#tblData').DataTable({
 
-//         ]
-//     });
-// }   
+    ajax: {
+        url: '/Admin/Category/GetAll',
+        type: 'POST'
+    },
+        "columns": [
+            { data: 'name', "width": "20%" },
+            { data: 'created_by', "width": "15%" },
+            { data: 'created_at.date', "width": "25%" },
+            { data: 'id', 
+            "width": "15%" ,
+            "render": (data) => {
+                return `
+                <div class="w-75 btn-group" role="group"> 
+                    <a href="/Admin/Category/Upsert/${data}" class="btn btn-primary mx-2"> 
+                        <i class="bi bi-pencil-square"></i> Edit 
+                    </a> 
+                    <a onclick="Delete('/Admin/Category/Delete/${data}')" class="btn btn-danger mx-2"> 
+                        <i class="bi bi-trash-fill"></i> Delete 
+                    </a> 
+                </div> `
+            }},
+
+        ]
+    });
+}   
 
 // console.log(1);
 function Delete(url){
@@ -38,7 +50,7 @@ function Delete(url){
                 url: url,
                 type: "DELETE",
                 success: function (data) {
-                    window.location.reload();
+                    dataTable.ajax.reload();
                     toastr.success(data.message);
                 },
                 error: function (error) {

@@ -210,5 +210,22 @@ class ProductController extends AdminController
         }
         return $flag;
     }
+    public function GetAll(){
+        $product_in_db = $this -> unit_of_work -> get_product() -> get_all();
 
+        $products = [];
+        foreach ($product_in_db as $product){
+            $product_id = $product->get_id();
+            $product_inventory = $this -> unit_of_work -> get_product_inventory() -> get_by_key("product_id", $product_id, 1);
+            $discount = $this -> unit_of_work -> get_discount() -> get_by_key("product_id", $product_id, 1);
+            $obj = [
+                "product" => $product,
+                "discount" => $discount,
+                "product_inventory" => $product_inventory,
+            ];
+            array_push($products, $obj);
+        }
+        $this->json(["data" => $products]);
+
+    }
 }

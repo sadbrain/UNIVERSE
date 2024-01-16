@@ -9,14 +9,14 @@
     <div class="card-body p-4">
         <table id="tblData" class="table table-bordered table-striped">
             <thead>
-                <th>Stt</th>
+               <!-- <th>Stt</th> -->
                 <th>Payment_type</th>
                 <th>Provider</th>
                 <th>Account</th>
                 <th>Expiry</th>
                 <th>Order id</th>
             </thead>
-            <tbody>
+            <!--<tbody>
                 <?php $i = 1;
                 foreach ($payments as $payment) : ?>
          
@@ -30,10 +30,10 @@
                         </td>
                     </tr>
                 <?php endforeach; ?>
-            </tbody>
+            </tbody>-->
         </table>
 
     </div>
 </div>
-<?= load_js("/wwwroot/admin/js/pages/Category/category.js") ?>
+<?= load_js("/wwwroot/admin/js/pages/Payment/payment.js") ?>
 <?php require_once APP_ROOT . "/area/admin/views/Partial/_notification.php" ?>

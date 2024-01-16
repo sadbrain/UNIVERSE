@@ -35,6 +35,7 @@ $router->add("/" . "Admin/Product/Index", "admin", "ProductController", "Index")
 $router->add("/" . "Admin/Product/Upsert", "admin", "ProductController", "Upsert", array('0' => '[0-9]'));
 $router->add("/" . "Admin/Product/UpsertPost", "admin", "ProductController", "UpsertPost", array('0' => '[0-9]'));
 $router->add("/" . "Admin/Product/Delete", "admin", "ProductController", "Delete", array('0' => '[0-9]'));
+$router->add("/" . "Admin/Product/GetAll", "admin", "ProductController", "GetAll");
 
 $router->add("/" . "Admin/User", "admin", "UserController", "Index");
 $router->add("/" . "Admin/User/Index", "admin", "UserController", "Index");
@@ -43,9 +44,12 @@ $router->add("/" . "Admin/User/CreatePost", "admin", "UserController", "CreatePo
 $router->add("/" . "Admin/User/Update", "admin", "UserController", "Update", array('0' => '[0-9]'));
 $router->add("/" . "Admin/User/UpdatePost", "admin", "UserController", "UpdatePost", array('0' => '[0-9]'));
 $router->add("/" . "Admin/User/Delete", "admin", "UserController", "Delete", array('0' => '[0-9]'));
+$router->add("/" . "Admin/User/GetAll", "admin", "UserController", "GetAll");
 
 $router->add("/" . "Admin/Order", "admin", "OrderController", "Index");
+$router->add("/" . "Admin/Order/GetAll", "admin", "OrderController", "GetAll");
 $router->add("/" . "Admin/Payment", "admin", "PaymentController", "Index");
+$router->add("/" . "Admin/Payment/GetAll", "admin", "PaymentController", "GetAll");
 
 $router->add("/" . "Admin/Account/Login", "admin", "AccountController", "Login");
 $router->add("/" . "Admin/Account/LoginPost", "admin", "AccountController", "LoginPost");

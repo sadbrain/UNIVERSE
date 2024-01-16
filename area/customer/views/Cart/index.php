@@ -22,9 +22,9 @@
             <?php
                 foreach($carts as $cart){
             ?>
-            <div class="inf_cart p-3 border border-radius shadow">
-                <div class="row p-2">
-                <input type="checkbox" name="cart_id[]" value=<?= $cart['id']?>>
+            <div style="position: relative;" class="inf_cart p-3 border border-radius shadow active">
+                <div class="row p-2 w-100">
+                <input style="position: absolute;top:0;width: 75%;height: 100%;left:-2px;opacity:0" type="checkbox" name="cart_id[]" value=<?= $cart['id']?>>
 
                     <img src="<?= urldecode($cart['thumbnail']) ?>" alt="Giày dép">
                     <div class="ord_cart row ">

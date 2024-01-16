@@ -16,6 +16,28 @@ pre_quantity_btn.onclick = () => {
         quantity.value = 0;
     }
 }
+sizes.forEach(size => {
+    size.onchange = (event) => {
+        if(size.checked){
+            sizes.forEach(otherSize => {
+                otherSize.parentElement.classList.remove("active");
+            });
+            size.parentElement.classList.add("active");
+        }
+    }
+
+})
+colors.forEach(color => {
+    color.onchange = (event) => {
+        if(color.checked){
+            colors.forEach(othercolor => {
+                othercolor.parentElement.classList.remove("active");
+            });
+            color.parentElement.classList.add("active");
+        }
+    }
+
+})
 next_quantity_btn.onclick = () => {
     quantity.value = parseInt(quantity.value) + 1;
 }
@@ -26,11 +48,16 @@ quantity.oninput = (event) => {
 }
 function checkvalidate(){
     isValidate = true;
-    if(!quantity.value){
+    if(!quantity.value || quantity.value <= 0){
         isValidate = false;
         alert("Please choose quantity");
     }
     isValidateSize = false;
+    if(sizes.length == 0) {
+        isValidateSize = true
+        size=null;
+    };
+    console.log(sizes, size, isValidateSize)
     for(i=0; i<sizes.length;i++){
         if(sizes[i].checked){
             isValidateSize = true;
@@ -74,7 +101,7 @@ function addToCart(){
             id:id.value,
             thumbnail:pathAfterWwwroot,
             name:  fullname.innerText,
-            size:size.value,
+            size:size?size.value:size,
             color:color.value,
             price:parseFloat (price.innerText.trim()),
             quantity:parseFloat(quantity.value),
@@ -86,17 +113,11 @@ function addToCart(){
             url: '/Customer/Cart/Create',
             data: {orderInfor: JSON.stringify(orderInfor)},
             success: function(response){
-                // Cập nhật nội dung giỏ hàng mà không cần reload trang
-                // $("#cart").html(response);
-                console.log(response)
-                alert("Successfully!");
-
-                var responseData = JSON.parse(response);
+                // var responseData = JSON.parse(response);
                 // Check the status from the 
-                
-                if (responseData.status === 'success') {
+                if (response.status === 'success') {
                     // Handle success - for example, update the UI or display a message
-                    console.log(responseData.message);}
+                    toastr.success(response.message);}
             },
             error: function(error){
                 console.log(error);

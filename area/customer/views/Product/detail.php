@@ -57,7 +57,7 @@
                 if ($size != null) {
                     $size_arr = explode(" ", $size);
                     foreach ($size_arr as $value) {
-                        echo  "<button> <input type='radio' name='size' value=$value> $value </button>";
+                        echo  "<button class=''> <input type='radio' name='size' value=$value> $value </button>";
                     }
                 }
                 ?>
