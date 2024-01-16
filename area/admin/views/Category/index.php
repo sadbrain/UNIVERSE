@@ -18,13 +18,13 @@
         </div>
         <table id="tblData" class="table table-bordered table-striped">
             <thead> 
-                <th>Stt</th> 
+            <!--<th>STT</th> -->
                 <th>Name</th> 
                 <th>Created by</th> 
                 <th>Created at</th> 
                 <th></th> 
             </thead> 
-            <tbody> 
+           <!-- <tbody> 
                 <?php $i = 1; foreach($categories as $category): ?> 
                         <tr>
                             <td><?= $i++;?></td> 
@@ -43,7 +43,7 @@
                             </td>
                         </tr> 
                 <?php endforeach; ?>
-            </tbody>
+            </tbody> -->        
 
          </table>
 

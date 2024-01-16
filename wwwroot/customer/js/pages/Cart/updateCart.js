@@ -70,15 +70,10 @@ edits.forEach(edit =>{
             url: '/Customer/Cart/Update',   
             data: {orderInfor: JSON.stringify(orderInfor)},
             success: function(response){
-                // Cập nhật nội dung giỏ hàng mà không cần reload trang
-                // $("#cart").html(response);
-                console.log(response)
-
-                var responseData = JSON.parse(response);
                 // Check the status from the server
-                if (responseData.status === 'success') {
+                if (response.status === 'success') {
                     // Handle success - for example, update the UI or display a message
-                    alert(responseData.message);}
+                    toastr.success(response.message);}
             },
             error: function(error){
                 console.log(error);

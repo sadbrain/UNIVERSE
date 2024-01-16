@@ -1,7 +1,7 @@
 <?php
 require_once APP_ROOT . "/app/BaseModel.php";
 
-class User extends BaseModel
+class User extends BaseModel implements JsonSerializable
 {
     private ?int $id;
     private ?string $name;
@@ -27,6 +27,9 @@ class User extends BaseModel
         $this->created_at = null;
         $this->updated_at = null;
         $this->deleted_at = null;
+    }
+    public function jsonSerialize() {
+        return get_object_vars($this);
     }
     // Getter methods
     public function get_id(): ?int

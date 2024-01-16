@@ -95,10 +95,13 @@ margin-right: 10px;
     margin-bottom: 20px;
     height: 250px;
     width: 100%;
+    position: relative;
 }
-
+.all_cart .inf_cart.active{
+    border: 1px solid red;
+}
 img {
-    margin-right: 20px;
+    margin-right: 30px;
     height: 100%;
     width: 150px;
 }

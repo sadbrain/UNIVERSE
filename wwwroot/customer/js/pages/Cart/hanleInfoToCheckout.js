@@ -7,8 +7,9 @@ checkboxs.forEach(checkbox => {
         cart = getParent(event.target, ".inf_cart");
         price = cart.querySelector('.price');
         total = cart.querySelector('.total');
-
+        
         if(event.target.checked){
+
             total_product_price.innerText = parseFloat(total_product_price.innerText) + parseFloat(total.innerText);
             total_price.innerText =  parseFloat(total_product_price.innerText) +  parseFloat(shipping_cost.innerText);
             input = cart.querySelector('.quantity_input');
@@ -17,13 +18,13 @@ checkboxs.forEach(checkbox => {
             next_value_btn.onclick = (event) =>{
                 input.value = parseInt(input.value) + 1;
                 cart = getParent(event.target, ".inf_cart");
+                cart.classList.add("active");
                 price = cart.querySelector('.price');
                 total = cart.querySelector('.total');
                 oldTotal = total.innerText;
                 total.innerText =  parseFloat(price.innerText) * parseFloat(input.value);
                 total_product_price.innerText = parseFloat(total_product_price.innerText) - oldTotal + parseFloat(total.innerText);
                 total_price.innerText =  parseFloat(total_product_price.innerText) +  parseFloat(shipping_cost.innerText);
-
             }
             pre_value_btn.onclick = (event) =>{
 
@@ -56,6 +57,8 @@ checkboxs.forEach(checkbox => {
             }
 
         }else{
+            cart.classList.remove("active");
+
             total_product_price.innerText = parseInt(total_product_price.innerText) - parseInt(total.innerText);
             total_price.innerText =  parseFloat(total_product_price.innerText) +  parseFloat(shipping_cost.innerText);
 

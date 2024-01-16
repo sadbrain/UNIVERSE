@@ -9,7 +9,7 @@
     <div class="card-body p-4">
         <table id="tblData" class="table table-bordered table-striped">
             <thead>
-                <th>Stt</th>
+                <!--<th>Stt</th>-->
                 <th>Email</th>
                 <th>Address</th>
                 <th>Product Name</th>
@@ -20,7 +20,7 @@
                 <th>Total</th>
                 <th>Status</th>
             </thead>
-            <tbody>
+           <!-- <tbody>
                 <?php $total_revenue = 0 ?>
                 <?php $i = 1;
                 foreach ($orders as $order) : ?>
@@ -42,7 +42,7 @@
                         </td>
                     </tr>
                 <?php endforeach; ?>
-            </tbody>
+            </tbody> -->
         </table>
 
         <div class="row pb-3">
@@ -54,5 +54,5 @@
         </div>
     </div>
 </div>
-<?= load_js("/wwwroot/admin/js/pages/Category/category.js") ?>
+<?= load_js("/wwwroot/admin/js/pages/Order/order.js") ?>
 <?php require_once APP_ROOT . "/area/admin/views/Partial/_notification.php" ?>

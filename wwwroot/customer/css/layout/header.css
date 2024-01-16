@@ -108,3 +108,22 @@ input[name="search"] {
   height: 40px;
   margin-right: 20px;
 }
+
+.auth-buttons button:nth-child(2){
+  background-color: #ff6699;
+}
+.auth-buttons button:nth-child(1){
+  background-color: transparent;
+}
+.auth-buttons button{
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+.auth-buttons button a{
+  color:#fff;
+}
+.dropdown{
+  background-color: transparent!important;
+}

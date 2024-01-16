@@ -1,6 +1,6 @@
 <?php
 require_once APP_ROOT ."/app/BaseModel.php";
-class PaymentDetail  extends BaseModel
+class PaymentDetail  extends BaseModel implements JsonSerializable
 {
     private ?int $id;
     private ?string $payment_type;
@@ -16,6 +16,9 @@ class PaymentDetail  extends BaseModel
         $this ->  account = null;
         $this ->  expiry = null;
         $this ->  order_id = null;
+    }
+    public function jsonSerialize() {
+        return get_object_vars($this);
     }
     // Getter methods
     public function get_id() : ?int

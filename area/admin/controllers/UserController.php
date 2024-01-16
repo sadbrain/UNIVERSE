@@ -64,4 +64,9 @@ class UserController extends AdminController
         $this->unit_of_work->get_user()->update($user);
         $this->json(['success' => true, 'message' => 'category deleted successfully']);
     }
+    public function GetAll()
+    {
+        $users = $this->unit_of_work->get_user()->get_all();
+        $this->json(["data" => $users]);
+    }
 }

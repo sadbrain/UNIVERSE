@@ -18,17 +18,17 @@
         </div>
         <table id="tblData" class="table table-bordered table-striped">
              <thead> 
-                <th>STT</th> 
+                <!--<th>STT</th> -->
                 <th>Name</th> 
                 <th>Price</th> 
                 <th>Discount</th> 
                 <th>Quantity</th> 
-                <th>Quantity buyed</th> 
+                <th>Quantity buyed</th>     
                 <th>Create at</th> 
                 <th>Create by</th> 
                 <th></th> 
             </thead> 
-            <tbody> 
+            <!--<tbody> 
                 <?php $i = 1; 
                     $current_date = new DateTime();
                     foreach($productvm_list as $productvm):?> 
@@ -61,7 +61,7 @@
                             </td>
                          </tr> 
                 <?php endforeach; ?>
-             </tbody>
+             </tbody>-->
          </table>
        
     </div>

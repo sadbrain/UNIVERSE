@@ -10,5 +10,9 @@ class PaymentController extends AdminController
         $payments = $this-> unit_of_work->get_payment_detail()-> get_all();
         return $this->view("Payment/index", compact('payments'));
     }
-    
+    public function GetAll()
+    {
+        $payments = $this-> unit_of_work->get_payment_detail()-> get_all();
+        $this->json(["data" => $payments]);
+    }
 }

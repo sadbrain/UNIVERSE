@@ -1,6 +1,6 @@
 <?php
 require_once APP_ROOT ."/app/BaseModel.php";
-class Order extends BaseModel
+class Order extends BaseModel implements JsonSerializable
 {
     private ?int $id;
     private ?string $buyer_name;
@@ -25,6 +25,9 @@ class Order extends BaseModel
          $this ->  created_at = null;
          $this ->  product_id = null;
          $this ->  product = null;
+    }
+    public function jsonSerialize() {
+        return get_object_vars($this);
     }
     // Getter methods
     public function get_id() : ?int
