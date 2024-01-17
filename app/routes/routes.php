@@ -1,6 +1,7 @@
 <?php
 $router = Router::get_router();
 $router->add("/" , "customer", "HomeController", "Index");
+$router->add("/" . "Customer/Home/Aboutus", "customer", "HomeController", "Aboutus");
 // $router->add("/" . URL_SUBFOLDER . "/Detail/", "customer", "DetailController", "Index", array('id' => '[0-9]+'));
 // $router->add("/" . URL_SUBFOLDER . "/Detail?", "customer", "DetailController", "Index", array('id' => '[0-9]+'));
 $router->add("/" . "Customer/Product", "customer", "ProductController", "Index", array('id' => '[0-9]', "brand"));

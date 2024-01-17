@@ -26,4 +26,9 @@ class HomeController extends AppController
         return $this->view("Home/index", compact('products', 'product_best_rating'));
         
     }
+    function Aboutus()
+    {
+        return $this->view("Home/aboutus");
+        
+    }
 }
