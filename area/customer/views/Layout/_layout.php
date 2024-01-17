@@ -33,5 +33,6 @@
     <?= load_js('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js') ?>
     <?= load_js('https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js') ?>
     <?= load_js('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js') ?>
+<?php require_once APP_ROOT . "/area/admin/views/Partial/_notification.php" ?>
     
 </html>
