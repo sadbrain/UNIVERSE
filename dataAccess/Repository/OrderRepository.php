@@ -33,7 +33,18 @@ class OrderRepository implements IRepository
 
         return $orders;
     }
-
+    public function get_num_order($start_date, $end_date){
+        $sql = "SELECT COUNT(*) AS order_count
+        FROM universe.orders
+        WHERE created_at >= :start_date AND created_at <= :end_date and status = 'DONE'"; 
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':start_date' => $start_date,
+            ':end_date' => $end_date,
+        ]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
     public function get($id)
     {
         $sql = "SELECT * FROM orders where id  = :id LIMIT 1";
