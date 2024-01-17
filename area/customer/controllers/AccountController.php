@@ -19,13 +19,13 @@ class AccountController extends AppController
         if($valid_array['is_valid']){
             $user = $this -> unit_of_work -> get_user() -> login($email, $password);
             if($user == null){
-                echo "Login is not successfully";
+                $_SESSION["error"] = "Login is not successfully";
                 return $this -> view("Account/login",compact("errors"));
 
             }else{
                 session_start();
                 $_SESSION["user_id"] = $user -> get_id();
-                echo "Login is successfully";
+                $_SESSION["success"] = "Login is successfully";
                 if($user -> get_role() == "user"){
                     AccountController :: redirect('/');
 

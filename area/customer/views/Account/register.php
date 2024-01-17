@@ -3,7 +3,7 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Jbq-w6NLK1GVWCEZ3GVqlY71x82PbWXDr2JHG8Z0H_8zs54z" alt="Ảnh mẫu">
         <div class="form_login">
             <h2>Universe</h2>
-            <h3>Sign In to Universe</h3>
+            <h3>Sign Up to Universe</h3>
             <div class="additional_buttons">
                 <button><i class="fab fa-google"></i> Sign up with Google</button>
                 <button><i class="far fa-envelope"></i> Sign up with Email</button>
@@ -32,7 +32,7 @@
                     ?></span>
                 </div>
                 <div class="form_group" >
-                    <button class="btn_login" type="submit" >Sign In</button>
+                    <button class="btn_login" type="submit" >Sign Up</button>
                 </div>
                 <div class="form_group">
                     <button class="btn_register" type="button" >           
