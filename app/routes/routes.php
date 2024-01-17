@@ -17,6 +17,8 @@ $router->add("/" . "Customer/Checkout/PaymentFunc", "customer", "CheckoutControl
 
 $router->add("/" . "Customer/Account/Login", "customer", "AccountController", "Login");
 $router->add("/" . "Customer/Account/LoginPost", "customer", "AccountController", "LoginPost");
+$router->add("/" . "Customer/Account/Register", "customer", "AccountController", "Register");
+$router->add("/" . "Customer/Account/RegisterPost", "customer", "AccountController", "RegisterPost");
 $router->add("/" . "Customer/Account/Logout", "customer", "AccountController", "Logout");
 
 //admin
