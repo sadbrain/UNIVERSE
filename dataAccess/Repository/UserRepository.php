@@ -33,12 +33,30 @@ class UserRepository implements IRepository
 
         return $users;
     }
+
     public function get($id)
     {
         $sql = "SELECT * FROM users where id  = :id LIMIT 1";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
             ':id' => $id,
+        ]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $user = null;
+        if ($result) {
+            $user = new User();
+            $this->to_user($user, $result);
+        }
+        return $user;
+    }
+
+    public function get_by_email($email)
+    {
+        $sql = "SELECT * FROM users where email  = :email LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':email' => $email,
         ]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
