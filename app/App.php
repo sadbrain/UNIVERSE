@@ -15,12 +15,26 @@ class App{
     public function run(){
         $this -> use_database();
 
+        $this -> visit_counter();
+
         $this -> use_router();
 
         $this -> build_router();
-        
+
     }
-    
+    private function visit_counter(){
+        $ip_address = $_SERVER['REMOTE_ADDR'];
+        $user_agent = $_SERVER['HTTP_USER_AGENT'];
+        $server_name = $_SERVER['SERVER_NAME'];
+        $visit_date = new DateTime();
+        $user_access_repo = new UserAccessRepository($this -> db);
+        $user_access = new UserAccess(); 
+        $user_access -> set_visit_date($visit_date);
+        $user_access -> set_server_name($server_name);
+        $user_access -> set_user_agent($user_agent);
+        $user_access -> set_ip_address($ip_address);
+        $user_access_repo -> add($user_access);
+    }
     private function use_database(){
         $this -> db = Db::get_db(DB_HOST, DB_NAME, DB_USER, DB_PASS);
     }

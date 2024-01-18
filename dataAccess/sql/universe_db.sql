@@ -114,3 +114,10 @@ create table if not exists users(
     deleted_at datetime
 );
 
+create table if not exists user_access(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ip_address VARCHAR(255),
+    user_agent varchar(255),
+    server_name varchar(255),
+    visit_date datetime,
+);

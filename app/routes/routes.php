@@ -15,7 +15,6 @@ $router->add("/" . "Customer/Cart/Delete", "customer", "CartController", "Delete
 $router->add("/" . "Customer/Cart/Update", "customer", "CartController", "Update");
 $router->add("/" . "Customer/Checkout", "customer", "CheckoutController", "Index");
 $router->add("/" . "Customer/Checkout/PaymentFunc", "customer", "CheckoutController", "PaymentFunc");
-
 $router->add("/" . "Customer/Account/Login", "customer", "AccountController", "Login");
 $router->add("/" . "Customer/Account/LoginPost", "customer", "AccountController", "LoginPost");
 $router->add("/" . "Customer/Account/Register", "customer", "AccountController", "Register");
@@ -24,7 +23,15 @@ $router->add("/" . "Customer/Account/Logout", "customer", "AccountController", "
 
 //admin
 //admin
+
+
 $router->add("/" . "Admin/Home", "admin", "HomeController", "Index");
+$router->add("/" . "Admin/Home/GetOrderDaily", "admin", "HomeController", "GetOrderDaily");
+$router->add("/" . "Admin/Home/GetOrderMonthly", "admin", "HomeController", "GetOrderMonthly");
+$router->add("/" . "Admin/Home/GetOrderYearly", "admin", "HomeController", "GetOrderYearly");
+$router->add("/" . "Admin/Home/GetHitsDaily", "admin", "HomeController", "GetHitsDaily");
+$router->add("/" . "Admin/Home/GetHitsMonthly", "admin", "HomeController", "GetHitsMonthly");
+$router->add("/" . "Admin/Home/GetHitsYearly", "admin", "HomeController", "GetHitsYearly");
 $router->add("/" . "Admin/Home/Index", "admin", "HomeController", "Index");
 $router->add("/" . "Admin/Category", "admin", "CategoryController", "Index");
 $router->add("/" . "Admin/Category/Index", "admin", "CategoryController", "Index");
