@@ -506,3 +506,12 @@ INSERT INTO `universe`.`orders` (`id`, `buyer_name`, `buyer_email`, `buyer_phone
 INSERT INTO `universe`.`order_details` (`id`, `product_name`, `product_quantity`, `product_price`, `product_discount_price`, `product_color`, `product_size`, `product_id`, `order_id`) VALUES ('1', '[Available] Women\'s School Shoes Korean Style Beige High Sole Canvas Shoes', '1', '300000.00', '50', '#fff', '37', '1', '1');
 INSERT INTO `universe`.`order_details` (`id`, `product_name`, `product_quantity`, `product_price`, `product_color`, `product_size`, `product_id`, `order_id`) VALUES ('2', '[Available] Ultralight Smiley Face School Slippers', '1', '400000', '#fff', '37', '2', '2');
 INSERT INTO `universe`.`order_details` (`id`, `product_name`, `product_quantity`, `product_price`, `product_discount_price`, `product_color`, `product_size`, `product_id`, `order_id`) VALUES ('3', 'Women\'s 5cm padded sneakers with flat sole increase the height of walkable canvas fabric', '1', '500000.00', '50', '#fff', '37', '3', '3');
+
+create table if not exists user_access(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ip_address VARCHAR(255),
+    user_agent varchar(255),
+    server_name varchar(255),
+    visit_date datetime,
+    visit_counter int
+);

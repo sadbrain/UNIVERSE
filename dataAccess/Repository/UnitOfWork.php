@@ -9,6 +9,8 @@ include_once "ProductInventoryRepository.php";
 include_once "OrderDetailRepository.php";
 include_once "PaymentDetailRepository.php";
 include_once "UserRepository.php";
+include_once "UserAccessRepository.php";
+
 class UnitOfWork implements IUnitOfWork
 {
     private PDO $db;
@@ -21,6 +23,7 @@ class UnitOfWork implements IUnitOfWork
     private $order_detail;
     private $payment_detail;
     private $user;
+    private $user_access;
 
     public function __construct(PDO $db)
     {
@@ -34,6 +37,7 @@ class UnitOfWork implements IUnitOfWork
         $this->order_detail = new OrderDetailRepository($this->db);
         $this->payment_detail = new PaymentDetailRepository($this->db);
         $this->user = new UserRepository($this->db);
+        $this->user_access = new UserAccessRepository($this->db);
     }
     public function get_db()
     {
@@ -77,5 +81,9 @@ class UnitOfWork implements IUnitOfWork
     public function get_user()
     {
         return $this->user;
+    }
+    public function get_user_access()
+    {
+        return $this->user_access;
     }
 }
