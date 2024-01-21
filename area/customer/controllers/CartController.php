@@ -36,7 +36,7 @@ class CartController extends AppController
         }
 
         $_SESSION["cart"] = $carts;
-
+        $_SESSION["success"] = "Cart has been successfully deleted";
         CartController::redirect("/Customer/Cart");
 
     }

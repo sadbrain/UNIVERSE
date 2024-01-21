@@ -16,10 +16,10 @@ class UserAccess extends BaseModel implements JsonSerializable
         $this->server_name = null;
         $this->visit_date = null;
     }
-    public function jsonSerialize() {
+    public function jsonSerialize()
+    {
         return get_object_vars($this);
     }
-    // Getter methods
     public function get_id(): ?int
     {
         return $this->id;
@@ -36,15 +36,10 @@ class UserAccess extends BaseModel implements JsonSerializable
     {
         return $this->server_name;
     }
-
-
     public function get_visit_date(): ?DateTime
     {
         return $this->visit_date;
     }
-
-
-    // Setter methods
     public function set_id(int $id)
     {
         $this->id = $id;
@@ -61,11 +56,8 @@ class UserAccess extends BaseModel implements JsonSerializable
     {
         $this->server_name = $server_name;
     }
-
-
     public function set_visit_date(DateTime $visit_date)
     {
         $this->visit_date = $visit_date;
     }
-
 }

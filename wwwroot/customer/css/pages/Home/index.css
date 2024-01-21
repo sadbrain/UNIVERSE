@@ -87,13 +87,14 @@ section {
   }
   
   .product_info img {
-      width: 100%; /* Use width instead of max-width to fill the container */
-      height: auto;
-      border-radius: 4px; 
-  /* Optional: Add border-radius to the image */
-      margin: 0; /* Remove default margin */
-  /* Optional: Add border-radius to the image */
-  }
+    width: 100%; /* Use width instead of max-width to fill the container */
+    height: 350px;
+    object-fit: cover;  
+    border-radius: 4px; 
+/* Optional: Add border-radius to the image */
+    margin: 0; /* Remove default margin */
+/* Optional: Add border-radius to the image */
+}
   
   .product_info > * {
     margin-bottom: 10px;

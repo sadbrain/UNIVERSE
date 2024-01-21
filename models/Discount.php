@@ -1,4 +1,6 @@
 <?php
+require_once APP_ROOT ."/app/BaseModel.php";
+
 class Discount extends BaseModel implements JsonSerializable
 {
     private ?int $id;
@@ -30,7 +32,6 @@ class Discount extends BaseModel implements JsonSerializable
     public function jsonSerialize() {
         return get_object_vars($this);
     }
-    // Getter methods
     public function get_id() : ?int
     {
         return $this -> id;
@@ -47,7 +48,6 @@ class Discount extends BaseModel implements JsonSerializable
     {
         return $this -> discount_to;
     }
-
     public function get_created_by() : ?string
     {
         return $this -> created_by;
@@ -80,7 +80,6 @@ class Discount extends BaseModel implements JsonSerializable
     {
         return $this -> product;
     }
-    // Setter methods
     public function set_id(int $id)
     {
         $this -> id = $id;
@@ -97,7 +96,6 @@ class Discount extends BaseModel implements JsonSerializable
     {
          $this -> discount_to = $discount_to;
     }
-
     public function set_created_by(string $created_by) 
     {
          $this -> created_by = $created_by;

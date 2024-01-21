@@ -20,46 +20,34 @@ class PaymentDetail  extends BaseModel implements JsonSerializable
     public function jsonSerialize() {
         return get_object_vars($this);
     }
-    // Getter methods
     public function get_id() : ?int
     {
         return $this -> id;
     }
-
     public function get_payment_type(): ?string
     {
         return $this -> payment_type;
     }
-
     public function get_expiry() : ?string
     {
         return $this -> expiry;
     }
-
-    
     public function get_provider() : ?string
     {
         return $this -> provider;
     }
-
     public function get_account() : ?string
     {
         return $this -> account;
     }
-
-
     public function get_order_id() : ?int
     {
         return $this -> order_id;
     }
-
-  
     public function get_order() : ?Order
     {
         return $this -> order;
     }
-
-    // Setter methods
     public function set_id(int $id)
     {
         $this -> id = $id;
@@ -94,5 +82,4 @@ class PaymentDetail  extends BaseModel implements JsonSerializable
     {
         $this -> order = $order;
     }
-
 }

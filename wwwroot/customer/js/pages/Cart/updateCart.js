@@ -1,8 +1,4 @@
-
 inputs = document.querySelectorAll('.quantity_input');
-
-
-
 inputs.forEach(input => {
     cart = getParent(input, ".inf_cart");
     price = cart.querySelector('.price');
@@ -33,10 +29,6 @@ inputs.forEach(input => {
         cart = getParent(event.target, ".inf_cart");
         price = cart.querySelector('.price');
         total = cart.querySelector('.total');
-
-       
-        // edit = cart.querySelector('.edit_cart');
-        // id = cart.querySelector("input[name='id_cart']")
         total.innerText =  parseFloat(price.innerText) * parseFloat(input.value);
 
     }
@@ -73,18 +65,19 @@ edits.forEach(edit =>{
                 // Check the status from the server
                 if (response.status === 'success') {
                     // Handle success - for example, update the UI or display a message
-                    toastr.success(response.message);}
+                    toastr.success(response.message);}  
             },
             error: function(error){
                 console.log(error);
-                alert("Successfully!");
+                // alert("Successfully!");
+                toastr.success("Cart has been successfully updated");
             }
         });
 
     } 
     
 })
-function     getParent(element, selector){
+function  getParent(element, selector){
     while(element.parentElement){
         if(element.parentElement.matches(selector)){
             return element.parentElement;

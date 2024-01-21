@@ -3,6 +3,7 @@ var current_date = new Date();
 $(document).ready(() => {
     loadDataTable();
 });
+console.log(dataTable);
 function loadDataTable() {
     dataTable = $('#tblData').DataTable({
 
@@ -15,7 +16,10 @@ function loadDataTable() {
             { data: 'order.buyer_address', "width": "20%" },
             { data: 'order_detail.product_name', "width": "20%" },
             { data: 'order_detail.product_price', "width": "5%" },
-            { data: 'order_detail.product_discount_price', "width": "5%" },
+            { data: 'order_detail.product_discount_price', 
+            "render": (data) => `${data} %`,
+            "width": "5%", 
+            },
             { data: 'order_detail.product_quantity', "width": "5%" },
             { data: 'order.shipping_cost', "width": "10%" },
             { data: 'order.total', "width": "10%" },

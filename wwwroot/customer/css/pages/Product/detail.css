@@ -264,9 +264,13 @@ a button:hover {
 }
 
 .product_info img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
+  width: 100%; /* Use width instead of max-width to fill the container */
+  height: 350px;
+  object-fit: cover;
+  border-radius: 4px; 
+/* Optional: Add border-radius to the image */
+  margin: 0; /* Remove default margin */
+/* Optional: Add border-radius to the image */
 }
 
 .product_info h5 {

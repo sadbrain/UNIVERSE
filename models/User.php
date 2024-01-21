@@ -31,7 +31,6 @@ class User extends BaseModel implements JsonSerializable
     public function jsonSerialize() {
         return get_object_vars($this);
     }
-    // Getter methods
     public function get_id(): ?int
     {
         return $this->id;
@@ -77,7 +76,6 @@ class User extends BaseModel implements JsonSerializable
     {
         return $this->deleted_at;
     }
-    // Setter methods
     public function set_id(int $id)
     {
         $this->id = $id;
@@ -98,7 +96,6 @@ class User extends BaseModel implements JsonSerializable
     {
         $this->role = $role;
     }
-
     public function set_created_by(string $created_by)
     {
         $this->created_by = $created_by;
