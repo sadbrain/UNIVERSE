@@ -1,0 +1,266 @@
+/* Reset some default styles for consistency */
+body, h1, h2, h3, p, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+.fs_cart {
+    width: 75%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-right: 1%;
+}
+
+h2 {
+    color: #0a0505;
+}
+@keyframes colorChange {
+    0% {
+        color: red; /* Start color */
+    }
+    50% {
+        color: #53cbfe; /* Middle color */
+    }
+    100% {
+        color: red; /* End color, same as start for a continuous loop */
+    }
+}
+.fs_product {
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+.fs_product h2 {
+    height: 10px;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+    animation: colorChange 5s infinite;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    justify-content: center;
+}
+.breadcrumb> * {
+margin-right: 10px;
+}
+.breadcrumb .active{
+    color:#FF6699;
+}
+.breadcrumb h5 {
+    margin: 5px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.breadcrumb a:hover {
+    color: #53cbfe; /* Change color to green on hover */
+}
+
+.nam_cart {
+    color: #FF6699;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.all_cart {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 500px;
+}
+
+.inf_cart {
+    display: flex;
+    margin-bottom: 20px;
+    height: 250px;
+    width: 100%;
+    position: relative;
+}
+.all_cart .inf_cart.active{
+    border: 1px solid red;
+}
+img {
+    margin-right: 30px;
+    height: 100%;
+    width: 150px;
+}
+
+.ord_cart {
+    flex: 1;
+    height: 100%;
+
+}
+
+.col_cart {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.infor_cart{
+    height: 100%;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.colors{
+    display: flex;
+    align-items: center;
+
+}
+span {
+    margin-right: 10px; /* Tùy chỉnh khoảng cách giữa văn bản và màu sắc */
+}
+
+.color_option {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.total_cart{
+    width: 15%;
+    font-size: 15px;
+    margin-right: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.action_cart{
+    width: 29%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.action_cart button{
+    border-radius: 5px;
+}
+.quantity_buttons button {
+    background-color: #FF6699;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 3px 10px;
+}
+
+.quantity_input {
+    width: 30px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+}
+
+.pri_cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+margin-top: 10px;
+}
+
+.product-price {
+font-weight: bold;
+    color: #FF6699;
+}
+
+.fa-pen,
+.fa-trash {
+    margin-left: 10px;
+    color: #FF6699;
+    text-decoration: none;
+}
+
+.fa-pen:hover,
+.fa-trash:hover {
+    color: #0056b3;
+}
+
+/* Styles for the checkout section */
+
+.cart_item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.spec_detail_container {
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+.spec_detail {
+    width: 24%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    height: 300px;
+
+}
+
+.spec_detail p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.spec_detail .specific{
+ font-size: 20px;
+ text-align: center;
+}
+.spec_detail button{
+    border-radius: 8px;
+}
+.tol_detail,
+.tola_detail,
+.tolal_detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.price_detail {
+    color: #FF6699;
+    font-weight: bold;
+}
+
+hr {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #FF6699;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #53cbfe;
+}

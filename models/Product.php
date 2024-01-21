@@ -1,6 +1,7 @@
 <?php
 require_once APP_ROOT ."/app/BaseModel.php";
-class Product extends BaseModel
+
+class Product extends BaseModel implements JsonSerializable
 {
     private ?int $id;
     private ?string $name;
@@ -36,12 +37,13 @@ class Product extends BaseModel
          $this -> category_id = null;
          $this -> category = null;
     }
-    // Getter methods
+    public function jsonSerialize() {
+        return get_object_vars($this);
+    }
     public function get_id() : ?int
     {
         return $this -> id;
     }
-
     public function get_name() : ?string
     {
         return $this -> name;
@@ -62,12 +64,10 @@ class Product extends BaseModel
     {
         return $this -> description;
     }
-
     public function get_price() : ?float
     {
         return $this -> price;
     }
-
     public function get_rating() : ?float
     {
         return $this -> rating;
@@ -104,7 +104,6 @@ class Product extends BaseModel
     {
         return $this -> category;
     }
-    // Setter methods
     public function set_id(int $id)
     {
         $this -> id = $id;

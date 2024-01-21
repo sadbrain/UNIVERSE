@@ -87,7 +87,7 @@ class ProductImageRepository implements IRepository
     public function add($entity)
     {
         $sql = "INSERT INTO product_images (url, title, product_id)
-        VALUES (:url, :title, , :product_id)";
+        VALUES (:url, :title, :product_id)";
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute([
             ':url'          => $entity -> get_url(),

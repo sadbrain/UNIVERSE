@@ -8,6 +8,9 @@ include_once "DiscountRepository.php";
 include_once "ProductInventoryRepository.php";
 include_once "OrderDetailRepository.php";
 include_once "PaymentDetailRepository.php";
+include_once "UserRepository.php";
+include_once "UserAccessRepository.php";
+
 class UnitOfWork implements IUnitOfWork
 {
     private PDO $db;
@@ -19,54 +22,68 @@ class UnitOfWork implements IUnitOfWork
     private $product_inventory;
     private $order_detail;
     private $payment_detail;
+    private $user;
+    private $user_access;
 
     public function __construct(PDO $db)
     {
-        $this -> db = $db;
-        $this -> product = new ProductRepository($this -> db);
-        $this -> product_image = new ProductImageRepository($this -> db);
-        $this -> order = new OrderRepository($this -> db);
-        $this -> category = new CategoryRepository($this -> db);
-        $this -> discount = new DiscountRepository($this -> db);
-        $this -> product_inventory = new ProductInventoryRepository($this -> db);
-        $this -> order_detail = new OrderDetailRepository($this -> db);
-        $this -> payment_detail = new PaymentDetailRepository($this -> db);
+        $this->db = $db;
+        $this->product = new ProductRepository($this->db);
+        $this->product_image = new ProductImageRepository($this->db);
+        $this->order = new OrderRepository($this->db);
+        $this->category = new CategoryRepository($this->db);
+        $this->discount = new DiscountRepository($this->db);
+        $this->product_inventory = new ProductInventoryRepository($this->db);
+        $this->order_detail = new OrderDetailRepository($this->db);
+        $this->payment_detail = new PaymentDetailRepository($this->db);
+        $this->user = new UserRepository($this->db);
+        $this->user_access = new UserAccessRepository($this->db);
     }
     public function get_db()
     {
-        return $this -> db;
+        return $this->db;
     }
 
     public function get_product()
     {
-        return $this -> product;
+        return $this->product;
     }
     public function get_product_image()
     {
-        return $this -> product_image;
+        return $this->product_image;
     }
 
     public function get_order()
     {
-        return $this -> order;
+        return $this->order;
     }
 
     public function get_category()
     {
-        return $this -> category;
+        return $this->category;
     }
     public function get_discount()
     {
-        return $this -> discount;
-
+        return $this->discount;
     }
-    public function get_product_inventory(){
-        return $this -> product_inventory;
+    public function get_product_inventory()
+    {
+        return $this->product_inventory;
     }
-    public function get_order_detail(){
-        return $this -> order_detail;
+    public function get_order_detail()
+    {
+        return $this->order_detail;
     }
-    public function get_payment_detail(){
-        return $this -> payment_detail;
+    public function get_payment_detail()
+    {
+        return $this->payment_detail;
+    }
+    public function get_user()
+    {
+        return $this->user;
+    }
+    public function get_user_access()
+    {
+        return $this->user_access;
     }
 }

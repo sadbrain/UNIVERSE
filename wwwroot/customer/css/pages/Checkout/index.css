@@ -1,0 +1,130 @@
+.flex-container {
+  display: flex;
+}
+.fs_product {
+  width: 100%;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+.fs_product h2 {
+  height: 10px;
+  align-items: center;
+  font-size: 30px;
+  text-align: center;
+  animation: colorChange 5s infinite;
+}
+@keyframes colorChange {
+  0% {
+    color: red; /* Start color */
+  }
+  50% {
+    color: #53cbfe; /* Middle color */
+  }
+  100% {
+    color: red; /* End color, same as start for a continuous loop */
+  }
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+  justify-content: center;
+}
+.breadcrumb > * {
+  margin-right: 10px;
+}
+.breadcrumb .active {
+  color: #ff6699;
+}
+.breadcrumb h5 {
+  margin: 5px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.breadcrumb a:hover {
+  color: #53cbfe; /* Change color to green on hover */
+}
+
+.box {
+  margin-left: 300px;
+}
+.box input {
+  border-radius: 4px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  width: 380px;
+  margin: 10px; /* Thêm khoảng cách giữa các hộp */
+  margin-left: 250px;
+  padding: 15px; /* Thêm lề nếu cần */
+  border: 1px solid #ddd; /* Đường viền */
+  border-radius: 10px; /* Bo góc */
+  background-color: #e8e8e8;
+}
+
+.method-payment {
+  width: 400px;
+  margin: 10px; /* Thêm khoảng cách giữa các hộp */
+  margin-left: 50px;
+  padding: 15px; /* Thêm lề nếu cần */
+  border: 1px solid #ddd; /* Đường viền */
+  border-radius: 10px; /* Bo góc */
+  background-color: #e8e8e8;
+  
+}
+.payment {
+  width: 300px;
+  height: 50px;
+  margin: 10px; /* Thêm khoảng cách giữa các hộp */
+  margin-left: 30px;
+  padding: 15px; /* Thêm lề nếu cần */
+  border: 0.25px solid #000; /* Đường viền */
+  border-radius: 10px; /* Bo góc */
+  background-color: #ffffff;
+}
+
+.fa-solid.fa-circle-check {
+  color: green;
+  margin-left: 200px;
+  /* display: none; */
+  cursor: pointer;
+}
+
+.btn.btn-default {
+  background-color: #ff6699;
+  color: white;
+  margin: 50px 50px 50px 35px ;
+  width: 300px;
+  height: 50px;
+  border-radius: 10px; /* Bo góc */
+  text-align: center;
+}
+input[type="text"]{
+  width: 300px;
+  height: 40px;
+  border-radius: 8px;
+  text-align:center;
+  border:1.8px solid #000;
+  background-color: white;
+}
+.payment img {
+  /* display: block;  */
+  /* margin-bottom: 50px; 
+  /* margin-top: 5px; */
+  width: 30px;
+  height: auto;
+}
+h4{
+  color: #ff6699;
+}

@@ -1,4 +1,4 @@
-<div class="card shadow border-0 mt-4">
+<div class="card shadow border-0 m-4">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
@@ -11,24 +11,24 @@
             <div class="col-6">
             </div>
             <div class="col-6 text-end">
-                <a href=<?=URL_ROOT . URL_SUBFOLDER ."/Admin/Product/Upsert"?> class="btn btn-primary">
+                <a href=<?="/Admin/Product/Upsert"?> class="btn btn-primary">
                     <i class="bi bi-plus-circle"></i>  Create New Product
                 </a>
             </div>
         </div>
         <table id="tblData" class="table table-bordered table-striped">
              <thead> 
-                <th>STT</th> 
+                <!--<th>STT</th> -->
                 <th>Name</th> 
                 <th>Price</th> 
                 <th>Discount</th> 
                 <th>Quantity</th> 
-                <th>Quantity buyed</th> 
+                <th>Quantity buyed</th>     
                 <th>Create at</th> 
                 <th>Create by</th> 
                 <th></th> 
             </thead> 
-            <tbody> 
+            <!--<tbody> 
                 <?php $i = 1; 
                     $current_date = new DateTime();
                     foreach($productvm_list as $productvm):?> 
@@ -49,22 +49,22 @@
                             <td><?= $productvm -> get_product() -> get_created_by()?></td> 
                             <td> 
                                 <div class="w-75 btn-group" role="group"> 
-                                    <a href=<?=URL_ROOT . URL_SUBFOLDER ."/Admin/Product/Upsert/".$productvm -> get_product() -> get_id()?> class="btn btn-primary mx-2"> 
+                                    <a href=<?="/Admin/Product/Upsert/".$productvm -> get_product() -> get_id()?> class="btn btn-primary mx-2"> 
 
                                          <i class="bi bi-pencil-square"></i> Edit 
 
                                     </a> 
-                                    <a onclick="Delete('<?=URL_ROOT . URL_SUBFOLDER .'/Admin/Product/Delete/'.$productvm -> get_product() -> get_id()?>')" class="btn btn-danger mx-2"> 
+                                    <a onclick="Delete('<?='/Admin/Product/Delete/'.$productvm -> get_product() -> get_id()?>')" class="btn btn-danger mx-2"> 
                                         <i class="bi bi-trash-fill"></i> Delete 
                                     </a> 
                                 </div> 
                             </td>
                          </tr> 
                 <?php endforeach; ?>
-             </tbody>
+             </tbody>-->
          </table>
        
     </div>
 </div>
-<script src=<?=URL_ROOT . URL_SUBFOLDER . "/area/admin/views/Product/product.js"?>></script>
-<?php require_once APP_ROOT . "/area/admin/views/Layout/_notification.php" ?>
+<?= load_js("/wwwroot/admin/js/pages/Product/product.js")?>
+<?php require_once APP_ROOT . "/area/admin/views/Partial/_notification.php" ?>

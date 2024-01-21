@@ -1,6 +1,6 @@
 <?php
 require_once APP_ROOT ."/app/BaseModel.php";
-class Order extends BaseModel
+class Order extends BaseModel implements JsonSerializable
 {
     private ?int $id;
     private ?string $buyer_name;
@@ -26,17 +26,17 @@ class Order extends BaseModel
          $this ->  product_id = null;
          $this ->  product = null;
     }
-    // Getter methods
+    public function jsonSerialize() {
+        return get_object_vars($this);
+    }
     public function get_id() : ?int
     {
         return $this -> id;
     }
-
     public function get_buyer_name(): ?string
     {
         return $this -> buyer_name;
     }
-
     public function get_buyer_email() : ?string
     {
         return $this -> buyer_email;
@@ -46,12 +46,10 @@ class Order extends BaseModel
     {
         return $this -> buyer_phone;
     }
-
     public function get_buyer_address() : ?string
     {
         return $this -> buyer_address;
     }
-
     public function get_total() : ?float
     {
         return $this -> total;
@@ -72,40 +70,30 @@ class Order extends BaseModel
     {
         return $this -> product_id;
     }
-
-  
     public function get_product() : ?Product
     {
         return $this -> product;
     }
-
-
-    // Setter methods
     public function set_id(int $id)
     {
         $this -> id = $id;
     }
-
     public function set_buyer_name(string $buyer_name)
     {
         $this -> buyer_name = $buyer_name;
     }
-
     public function set_buyer_email(string $buyer_email)
     {
         $this -> buyer_email = $buyer_email;
     }
-
     public function set_buyer_phone(string $buyer_phone)
     {
         $this -> buyer_phone = $buyer_phone;
     }
-
     public function set_buyer_address(string $buyer_address)
     {
         $this -> buyer_address = $buyer_address;
     }
-
     public function set_total(float $total)
     {
         $this -> total = $total;
@@ -126,10 +114,8 @@ class Order extends BaseModel
     {
         $this -> product_id = $product_id;
     }
-
     public function set_product(Product $product)
     {
         $this -> product = $product;
     }
-
 }

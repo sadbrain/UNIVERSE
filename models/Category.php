@@ -1,6 +1,7 @@
 <?php
 require_once APP_ROOT ."/app/BaseModel.php";
-class Category extends BaseModel
+
+class Category extends BaseModel  implements JsonSerializable
 {
     private ?int $id;
     private ?string $name;
@@ -32,7 +33,6 @@ class Category extends BaseModel
     {
         return $this -> id;
     }
-
     public function get_name() : ?string
     {
         return $this -> name;
@@ -74,7 +74,6 @@ class Category extends BaseModel
     {
         $this -> id = $id;
     }
-
     public function set_name(string $name)
     {
         $this -> name = $name;

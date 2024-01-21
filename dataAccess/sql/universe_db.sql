@@ -40,7 +40,7 @@ create table if not exists product_images(
 );
 create table if not exists discounts(
 	id INT AUTO_INCREMENT PRIMARY KEY,
-    discount_price DECIMAL(10, 2) NOT NULL,
+    discount_price DECIMAL(10, 2),
     discount_from datetime,
     discount_to datetime,
     created_by int,
@@ -100,3 +100,24 @@ create table if not exists payment_details(
     order_id int not null,
 	FOREIGN KEY (order_id) REFERENCES orders(id)
 )
+create table if not exists users(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(100),
+    email varchar(255),
+    `password` varchar(255),
+    role enum("user","admin"),
+    created_by int,
+    created_at datetime,
+	updated_by int,
+    updated_at datetime,
+	deleted_by int,
+    deleted_at datetime
+);
+
+create table if not exists user_access(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ip_address VARCHAR(255),
+    user_agent varchar(255),
+    server_name varchar(255),
+    visit_date datetime,
+);

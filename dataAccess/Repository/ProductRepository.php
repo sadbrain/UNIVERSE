@@ -89,6 +89,26 @@ class ProductRepository implements IRepository
 
         return $product;
     }
+    public function get_by_category_id($id){
+        $sql = "SELECT * FROM universe.products where category_id = :id";
+        $stmt = $this -> db -> prepare($sql);
+        $stmt -> execute([
+            ':id' => $id,
+        ]);
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        $products = null;
+        if ($result) {
+            $products = [];
+            foreach ($result as $product) {
+                $obj = new Product();
+                $this -> to_product($obj, $product);
+                array_push($products, $obj);
+            }
+        }
+
+        return $products;
+    }
     public function remove($entity)
     {
         $sql = "DELETE FROM products WHERE id = :id";
@@ -135,8 +155,82 @@ class ProductRepository implements IRepository
             // Add other columns as needed
         ]);
     }
+    public function get_product_best_rating_of_month($limit = 12){
+        $sql = "SELECT p.*
+        FROM products p
+        WHERE p.rating IS NOT NULL AND p.rating > 0
+        AND MONTH(p.created_at) = MONTH(CURRENT_DATE())
+        ORDER BY p.rating DESC limit :limit";
+
+        $stmt = $this -> db -> prepare($sql);
+        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $stmt -> execute(); 
 
 
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        $products = null;
+        if ($result) {
+            $products = [];
+            foreach ($result as $product) {
+                $obj = new Product();
+                $this -> to_product($obj, $product);
+                array_push($products, $obj);
+            }
+        }
+
+        return $products;
+
+    }
+        public function get_product_best_seller($limit = 6){
+            $sql = "SELECT 
+                p.id,
+                p.thumbnail,
+                p.name,
+                p.brand,
+                p.slug,
+                p.description,
+                p.price,
+                p.rating,
+                p.created_by,
+                p.created_at,
+                p.updated_by,
+                p.updated_at,
+                p.deleted_by,
+                p.deleted_at,
+                p.category_id
+            FROM 
+                products p
+            JOIN 
+                product_inventories i ON p.id = i.product_id
+            WHERE 
+                i.quantity > 0 and
+                i.deleted_at IS NULl
+                and i.deleted_by is NUll
+                AND p.deleted_at IS NULL
+                AND p.deleted_by IS NULL
+            ORDER BY 
+                i.quantity_buyed DESC
+            LIMIT :limit";
+
+        $stmt = $this -> db -> prepare($sql);
+        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $stmt -> execute(); 
+
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        $products = null;
+        if ($result) {
+            $products = [];
+            foreach ($result as $product) {
+                $obj = new Product();
+                $this -> to_product($obj, $product);
+                array_push($products, $obj);
+            }
+        }
+
+        return $products;
+    }
     public function to_product($product, $product_in_db)
     {
         if($product_in_db["id"] != null)
@@ -171,3 +265,4 @@ class ProductRepository implements IRepository
              $product->set_deleted_at(new DateTime($product_in_db["deleted_at"]));
     }
 }
+

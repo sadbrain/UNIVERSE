@@ -14,7 +14,6 @@ class ProductVM{
     {
         return $this->product;
     } 
-
     public function get_product_inventory() : ?ProductInventory
     {
         return $this->product_inventory;
@@ -39,5 +38,4 @@ class ProductVM{
     public function set_discount(?Discount $discount){
         $this -> discount = $discount;
     }
-
 }

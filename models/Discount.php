@@ -1,5 +1,7 @@
 <?php
-class Discount extends BaseModel
+require_once APP_ROOT ."/app/BaseModel.php";
+
+class Discount extends BaseModel implements JsonSerializable
 {
     private ?int $id;
     private ?float $discount_price;
@@ -27,7 +29,9 @@ class Discount extends BaseModel
          $this -> product_id = null;
          $this -> product = null;
     }
-    // Getter methods
+    public function jsonSerialize() {
+        return get_object_vars($this);
+    }
     public function get_id() : ?int
     {
         return $this -> id;
@@ -44,7 +48,6 @@ class Discount extends BaseModel
     {
         return $this -> discount_to;
     }
-
     public function get_created_by() : ?string
     {
         return $this -> created_by;
@@ -77,7 +80,6 @@ class Discount extends BaseModel
     {
         return $this -> product;
     }
-    // Setter methods
     public function set_id(int $id)
     {
         $this -> id = $id;
@@ -94,7 +96,6 @@ class Discount extends BaseModel
     {
          $this -> discount_to = $discount_to;
     }
-
     public function set_created_by(string $created_by) 
     {
          $this -> created_by = $created_by;
