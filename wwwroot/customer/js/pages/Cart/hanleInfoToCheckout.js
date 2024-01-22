@@ -92,7 +92,5 @@ function navigate_to_Checkout(url){
         input.value = cartId;
         form.appendChild(input);
     });
-    
-    // Gửi form
     form.submit();
 }

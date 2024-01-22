@@ -9,7 +9,6 @@ class CategoryController extends AdminController
 
     public function Index()
     {
-        // $categories = $this -> unit_of_work -> get_category() -> get_all();
         $categories = $this->unit_of_work->get_category()->get_all();
         return $this->view("Category/index", compact('categories'));
     }

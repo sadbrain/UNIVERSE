@@ -1,7 +1,5 @@
  <title>Details Page</title>
 <?= load_css("/wwwroot/customer/css/pages/Product/detail.css") ?>
-
-
 <div class="main_detail">
     <div class="fs_product">
         <h2><b>Detail</b></h2>

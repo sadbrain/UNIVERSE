@@ -44,7 +44,6 @@ class ProductController extends AdminController
     
         }
         return $this->view("Product/upsert", compact('categories', 'productvm'));
-
     }
 
     public function UpsertPost(?int $id = null){
@@ -122,7 +121,7 @@ class ProductController extends AdminController
                 $flag = $this ->check_file_valid($file, $file_path);
                 if($flag["success"]){
                     move_uploaded_file($file["tmp_name"], $file_path);
-                    echo "<script>alert(".$flag['message'].")</script>";
+                    $_SESSION["success"] = $flag["message"];
                     $product_images = new ProductImage();
                     $product_images -> set_product_id($product_id);
                     $product_images -> set_title($file["name"]);
@@ -130,22 +129,16 @@ class ProductController extends AdminController
                     $this -> unit_of_work -> get_product_image() -> add($product_images);
                     
                 }else{
-                    echo "<script>alert(".$flag['message'].")</script>";
-
+                    $_SESSION["error"] = $flag["message"];
                 }
-                
             }   
-            
         }
 
-        
         if($id == null || $id == 0){
-
         $product =  $this -> unit_of_work -> get_product() -> get($product_id);
         $product_images = $this -> unit_of_work -> get_product_image() -> get_by_key("product_id", $product -> get_id());
         $product -> set_thumbnail($product_images[0]->get_url());
         $this -> unit_of_work -> get_product() -> update($product);
-
         }
 
         ProductController :: redirect("/Admin/Product");
@@ -160,26 +153,21 @@ class ProductController extends AdminController
         header('Content-Type: application/json');
         $product = $this -> unit_of_work -> get_product() -> get($id);
         if ($product == null) {
-            // Product not found, return error response
             $this -> json(['success' => false, 'message' => 'Error while deleting']);
             exit;
         }
         $product -> set_deleted_at(new DateTime());
         $product -> set_deleted_by(1);
         $this-> unit_of_work -> get_product() -> update($product);
-       
         $product_inventory = $this -> unit_of_work -> get_product_inventory() -> get_by_key("product_id", $product -> get_id(), 1);
         $product_inventory -> set_deleted_at(new DateTime());
         $product_inventory -> set_deleted_by(1);
         $this -> unit_of_work -> get_product_inventory() -> update($product_inventory);
-
         $discount = $this -> unit_of_work -> get_discount() -> get_by_key("product_id", $product -> get_id(), 1);
         $discount -> set_deleted_at(new DateTime());
         $discount -> set_deleted_by(1);
         $this -> unit_of_work -> get_discount() -> update($discount);
-
         $this -> json(['success' => true, 'message' => 'Product deleted successfully']);
-
     }
 
     private function check_file_valid($file, $file_path){

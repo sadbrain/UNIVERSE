@@ -17,12 +17,12 @@ function loadDataTable() {
                     "width": "10%" ,
                     "render": (data) => {
                         // discount_to = new Date(data.discount_to.date);
-                        // if (current_date < discount_to) {
+                        // if (current_date < di scount_to) {
                         //     return data.discount_price;
                         // }else{
                         //     return "Currently not discounted";
                         // }
-                        return data.discount_to + "%";
+                        return data + "%";
                     }},
             { data: 'product_inventory.quantity', "width": "10%" },
             { data: 'product_inventory.quantity_buyed', "width": "10%" },

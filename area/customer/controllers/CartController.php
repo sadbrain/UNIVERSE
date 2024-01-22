@@ -16,10 +16,9 @@ class CartController extends AppController
             $_SESSION['cart'] = array();
         }
         if (!$orderInfor){
-            $this -> json(array('status' => 'fail', 'message' => 'Order added to cart successfully'));
+            $this -> json(array('status' => 'fail', 'message' => 'Order is not added to cart successfully'));
 
         }
-        // Add an item to the cart
         $_SESSION['cart'][] = $orderInfor;
         $this -> json(array('status' => 'success', 'message' => 'Order added to cart successfully'));
     }
@@ -42,6 +41,10 @@ class CartController extends AppController
     }
     function Update() {
         $orderInfor = isset($_POST['orderInfor']) ? json_decode($_POST['orderInfor'], true) : [];
+        if (!$orderInfor){
+            $this -> json(array('status' => 'fail', 'message' => 'Order is not updated to cart successfully'));
+
+        }
         $carts = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
 
@@ -58,9 +61,5 @@ class CartController extends AppController
         $response = array('status' => 'success', 'message' => 'Order updated to cart successfully');
         echo json_encode($response);
         exit;
-    
     }
- 
 }
-
-

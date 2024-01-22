@@ -13,7 +13,6 @@ class AccountController extends AdminController
 
         $email = isset($_POST['email']) ? $_POST['email'] : "";
         $password = isset($_POST['password']) ? $_POST['password'] : "";
-
         $user = $this -> unit_of_work -> get_user() -> login($email, $password);
 
         if($user == null){
@@ -22,25 +21,18 @@ class AccountController extends AdminController
         }else{
             session_start();
             $_SESSION["user_id"] = $user -> get_id();
-            echo "Login is successfully";
+            $_SESSION["success"] = "Login is successfully";
             if($user -> get_role() == "user"){
                 AccountController :: redirect('/');
 
             }else{
                 AccountController :: redirect('/Admin/Home');
-
             }
-            
         }
-        
     }
     function Logout(){
         session_start();
         unset($_SESSION['user_id']);
         AccountController :: redirect('/');
-        
     }
-       
-        
-    
 }

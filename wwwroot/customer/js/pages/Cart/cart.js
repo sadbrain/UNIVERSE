@@ -88,15 +88,9 @@ function checkvalidate(){
 function addToCart(){
     if (checkvalidate()){
         var imageUrl = img.src;
-        // Create a new URL object
         var urlObject = new URL(imageUrl);
-        
-        // Get the base URL
         var baseUrl = urlObject.origin;
-        
-        // Get the path starting from /wwwroot
         var pathAfterWwwroot = urlObject.pathname.includes('/wwwroot') ? urlObject.pathname.substring(urlObject.pathname.indexOf('/wwwroot')) : '';
-        // console.log(img);
         var orderInfor={
             id:id.value,
             thumbnail:pathAfterWwwroot,
@@ -107,16 +101,12 @@ function addToCart(){
             quantity:parseFloat(quantity.value),
             total:quantity.value*parseFloat (price.innerText.trim()),
         }
-        // console.log(orderInfor);
         $.ajax({
             type: 'POST',
             url: '/Customer/Cart/Create',
             data: {orderInfor: JSON.stringify(orderInfor)},
             success: function(response){
-                // var responseData = JSON.parse(response);
-                // Check the status from the 
                 if (response.status === 'success') {
-                    // Handle success - for example, update the UI or display a message
                     toastr.success(response.message);}
             },
             error: function(error){
@@ -125,6 +115,4 @@ function addToCart(){
             }
         });
     }
-
-
 }

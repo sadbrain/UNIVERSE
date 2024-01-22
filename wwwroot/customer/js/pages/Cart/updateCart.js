@@ -30,7 +30,6 @@ inputs.forEach(input => {
         price = cart.querySelector('.price');
         total = cart.querySelector('.total');
         total.innerText =  parseFloat(price.innerText) * parseFloat(input.value);
-
     }
 })
 edits = document.querySelectorAll('.edit_cart');
