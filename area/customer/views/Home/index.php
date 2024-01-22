@@ -11,7 +11,7 @@
       <img class="d-block mx-auto rounded" style="width: 60%; max-height: 400px;" src="wwwroot/images/slider/slider2.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block mx-auto rounded" style="width: 60%; max-height: 400px;" src="wwwroot/images/slider/slider2.jpg" alt="Second slide">
+      <img class="d-block mx-auto rounded" style="width: 60%; max-height: 400px;" src="wwwroot/images/slider/OIP.jpeg" alt="Second slide">
     </div>
     <div class="carousel-item">
       <img class="d-block mx-auto rounded" style="width: 60%; max-height: 400px;" src="wwwroot/images/slider/slider2.jpg" alt="Third slide">

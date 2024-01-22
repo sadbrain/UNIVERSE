@@ -19,10 +19,7 @@ class HomeController extends AppController
             ];
             array_push($products, $obj);
         }
-        
-
         $product_best_rating = $this -> unit_of_work -> get_product() ->get_product_best_rating_of_month(); 
-        
         return $this->view("Home/index", compact('products', 'product_best_rating'));
         
     }

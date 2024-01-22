@@ -22,7 +22,6 @@ class CheckoutController extends AppController
     function PaymentFunc(){
         if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-
             $order_details = isset($_POST["OrderDetail"]) ? $_POST["OrderDetail"] : null;
             $order_num = count($order_details["id"]);
             for ($i =0; $i < $order_num; $i++){
@@ -62,7 +61,6 @@ class CheckoutController extends AppController
                 }
                 $this -> unit_of_work -> get_order_detail() -> add($order_detail);
                 $_SESSION["success"]="You have placed your order successfully";
-
                 CheckoutController ::  redirect("/");
                 // gia sau khi giam gia = gia goc - discount * gia goc
             }

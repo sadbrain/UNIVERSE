@@ -14,13 +14,9 @@ class App{
     private PDO $db;
     public function run(){
         $this -> use_database();
-
-        $this -> visit_counter();
-
         $this -> use_router();
-
         $this -> build_router();
-
+        $this -> visit_counter();
     }
     private function visit_counter(){
         $ip_address = $_SERVER['REMOTE_ADDR'];
