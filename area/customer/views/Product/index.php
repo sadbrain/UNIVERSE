@@ -99,13 +99,13 @@
             <?php if($brand != null){?>
                 
                 <button id="pagination-<?=$i?>" class="button-pagination <?=  $page == $i ? "active" : ""?>"> 
-                    <a href="<?= "?brand=$brand&page=" . $i?>"> <?=$i?>
+                    <a href="<?= "?brand=$brand"."&category_id=".$category->get_id()."&page=" . $i?>"> <?=$i?>
                     </a>
                 </button>
 
             <?php }else{?>
                 <button id="pagination-<?=$i?>" class="button-pagination <?=  $page == $i ? "active" : ""?>">
-                    <a href=<?= "?page=" . $i?>> <?=$i?>
+                    <a href=<?= "?category_id=".$category->get_id()."&page=" . $i?>> <?=$i?>
                     </a>
                 </button>
             <?php }?>

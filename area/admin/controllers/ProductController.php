@@ -8,8 +8,6 @@ class ProductController extends AdminController
     }
 
     public function Index(){
-        // $categories = $this -> unit_of_work -> get_category() -> get_all();
-        // $categories = $this -> unit_of_work -> get_category() -> get_all();
         $products = $this -> unit_of_work -> get_product() -> get_all();
         $productvm_list = [];
         foreach ($products as $product){
@@ -25,7 +23,6 @@ class ProductController extends AdminController
             array_push($productvm_list, $productvm);
         }
         return $this->view("Product/index", compact('productvm_list'));
-
     }
     public function Upsert(?int $id = null){
         $categories = $this -> unit_of_work -> get_category() -> get_all();
@@ -54,12 +51,9 @@ class ProductController extends AdminController
         $product = new Product();
         $discount = new Discount();
         $product_inventory = new ProductInventory();
-
         $this -> unit_of_work -> get_product() -> to_product($product, $_POST["Product"]);
         $this -> unit_of_work -> get_discount() -> to_discount($discount, $_POST["Discount"]);
         $this -> unit_of_work -> get_product_inventory() -> to_product_inventory($product_inventory, $_POST["ProductInventory"]);
-
-        // create product
         session_start();
         if($id == null || $id == 0){
 

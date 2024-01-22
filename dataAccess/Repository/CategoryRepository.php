@@ -1,10 +1,10 @@
 <?php
 include_once APP_ROOT . "/dataAccess/Repository/IRepository/IRepository.php";
 include_once APP_ROOT . "/models/Category.php";
+
 class CategoryRepository implements IRepository
 {
     private PDO $db;
-
     public function __construct(PDO $db)
     {
         $this -> db = $db;
@@ -15,7 +15,7 @@ class CategoryRepository implements IRepository
     }
     public function get_all()
     {
-        $sql = "SELECT * FROM categories Where deleted_by IS null && deleted_at IS null ORDER BY created_at DESC ";
+        $sql = "SELECT * FROM categories Where deleted_by IS null && deleted_at IS null ORDER BY created_at DESC";
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute();
         $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
@@ -155,6 +155,6 @@ class CategoryRepository implements IRepository
         $category_array["created_at"] =  $category -> get_created_at();
         $category_array["updated_at"] =  $category -> get_updated_at();
         $category_array["deleted_at"] =  $category -> get_deleted_at();
-        return $category_array;
+        return $category_array; 
     }
 }

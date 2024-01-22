@@ -18,21 +18,21 @@
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon" aria-hidden="true" style="color:red"></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon color:pink" aria-hidden="true"></span>
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
 
 <ul class="list-brand nav col-12 justify-content-center my-5">
-  <li class="nav-item"><a href="/Customer/Product?brand=Chanel" class="nav-link">Chanel</a></li>
-  <li class="nav-item"><a href="/Customer/Product?brand=Prada" class="nav-link">Prada</a></li>
-  <li class="nav-item"><a href="/Customer/Product?brand=Denim" class="nav-link">Denim</a></li>
-  <li class="nav-item"><a href="/Customer/Product?brand=Louis vuitton" class="nav-link">Louis vuitton</a></li>
-  <li class="nav-item"><a href="/Customer/Product?brand=Calvin Klein" class="nav-link">Calvin Klein</a></li>
+  <li class="nav-item"><a href="/Customer/Product?brand=Chanel" class="nav-link">CHANEL</a></li>
+  <li class="nav-item"><a href="/Customer/Product?brand=Prada" class="nav-link">PRADA</a></li>
+  <li class="nav-item"><a href="/Customer/Product?brand=Denim" class="nav-link">DENIM</a></li>
+  <li class="nav-item"><a href="/Customer/Product?brand=Louis vuitton" class="nav-link">LOUIS VUITTON</a></li>
+  <li class="nav-item"><a href="/Customer/Product?brand=Calvin Klein" class="nav-link">CALVIN KLEIN</a></li>
 </ul>
 <!-- sản phẩm nổi bật-->
 

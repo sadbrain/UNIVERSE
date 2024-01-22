@@ -37,9 +37,6 @@ class ProductController extends AppController
                 }
 
                 $pro = $products_by_category[$i];
-  
-
- 
                 $discount = $this -> unit_of_work -> get_discount() -> get_by_key("product_id",$pro ->get_id(),1);
                 $product_inventory = $this -> unit_of_work -> get_product_inventory() -> get_by_key("product_id", $pro -> get_id(), 1);
                 $obj = [
@@ -49,11 +46,7 @@ class ProductController extends AppController
                 ];
                 array_push($products, $obj);
             }
-            // var_dump($category-> get_id());
-            // var_dump($products[3] -> get_category_id());
         }else{
-
-            // th2
             $categories = $this -> unit_of_work ->get_category() ->get_all();
             $category = $this -> unit_of_work -> get_category() -> get($category_id);
             $products_by_category = $this -> unit_of_work -> get_product() ->get_by_category_id($category_id);

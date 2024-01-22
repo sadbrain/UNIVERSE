@@ -147,7 +147,8 @@ margin-right: 10px;
 
 .product_info img {
     width: 100%; /* Use width instead of max-width to fill the container */
-    height: auto;
+    height: 350px;
+    object-fit: cover;
     border-radius: 4px; 
 /* Optional: Add border-radius to the image */
     margin: 0; /* Remove default margin */

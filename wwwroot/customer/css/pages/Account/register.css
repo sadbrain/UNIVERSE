@@ -16,7 +16,7 @@
         .login_container {
             width: 100%;
             display: flex;
-            height: auto;
+            height: 650px;
             padding: 0 100px;
             margin-top: 20px;
             background-color: transparent;
@@ -39,6 +39,7 @@
             border-top-right-radius: 8px;
             border-bottom-right-radius: 8px;
             padding-top: 20px;
+            height: 100%;
         }
    
         .login_container h3, h2 {

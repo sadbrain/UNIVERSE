@@ -34,7 +34,6 @@ class ProductInventory extends BaseModel implements JsonSerializable
     public function jsonSerialize() {
         return get_object_vars($this);
     }
-    // Getter methods
     public function get_id() : ?int
     {
         return $this -> id;
@@ -55,7 +54,6 @@ class ProductInventory extends BaseModel implements JsonSerializable
     {
         return $this -> color;
     }
-
     public function get_created_by() : ?string
     {
         return $this -> created_by;
@@ -88,7 +86,6 @@ class ProductInventory extends BaseModel implements JsonSerializable
     {
         return $this -> product;
     }
-    // Setter methods
     public function set_id(int $id)
     {
         $this -> id = $id;
@@ -109,7 +106,6 @@ class ProductInventory extends BaseModel implements JsonSerializable
     {
          $this -> color = $color;
     }
-
     public function set_created_by(string $created_by) 
     {
          $this -> created_by = $created_by;

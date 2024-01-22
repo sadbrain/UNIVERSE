@@ -24,14 +24,13 @@
     
 </body>
     <!-- Nên tải về file css, js, k nên dùng link cdn -->
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
 		crossorigin="anonymous"></script>
+    <?= load_js('/wwwroot/admin/js/layout/header.js') ?>
     <?= load_js('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js') ?>
     <?= load_js("https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js")?>
     <?= load_js("https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap4.min.js")?>
     <?= load_js('https://cdn.jsdelivr.net/npm/sweetalert2@11') ?>
     <?= load_js('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js') ?>
-    <?= load_js('/wwwroot/admin/js/layout/header.js') ?>
 </html>

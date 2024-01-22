@@ -13,7 +13,7 @@ function loadDataTable() {
         "columns": [
             { data: 'product.name', "width": "30%" },
             { data: 'product.price', "width": "10%" },
-            { data: 'discount', 
+            { data: 'discount.discount_price', 
                     "width": "10%" ,
                     "render": (data) => {
                         // discount_to = new Date(data.discount_to.date);

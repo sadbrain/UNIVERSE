@@ -19,7 +19,7 @@
             if(!isset($_SESSION['user_id'])):
         ?>
         <div class="auth-buttons">
-            <button><a href="/Customer/Account/Login">Sign In</a></button>
+            <button><a href="/Customer/Account/Login" style="color:#ff6699">Sign In</a></button>
             <button><a href="/Customer/Account/Register">Sign Up</a></button>
         </div>
         <?php else:?>
